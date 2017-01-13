@@ -17,7 +17,8 @@ $secondary: #00BFA5;
 $black-text: rgba(0, 0, 0, 0.87);
 $site-max-width: 45rem;
 $mobile-max-width: 600px;
-$post-background: #eceff1;
+$post-background: white;
+$page-background: #eceff1;
 
 $mdc-theme-primary: $primary;
 $mdc-theme-accent: #ffab40;
@@ -45,6 +46,7 @@ html, body {
 
 .site-content {
   flex-grow: 1;
+  background: $page-background;
 }
 
 .mdc-button {

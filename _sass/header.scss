@@ -20,6 +20,9 @@
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
+  z-index: 2;
+
+  @include mdc-elevation(2);
 }
 
 .header-title {

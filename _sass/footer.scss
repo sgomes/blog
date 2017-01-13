@@ -21,6 +21,9 @@
   padding: 16px;
   box-sizing: border-box;
   flex-shrink: 0;
+  z-index: 2;
+
+  @include mdc-elevation(2);
 }
 
 .footer-contents {
@@ -31,11 +34,14 @@
   align-items: center;
   margin: 0 auto 0 auto;
   flex-shrink: 0;
+  box-sizing: border-box;
+  padding: 0 24px;
 
   @include page-width;
 
   @media (max-width: $mobile-max-width) {
     flex-wrap: wrap;
+    padding: 0;
   }
 }
 
