@@ -1,0 +1,14 @@
+{% if include.filename and include.alt and include.height and include.width %}
+
+{% capture file %}/assets/posts/{{page.id | remove_first: '/' | replace: '/', '-' }}/{{ include.filename }}{% endcapture %}
+
+{% if include.caption %}
+<figure>
+  <img class="post-image" src="{{ file }}" alt="{{ include.alt }}" width="{{ include.width }}"/>
+  <figcaption>{{ include.caption }}</figcaption>
+</figure>
+{% else %}
+<img class="post-image" src="{{ file }}" alt="{{ include.alt }}" width="{{ include.width }}">
+{% endif %}
+
+{% endif %}
