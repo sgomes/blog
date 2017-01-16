@@ -14,6 +14,7 @@ are licensed under the Creative Commons 4.0 Attribution license.
 First, install all the dependencies:
 
 ```
+bundle install
 npm i
 ```
 
@@ -31,12 +32,10 @@ You can use the convenient `serve` task:
 gulp serve
 ```
 
-## TODO: Deploying
+## Deploying
 
 The `deploy` task takes care of pushing to `gh-pages`:
 
 ```
 gulp deploy
 ```
-
-(Or it will, once I've actually implemented it).

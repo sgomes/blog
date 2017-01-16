@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const sass = require('gulp-sass');
 const shell = require('gulp-shell');
 const csso = require('gulp-csso');
+const ghPages = require('gulp-gh-pages');
 
 const logo = 'assets/images/logo.svg';
 const touchDir = '_site/assets/images/touch';
@@ -22,6 +23,11 @@ gulp.task('sass', ['generate-touch'], () => gulp.src('./_sass/main.scss')
   .pipe(gulp.dest('./_includes'))
 );
 
-gulp.task('build', ['sass']);
+gulp.task('build', ['sass'], shell.task(['bundle exec jekyll build']));
 
 gulp.task('serve', ['build'], shell.task(['bundle exec jekyll serve']));
+
+gulp.task('deploy', ['build'], () => {
+  return gulp.src('./_site/**/*')
+    .pipe(ghPages());
+});
