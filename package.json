@@ -5,6 +5,7 @@
     "@material/elevation": "^0.1.1",
     "@material/typography": "^0.1.0",
     "gulp": "^3.9.1",
+    "gulp-csso": "^2.0.0",
     "gulp-sass": "^3.1.0",
     "gulp-shell": "^0.5.2"
   }
