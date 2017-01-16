@@ -1,0 +1,29 @@
+{
+  "name": "sgom.es",
+  "short_name": "sgom.es",
+  "icons": [{
+        "src": "assets/images/touch/16x16.png",
+        "sizes": "16x16",
+        "type": "image/png"
+      }, {
+        "src": "assets/images/touch/32x32.png",
+        "sizes": "32x32",
+        "type": "image/png"
+      }, {
+        "src": "assets/images/touch/144x144.png",
+        "sizes": "144x144",
+        "type": "image/png"
+      }, {
+        "src": "assets/images/touch/152x152.png",
+        "sizes": "152x152",
+        "type": "image/png"
+      }, {
+        "src": "assets/images/touch/192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      }],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#009688"
+}

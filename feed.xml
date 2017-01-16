@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://sgom.es/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="https://sgom.es/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sgom.es/" rel="alternate" type="text/html" /><updated>2017-01-16T17:34:39+00:00</updated><id>https://sgom.es//</id><title type="html">sgom.es</title><subtitle>I’m Sérgio, and I work at Web Developer Relations at Google, helping developers make the web a better place.
+</subtitle><entry><title type="html">Using Sass to automatically pick text colors</title><link href="https://sgom.es/2016/12/21/using-sass-to-automatically-pick-text-colors.html" rel="alternate" type="text/html" title="Using Sass to automatically pick text colors" /><published>2016-12-21T16:51:00+00:00</published><updated>2016-12-21T16:51:00+00:00</updated><id>https://sgom.es/2016/12/21/using-sass-to-automatically-pick-text-colors</id><content type="html" xml:base="https://sgom.es/2016/12/21/using-sass-to-automatically-pick-text-colors.html">&lt;p&gt;&lt;em&gt;Originally &lt;a href=&quot;https://medium.com/dev-channel/using-sass-to-automatically-pick-text-colors-4ba7645d2796&quot;&gt;posted on Medium&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Theming is always a challenge, particularly when you’re working on a library, rather than a standalone website. One example of an interesting issue that you’ll come across very frequently is choosing a text color that ensures readability and accessibility.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;post-image&quot; src=&quot;/assets/posts/2016-12-21-using-sass-to-automatically-pick-text-colors/light-dark.png&quot; alt=&quot;Dark text on light background and vice-versa&quot; width=&quot;558&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This is easy enough when you have known light or dark backgrounds; you can create two CSS classes and have users of your CSS library manually add them in depending on context.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;dark-background-contrast&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;white&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;light-background-contrast&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;black&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;However, things become a bit trickier if you want to add the concept of a &lt;strong&gt;theme color&lt;/strong&gt; to your library, and make it easy to use. This color will very often be used as a background, and will need sufficient contrast for the text that’s placed on top.&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;theme-color-bg&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#3f51b5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;theme-color-bg-contrast&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;white&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;In the example above, &lt;code class=&quot;highlighter-rouge&quot;&gt;theme-color-bg-contrast&lt;/code&gt; needs to change to a &lt;code class=&quot;highlighter-rouge&quot;&gt;black&lt;/code&gt; text color if the user-defined theme color is light. While this is impossible to do in pure CSS (at least until the extremely useful &lt;a href=&quot;https://drafts.csswg.org/css-color/&quot;&gt;CSS Color Module 4&lt;/a&gt; is widely available), it can be done in Sass!&lt;/p&gt;
+
+&lt;h2 id=&quot;working-out-the-sass&quot;&gt;Working out the Sass&lt;/h2&gt;
+
+&lt;p&gt;Here’s what the initial Sass should look like:&lt;/p&gt;
+
+&lt;div class=&quot;language-scss highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$theme-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;#3f51b5&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;theme-color-bg&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$theme-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;theme-color-bg-contrast&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;choose-contrast-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$theme-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Users can override the &lt;code class=&quot;highlighter-rouge&quot;&gt;$theme-color&lt;/code&gt;, and depending on what they pick, the &lt;code class=&quot;highlighter-rouge&quot;&gt;choose-contrast-color&lt;/code&gt; function will return either &lt;code class=&quot;highlighter-rouge&quot;&gt;black&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;white&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;So how do we implement &lt;code class=&quot;highlighter-rouge&quot;&gt;choose-contrast-color&lt;/code&gt;? It turns out that all of the necessary calculations and minimum contrast rules are well defined in the &lt;a href=&quot;https://www.w3.org/TR/WCAG20/&quot;&gt;WCAG 2.0 specification&lt;/a&gt;. There’s a &lt;a href=&quot;https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html&quot;&gt;whole section explaining visual contrast in detail&lt;/a&gt;, several links to ISO and ANSI standards, and even &lt;a href=&quot;https://www.w3.org/Graphics/Color/sRGB.html&quot;&gt;papers on the subject&lt;/a&gt;. Digging around for a while, I was able to find a &lt;a href=&quot;https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests&quot;&gt;published W3C technique with a clear description of the algorithm&lt;/a&gt;:&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img class=&quot;post-image&quot; src=&quot;/assets/posts/2016-12-21-using-sass-to-automatically-pick-text-colors/algorithm.png&quot; alt=&quot;An excerpt of the algorithm for calculating color contrast&quot; width=&quot;1606&quot; /&gt;
+  &lt;figcaption&gt;The algorithm for calculating color contrast&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;If you’re familiar with Sass, you’ll quickly notice an issue: the luminance calculations involve exponentiation, which isn’t available in the language or the standard library.&lt;/p&gt;
+
+&lt;p&gt;One solution to this would be to use the extensive &lt;a href=&quot;http://compass-style.org/&quot;&gt;Compass library&lt;/a&gt;, which not only includes exponentiation, but also the luminance operations we’re trying to implement. It requires Ruby, however, so it’s not an option for &lt;a href=&quot;https://github.com/sass/node-sass&quot;&gt;node-sass&lt;/a&gt; users. A pure Sass solution would be better.&lt;/p&gt;
+
+&lt;h2 id=&quot;using-old-tricks&quot;&gt;Using old tricks&lt;/h2&gt;
+
+&lt;p&gt;I was reviewing my math and exploring the possibility of using Newtonian approximation for the fractional parts of the exponent, until I had a chat with &lt;a href=&quot;https://twitter.com/wibblymat&quot;&gt;@wibblymat&lt;/a&gt;, who happened to be implementing an emulator at the time. He suggested a much simpler, old-school approach: using a lookup table!&lt;/p&gt;
+
+&lt;p&gt;The only part that involves exponentiation is the per-channel color space conversions done as part of the luminance calculation. In addition, there are only 256 possible values for each channel. This means that we can easily create a lookup table.&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img class=&quot;post-image&quot; src=&quot;/assets/posts/2016-12-21-using-sass-to-automatically-pick-text-colors/lookup.png&quot; alt=&quot;An excerpt of the lookup table&quot; width=&quot;370&quot; /&gt;
+  &lt;figcaption&gt;An excerpt of the lookup table&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;You can take a look at &lt;a href=&quot;https://github.com/material-components/material-components-web/blob/master/packages/mdc-theme/_constants.scss&quot;&gt;the full table&lt;/a&gt; that I generated for the &lt;a href=&quot;https://github.com/material-components/material-components-web&quot;&gt;MDC-Web project&lt;/a&gt; to avoid having to generate your own.&lt;/p&gt;
+
+&lt;p&gt;With the channel values calculated, we can implement the rest of the algorithm easily:&lt;/p&gt;
+
+&lt;div class=&quot;language-scss highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
+ * Calculate the luminance for a color.
+ * See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
+ */&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;@function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;luminance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;nth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$linear-channel-values&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$green&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;nth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$linear-channel-values&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;green&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$blue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;nth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$linear-channel-values&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;blue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;@return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;.2126&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$red&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;.7152&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$green&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;.0722&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$blue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;cm&quot;&gt;/**
+ * Calculate the contrast ratio between two colors.
+ * See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
+ */&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;@function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;contrast&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$back&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$front&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$backLum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;luminance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$back&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;.05&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$foreLum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;luminance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$front&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;.05&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;@return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$backLum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$foreLum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$backLum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$foreLum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;cm&quot;&gt;/**
+ * Determine whether to use dark or light text on top of given color.
+ * Returns black for dark text and white for light text.
+ */&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;@function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;choose-contrast-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$lightContrast&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;contrast&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;white&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$darkContrast&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;contrast&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;black&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;@if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$lightContrast&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$darkContrast&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;@return&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;white&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;@else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;@return&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;black&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;That’s it! We now have contrast calculation in Sass, and we’re automatically picking black or white text, depending on which provides the most contrast. This can have a huge impact on readability, particularly for users with low vision.&lt;/p&gt;
+
+&lt;p&gt;This solution only requires an extra, pre-calculated constants file that will never change. It works with any Sass implementation, and it won’t bloat your CSS since it’s only used at build time. Pretty neat!&lt;/p&gt;
+
+&lt;p&gt;Next time, I want to look at how to do the same thing in JavaScript, at runtime, so you can have dynamic theming with CSS custom properties. See you then!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Edit&lt;/strong&gt;: &lt;a href=&quot;http://www.sassmeister.com/gist/ccc72f71137fe29039c92c0a9fe9b657&quot;&gt;here’s a Sassmeister live demo&lt;/a&gt; of the technique above.&lt;/p&gt;</content><category term="sass" /><category term="theming" /><summary type="html">Theming is always a challenge, particularly when you’re working on a library, rather than a standalone website. One example of an interesting issue that you’ll come across very frequently is choosing a text color that ensures readability and accessibility.</summary></entry></feed>
