@@ -6,7 +6,15 @@
   <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 
-  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+    <!--
+      Hello, and welcome to the source for my site!
+      There's not a lot to see around here, but I hope you get some inspiration/ideas/laughs.
+
+      Here's an ASCII art stick figure saying hi:  o/
+                                                  /|
+                                                  / \
+    -->
+
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
 
@@ -28,17 +36,9 @@
 
   <meta name="theme-color" content="#009688">
 
-  <link href='https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400" rel="stylesheet">
-
-  <!--
-    Hello, and welcome to the source for my site!
-    There's not a lot to see around here, but I hope you get some inspiration/ideas/laughs.
-
-    Here's an ASCII art stick figure saying hi:  o/
-                                                /|
-                                                / \
-  -->
+  <style>
+  {% include main.css %}
+  </style>
 
 
   {% if jekyll.environment == 'production' and site.google_analytics %}

@@ -19,7 +19,7 @@ gulp.task('generate-touch', ['create-touch-dir'],
 gulp.task('sass', ['generate-touch'], () => gulp.src('./_sass/main.scss')
   .pipe(sass({includePaths: 'node_modules'}).on('error', sass.logError))
   .pipe(csso())
-  .pipe(gulp.dest('./_site/assets'))
+  .pipe(gulp.dest('./_includes'))
 );
 
 gulp.task('build', ['sass']);

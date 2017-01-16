@@ -24,6 +24,9 @@ $mdc-theme-primary: $primary;
 $mdc-theme-accent: #ffab40;
 $mdc-theme-background: #fff;
 
+@import "roboto";
+@import "roboto-mono";
+
 @import "@material/elevation/mixins";
 @import "@material/typography/mixins";
 @import "@material/button/mdc-button";
