@@ -1,0 +1,29 @@
+title: sgom.es
+email: mail@sgom.es
+description: >
+  I’m Sérgio, and I work at Web Developer Relations at Google, helping developers make the web a better place.
+baseurl: ""
+url: "https://sgom.es"
+twitter_username: sergiomdgomes
+github_username:  sgomes
+google_analytics: UA-90468985-1
+repository: sgomes/blog
+paginate: 3
+
+# Build settings
+markdown: kramdown
+gems:
+  - jekyll-feed
+include:
+  - manifest.json
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - _sass
+  - package.json
+  - node_modules
+  - gulpfile.js
+  - README.md
+keep_files:
+  - assets/main.css
+  - assets/images/touch
