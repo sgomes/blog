@@ -12,9 +12,10 @@ layout: default
     {{ content }}
   </div>
 
-  <div class="post-tags">Tags:
+  Tags:&nbsp;
+  <div class="post-tags">
     {% for tag in page.tags %}
-      <a href="">{{ tag | escape }}</a>
+      {{ tag | escape }}
     {% endfor %}
   </div>
 </article>
