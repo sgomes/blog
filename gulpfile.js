@@ -5,11 +5,25 @@ const csso = require('gulp-csso');
 const ghPages = require('gulp-gh-pages');
 
 const logo = 'assets/images/logo.svg';
-const touchDir = '_site/assets/images/touch';
+const touchDir = 'assets/images/touch';
 
-gulp.task('clean', shell.task(['rm -rf _site']));
+const deployPaths = [
+  './_includes/**/*',
+  './_layouts/**/*',
+  './_posts/**/*',
+  './assets/**/*',
+  './_config.yml',
+  './CNAME',
+  './favicon.ico',
+  './Gemfile',
+  './index.html',
+  './manifest.json',
+  './sw.js'
+];
 
-gulp.task('create-touch-dir', shell.task(['mkdir -p _site/assets/images/touch']));
+gulp.task('clean', shell.task(['rm -rf _site', `rm -rf ${touchDir}`]));
+
+gulp.task('create-touch-dir', shell.task([`mkdir -p ${touchDir}`]));
 
 gulp.task('generate-touch', ['create-touch-dir'],
   shell.task([16, 32, 144, 152, 192].map(size =>
@@ -23,11 +37,11 @@ gulp.task('sass', ['generate-touch'], () => gulp.src('./_sass/main.scss')
   .pipe(gulp.dest('./_includes'))
 );
 
-gulp.task('build', ['sass'], shell.task(['bundle exec jekyll build']));
+gulp.task('build', ['sass']);
 
 gulp.task('serve', ['build'], shell.task(['bundle exec jekyll serve']));
 
 gulp.task('deploy', ['build'], () => {
-  return gulp.src('./_site/**/*')
+  return gulp.src(deployPaths, {base: '.'})
     .pipe(ghPages());
 });

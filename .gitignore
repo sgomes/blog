@@ -2,5 +2,6 @@
 /.sass-cache
 /.publish
 /_includes/main.css
+/assets/images/touch
 node_modules
 .DS_Store
