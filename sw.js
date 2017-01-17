@@ -1,9 +1,7 @@
-const CACHE_NAME = 'sgomes-v1';
+const CACHE_NAME = 'sgomes-v2';
 
 // Cached files
 const siteAssets = [
-  '/',
-  '/index.html',
   '/favicon.ico',
   '/assets/images/avatar.jpg',
   '/assets/images/email.svg',
@@ -16,7 +14,6 @@ const siteAssets = [
   '/assets/images/touch/144x144.png',
   '/assets/images/touch/152x152.png',
   '/assets/images/touch/192x192.png',
-  '/assets/main.css',
   '/assets/fonts/oMMgfZMQthOryQo9n22dcuvvDin1pK8aKteLpeZ5c0A.woff2',
   '/assets/fonts/RxZJdnzeo3R5zSexge8UUZBw1xU1rKptJj_0jans920.woff2',
   '/assets/fonts/d-6IYplOFocCacKzxwXSOJBw1xU1rKptJj_0jans920.woff2',

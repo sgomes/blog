@@ -1,0 +1,1087 @@
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * The css property used for elevation. In most cases this should not be changed. It is exposed
+ * as a variable for abstraction / easy use when needing to reference the property directly, for
+ * example in a `will-change` rule.
+ */
+/**
+ * The default duration value for elevation transitions.
+ */
+/**
+ * The default easing value for elevation transitions.
+ */
+/**
+ * Applies the correct css rules to an element to give it the elevation specified by $z-value.
+ * The $z-value must be between 0 and 24.
+ */
+/**
+ * Returns a string that can be used as the value for a `transition` property for elevation.
+ * Calling this function directly is useful in situations where a component needs to transition
+ * more than one property.
+ *
+ * ```scss
+ * .foo {
+ *   transition: mdc-elevation-transition-rule(), opacity 100ms ease;
+ *   will-change: $mdc-elevation-property, opacity;
+ * }
+ * ```
+ */
+/**
+ * Applies the correct css rules needed to have an element transition between elevations.
+ * This mixin should be applied to elements whose elevation values will change depending on their
+ * context (e.g. when active or disabled).
+ */
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* TODO(sgomes): Figure out what to do about desktop font sizes. */
+/* TODO(sgomes): Figure out what to do about i18n and i18n font sizes. */
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * The css property used for elevation. In most cases this should not be changed. It is exposed
+ * as a variable for abstraction / easy use when needing to reference the property directly, for
+ * example in a `will-change` rule.
+ */
+/**
+ * The default duration value for elevation transitions.
+ */
+/**
+ * The default easing value for elevation transitions.
+ */
+/**
+ * Applies the correct css rules to an element to give it the elevation specified by $z-value.
+ * The $z-value must be between 0 and 24.
+ */
+/**
+ * Returns a string that can be used as the value for a `transition` property for elevation.
+ * Calling this function directly is useful in situations where a component needs to transition
+ * more than one property.
+ *
+ * ```scss
+ * .foo {
+ *   transition: mdc-elevation-transition-rule(), opacity 100ms ease;
+ *   will-change: $mdc-elevation-property, opacity;
+ * }
+ * ```
+ */
+/**
+ * Applies the correct css rules needed to have an element transition between elevations.
+ * This mixin should be applied to elements whose elevation values will change depending on their
+ * context (e.g. when active or disabled).
+ */
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/*
+  Precomputed linear color channel values, for use in contrast calculations.
+  See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
+
+  Algorithm, for c in 0 to 255:
+  f(c) {
+    c = c / 255;
+    return c < 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+  }
+
+  This lookup table is needed since there is no `pow` in SASS.
+*/
+/* All variables are local, so disable pattern checking. */
+/* stylelint-disable scss/dollar-variable-pattern */
+/**
+ * Calculate the luminance for a color.
+ * See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
+ */
+/**
+ * Calculate the contrast ratio between two colors.
+ * See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
+ */
+/**
+ * Determine whether to use dark or light text on top of given color.
+ * Returns "dark" for dark text and "light" for light text.
+ */
+/* stylelint-enable scss/dollar-variable-pattern */
+/*
+  Main theme colors.
+  If you're a user customizing your color scheme in SASS, these are probably the only variables you need to change.
+*/
+/* Indigo 500 */
+/* Pink A200 */
+/* White */
+/* Which set of text colors to use for each main theme color (light or dark) */
+/* Text colors according to light vs dark and text type */
+/* Primary text colors for each of the theme colors */
+/* All variables are local, so disable pattern checking. */
+/* stylelint-disable scss/dollar-variable-pattern */
+/**
+ * Applies the correct theme color style to the specified property.
+ * $property is typically color or background-color, but can be any CSS property that accepts color values.
+ * $style should be one of the map keys in $mdc-theme-property-values (_variables.scss).
+ */
+/**
+ * Creates a rule to be used in MDC-Web components for dark theming, and applies the provided contents.
+ * Should provide the $root-selector option if applied to anything other than the root selector.
+ * When used with a modifier class, provide a second argument of `true` for the $compound parameter
+ * to specify that this should be attached as a compound class.
+ *
+ * Usage example:
+ *
+ * ```scss
+ * .mdc-foo {
+ *   color: black;
+ *
+ *   @include mdc-theme-dark {
+ *     color: white;
+ *   }
+ *
+ *   &__bar {
+ *     background: black;
+ *
+ *     @include mdc-theme-dark(".mdc-foo") {
+ *       background: white;
+ *     }
+ *   }
+ * }
+ *
+ * .mdc-foo--disabled {
+ *   opacity: .38;
+ *
+ *   @include mdc-theme-dark(".mdc-foo", true) {
+ *     opacity: .5;
+ *   }
+ * }
+ * ```
+ */
+/* stylelint-enable scss/dollar-variable-pattern */
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2016 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* TODO(sgomes): Figure out what to do about desktop font sizes. */
+/* TODO(sgomes): Figure out what to do about i18n and i18n font sizes. */
+/* postcss-bem-linter: define button */
+/* stylelint-disable declaration-property-unit-whitelist */
+.mdc-button {
+  font-family: Roboto, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.5rem;
+  color: rgba(0, 0, 0, 0.87);
+  color: var(--mdc-theme-text-primary-on-light, rgba(0, 0, 0, 0.87));
+  display: inline-block;
+  position: relative;
+  min-width: 64px;
+  height: 36px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 2px;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  /* Override font to specifically be px as spec defined pt */
+  font-weight: 500;
+  line-height: 36px;
+  /* Override line-height so text aligns centered */
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: middle;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  /* postcss-bem-linter: ignore */
+  /* stylelint-disable selector-no-type */ }
+  .mdc-button--theme-dark,
+  .mdc-theme--dark .mdc-button {
+    color: white;
+    color: var(--mdc-theme-text-primary-on-dark, white); }
+  .mdc-button::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 120ms 0ms cubic-bezier(0.4, 0, 1, 1);
+    border-radius: inherit;
+    background: currentColor;
+    content: "";
+    opacity: 0; }
+  .mdc-button:focus::before {
+    transition: opacity 120ms 0ms cubic-bezier(0, 0, 0.2, 1);
+    opacity: .12; }
+  .mdc-button:active::before {
+    transition: opacity 120ms 0ms cubic-bezier(0, 0, 0.2, 1);
+    /*
+      Slightly darker value for visual distinction.
+      This allows a full base that has distinct modes.
+      Progressive enhancement with ripples will provide complete button spec alignment.
+    */
+    opacity: .18; }
+  .mdc-button:focus:active::before {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+  .mdc-button:active {
+    outline: none; }
+  .mdc-button:hover {
+    cursor: pointer; }
+  .mdc-button::-moz-focus-inner {
+    padding: 0;
+    border: 0; }
+  .mdc-button--dense {
+    height: 32px;
+    font-size: .8125rem;
+    /* 13sp */
+    line-height: 32px; }
+  .mdc-button--raised {
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: box-shadow;
+    min-width: 88px; }
+    .mdc-button--raised:active {
+      box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12); }
+    .mdc-button--theme-dark .mdc-button--raised,
+    .mdc-theme--dark .mdc-button--raised {
+      background-color: #009688;
+      background-color: var(--mdc-theme-primary, #009688);
+      /* postcss-bem-linter: ignore */ }
+      .mdc-button--theme-dark .mdc-button--raised::before,
+      .mdc-theme--dark .mdc-button--raised::before {
+        /*
+          We are explicitly not fully adhering to Material Design here.
+          This should be the 700-shade when active instead of a black shade.
+          Due to the complexity involved in adhering fully it is being ignored.
+          Instead re-using the existing architecture for shading works just fine.
+          - With <3 from Garbee
+        */
+        color: black; }
+  .mdc-button--primary {
+    color: #009688;
+    color: var(--mdc-theme-primary, #009688);
+    /* postcss-bem-linter: ignore */ }
+    .mdc-button--theme-dark .mdc-button--primary,
+    .mdc-theme--dark .mdc-button--primary {
+      color: #009688;
+      color: var(--mdc-theme-primary, #009688); }
+    .mdc-button--primary.mdc-button--raised {
+      background-color: #009688;
+      background-color: var(--mdc-theme-primary, #009688);
+      color: white;
+      color: var(--mdc-theme-text-primary-on-primary, white);
+      /* postcss-bem-linter: ignore */ }
+      .mdc-button--primary.mdc-button--raised::before {
+        color: black; }
+  .mdc-button--accent {
+    color: #ffab40;
+    color: var(--mdc-theme-accent, #ffab40);
+    /* postcss-bem-linter: ignore */ }
+    .mdc-button--theme-dark .mdc-button--accent,
+    .mdc-theme--dark .mdc-button--accent {
+      color: #ffab40;
+      color: var(--mdc-theme-accent, #ffab40); }
+    .mdc-button--accent.mdc-button--raised {
+      background-color: #ffab40;
+      background-color: var(--mdc-theme-accent, #ffab40);
+      color: rgba(0, 0, 0, 0.87);
+      color: var(--mdc-theme-text-primary-on-accent, rgba(0, 0, 0, 0.87));
+      /* postcss-bem-linter: ignore */ }
+      .mdc-button--accent.mdc-button--raised::before {
+        color: black; }
+  .mdc-button--compact {
+    padding: 0 8px; }
+  fieldset:disabled .mdc-button, .mdc-button:disabled {
+    color: rgba(0, 0, 0, 0.26);
+    cursor: default;
+    pointer-events: none; }
+    .mdc-button--theme-dark fieldset:disabled .mdc-button,
+    .mdc-theme--dark fieldset:disabled .mdc-button, .mdc-button--theme-dark .mdc-button:disabled,
+    .mdc-theme--dark .mdc-button:disabled {
+      color: rgba(255, 255, 255, 0.3); }
+  fieldset:disabled .mdc-button--raised, .mdc-button--raised:disabled {
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
+    background-color: rgba(0, 0, 0, 0.12);
+    pointer-events: none; }
+    .mdc-button--theme-dark fieldset:disabled .mdc-button--raised,
+    .mdc-theme--dark fieldset:disabled .mdc-button--raised, .mdc-button--theme-dark .mdc-button--raised:disabled,
+    .mdc-theme--dark .mdc-button--raised:disabled {
+      background-color: rgba(255, 255, 255, 0.12); }
+
+/* postcss-bem-linter: end */
+.header {
+  display: flex;
+  height: 80px;
+  background: #009688;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  z-index: 2;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12); }
+
+.header-title {
+  text-decoration: none;
+  color: white;
+  font-family: Roboto, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 2.125rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 2.5rem;
+  margin: -0.5rem 0 4rem -0.07em;
+  font-weight: bold; }
+  .header-title:visited, .header-title:hover {
+    color: white; }
+
+.post {
+  background: white;
+  padding: 48px 24px;
+  margin: 0 auto;
+  color: rgba(0, 0, 0, 0.87);
+  width: 100%;
+  max-width: 45rem;
+  box-sizing: border-box; }
+
+.post-title {
+  display: block;
+  color: #009688;
+  font-family: Roboto, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 2rem;
+  margin: -0.5rem 0 1rem -0.06em;
+  font-weight: bold;
+  margin-bottom: 0; }
+
+.post-meta {
+  display: block;
+  color: #009688;
+  font-family: Roboto, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.5rem;
+  margin-bottom: 16px; }
+
+.post-tags {
+  display: inline-block;
+  flex-grow: 1;
+  margin-top: 8px; }
+  .post-tags > a {
+    color: #00BFA5; }
+    .post-tags > a:visited, .post-tags > a:hover {
+      color: #00BFA5; }
+
+.post-image {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto; }
+
+.post-content {
+  font-family: Roboto, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1.25rem;
+  font-size: 1rem;
+  letter-spacing: normal; }
+  .post-content h1 {
+    font-family: Roboto, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 2rem; }
+  .post-content h2 {
+    font-family: Roboto, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    line-height: 2rem; }
+  .post-content h3 {
+    font-family: Roboto, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-size: 0.938rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    line-height: 1.5rem; }
+  .post-content h4 {
+    font-family: Roboto, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    line-height: 1.5rem;
+    font-size: 0.9375rem;
+    letter-spacing: normal; }
+  .post-content a {
+    color: #00BFA5; }
+    .post-content a:visited, .post-content a:hover {
+      color: #00BFA5; }
+  .post-content pre {
+    border-radius: 2px;
+    padding: 8px;
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: normal;
+    font-family: 'Roboto Mono', monospace;
+    overflow-x: auto; }
+  .post-content code {
+    color: #0D47A1;
+    font-family: 'Roboto Mono', monospace; }
+  .post-content strong {
+    font-family: Roboto, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    line-height: 1.5rem;
+    font-size: 0.9375rem;
+    letter-spacing: normal; }
+  .post-content figure {
+    max-width: 100%;
+    box-sizing: border-box; }
+  .post-content figcaption {
+    text-align: center;
+    font-family: Roboto, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    line-height: 1.25rem; }
+
+.home {
+  padding: 24px 0;
+  box-sizing: border-box; }
+
+.home-post-list {
+  box-sizing: border-box;
+  list-style: none;
+  padding: 0 8px;
+  margin: 0 auto 0 auto;
+  width: 100%;
+  max-width: 45rem; }
+
+.home-post-entry {
+  background: white;
+  padding: 16px;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 2px;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  font-family: Roboto, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1.25rem;
+  font-size: 1rem;
+  letter-spacing: normal; }
+
+.home-post-entry + .home-post-entry {
+  margin-top: 16px; }
+
+.home-post-title {
+  display: inline;
+  padding-right: 4px;
+  font-family: Roboto, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 2rem;
+  margin: -0.5rem 0 1rem -0.06em;
+  font-weight: bold; }
+
+.home-post-title > a {
+  text-decoration: none;
+  color: #009688; }
+  .home-post-title > a:visited, .home-post-title > a:hover {
+    color: #009688; }
+
+.home-post-meta {
+  display: inline-block;
+  margin-bottom: 0; }
+
+.home-post-excerpt {
+  margin: 8px 0 0 0;
+  color: rgba(0, 0, 0, 0.87); }
+
+.home-post-bottom {
+  display: flex;
+  flex-flow: row;
+  padding-top: 16px; }
+
+.home-pagination {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 16px 8px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 45rem; }
+
+.home-page-previous {
+  margin-right: auto; }
+
+.home-page-next {
+  margin-left: auto; }
+
+.footer {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  background-color: #009688;
+  color: white;
+  padding: 16px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  z-index: 2;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12); }
+
+.footer-contents {
+  display: flex;
+  position: relative;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 0 auto;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  padding: 0 24px;
+  width: 100%;
+  max-width: 45rem; }
+  @media (max-width: 600px) {
+    .footer-contents {
+      flex-wrap: wrap;
+      padding: 0; } }
+
+.footer-avatar {
+  border-radius: 10%;
+  width: 100px;
+  height: 100px;
+  background: black;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-right: 16px;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12); }
+
+.footer-text {
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: 16px;
+  width: 50%; }
+
+.footer-heading {
+  font-family: Roboto, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 2rem;
+  margin: -0.5rem 0 1rem -0.05em;
+  margin-bottom: 8px; }
+
+.footer-description {
+  margin: 0; }
+
+.footer-icons {
+  display: block;
+  flex-shrink: 0; }
+
+.footer-icons-row {
+  display: block;
+  flex-shrink: 0; }
+  @media (max-width: 600px) {
+    .footer-icons-row {
+      display: inline-block; } }
+
+.footer-bubble {
+  display: inline-block;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  flex-shrink: 0;
+  margin: 2px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center; }
+
+.footer-twitter {
+  background-image: url("/assets/images/twitter.svg"); }
+
+.footer-github {
+  border-radius: 0;
+  background-image: url("/assets/images/github.svg"); }
+
+.footer-email {
+  background-image: url("/assets/images/email.svg"); }
+
+.footer-feed {
+  background-image: url("/assets/images/feed.svg"); }
+
+.footer-bottom {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  margin: 8px auto 0 auto;
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 45rem; }
+  .footer-bottom::before {
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.17);
+    content: ''; }
+
+.footer-copyright {
+  display: inline-block;
+  text-align: center;
+  background: #009688;
+  z-index: 2;
+  padding: 0 8px;
+  font-family: Roboto, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  line-height: 1.25rem; }
+  .footer-copyright a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold; }
+    .footer-copyright a:visited, .footer-copyright a:hover {
+      color: white; }
+
+.highlight,
+.post-content .highlight code {
+  background: #F5F5F5;
+  color: rgba(0, 0, 0, 0.87); }
+  .highlight .c,
+  .post-content .highlight code .c {
+    color: #616161; }
+  .highlight .err,
+  .post-content .highlight code .err {
+    color: #F5F5F5;
+    background-color: #B71C1C; }
+  .highlight .k,
+  .post-content .highlight code .k {
+    color: #4A148C; }
+  .highlight .cm,
+  .post-content .highlight code .cm {
+    color: #616161; }
+  .highlight .cp,
+  .post-content .highlight code .cp {
+    color: #4A148C; }
+  .highlight .c1,
+  .post-content .highlight code .c1 {
+    color: #616161; }
+  .highlight .cs,
+  .post-content .highlight code .cs {
+    color: #4A148C; }
+  .highlight .gd,
+  .post-content .highlight code .gd {
+    color: #B71C1C; }
+  .highlight .ge,
+  .post-content .highlight code .ge {
+    font-style: italic; }
+  .highlight .gr,
+  .post-content .highlight code .gr {
+    color: #F5F5F5;
+    background-color: #B71C1C; }
+  .highlight .gh,
+  .post-content .highlight code .gh {
+    color: #B71C1C; }
+  .highlight .gi,
+  .post-content .highlight code .gi {
+    color: #1B5E20; }
+  .highlight .gs,
+  .post-content .highlight code .gs {
+    font-weight: bold; }
+  .highlight .gu,
+  .post-content .highlight code .gu {
+    color: #B71C1C; }
+  .highlight .kt,
+  .post-content .highlight code .kt {
+    color: #FBC02D; }
+  .highlight .m,
+  .post-content .highlight code .m {
+    color: #E65100; }
+  .highlight .s,
+  .post-content .highlight code .s {
+    color: #1B5E20; }
+  .highlight .na,
+  .post-content .highlight code .na {
+    color: #E65100; }
+  .highlight .nb,
+  .post-content .highlight code .nb {
+    color: #4A148C; }
+  .highlight .nc,
+  .post-content .highlight code .nc {
+    color: #FBC02D; }
+  .highlight .no,
+  .post-content .highlight code .no {
+    color: #E65100; }
+  .highlight .ni,
+  .post-content .highlight code .ni {
+    color: #1B5E20; }
+  .highlight .nf,
+  .post-content .highlight code .nf {
+    color: #0D47A1; }
+  .highlight .nt,
+  .post-content .highlight code .nt {
+    color: #B71C1C; }
+  .highlight .nv,
+  .post-content .highlight code .nv {
+    color: #B71C1C; }
+  .highlight .mf,
+  .post-content .highlight code .mf {
+    color: #E65100; }
+  .highlight .mh,
+  .post-content .highlight code .mh {
+    color: #E65100; }
+  .highlight .mi,
+  .post-content .highlight code .mi {
+    color: #E65100; }
+  .highlight .mo,
+  .post-content .highlight code .mo {
+    color: #E65100; }
+  .highlight .sb,
+  .post-content .highlight code .sb {
+    color: #1B5E20; }
+  .highlight .sc,
+  .post-content .highlight code .sc {
+    color: #1B5E20; }
+  .highlight .sd,
+  .post-content .highlight code .sd {
+    color: #1B5E20; }
+  .highlight .s2,
+  .post-content .highlight code .s2 {
+    color: #1B5E20; }
+  .highlight .se,
+  .post-content .highlight code .se {
+    color: #1B5E20; }
+  .highlight .sh,
+  .post-content .highlight code .sh {
+    color: #1B5E20; }
+  .highlight .si,
+  .post-content .highlight code .si {
+    color: #3E2723; }
+  .highlight .sx,
+  .post-content .highlight code .sx {
+    color: #1B5E20; }
+  .highlight .sr,
+  .post-content .highlight code .sr {
+    color: #006064; }
+  .highlight .s1,
+  .post-content .highlight code .s1 {
+    color: #1B5E20; }
+  .highlight .ss,
+  .post-content .highlight code .ss {
+    color: #1B5E20; }
+  .highlight .bp,
+  .post-content .highlight code .bp {
+    color: #4A148C; }
+  .highlight .il,
+  .post-content .highlight code .il {
+    color: #E65100; }
+
+html, body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  height: 100%; }
+
+.site-content {
+  flex-grow: 1;
+  background: #eceff1; }
+
+.mdc-button {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-decoration: none; }
