@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sgomes-v4';
+const CACHE_NAME = 'sgomes-v5';
 
 // Cached files
 const siteAssets = [
