@@ -65,6 +65,10 @@
 .home-post-excerpt {
   margin: 8px 0 0 0;
   color: $black-text;
+
+  @include mdc-typography(body1);
+  font-size: 1rem;
+  letter-spacing: normal;
 }
 
 .home-post-bottom {
