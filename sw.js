@@ -43,7 +43,8 @@ self.addEventListener('activate', event => {
 // Fetch data from cache.
 self.addEventListener('fetch', event => {
   // Respond immediately from cache.
-  event.respondWith(fromCache(event.request));
+  event.respondWith(fromCache(event.request)
+    .catch(() => fetch(event.request)));
 
   // Update the cache resource?
   let match = siteAssets.find(url => event.request.url === location.origin + url);
