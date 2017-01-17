@@ -1,0 +1,103 @@
+// Copyright 2017 Sérgio Gomes All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+// Define syntax highlighting colors following base16 convention, using
+// Material Design colors.
+
+// Grayscale
+$syntax-black:           #000000;
+$syntax-very-dark-gray:  #212121;
+$syntax-dark-gray:       #424242;
+$syntax-gray:            #616161;
+$syntax-light-gray:      #BDBDBD;
+$syntax-very-light-gray: #E0E0E0;
+$syntax-almost-white:    #EEEEEE;
+$syntax-white:           #F5F5F5;
+
+// Colors
+$syntax-red:             #B71C1C;
+$syntax-orange:          #E65100;
+$syntax-yellow:          #FBC02D;
+$syntax-green:           #1B5E20;
+$syntax-cyan:            #006064;
+$syntax-blue:            #0D47A1;
+$syntax-purple:          #4A148C;
+$syntax-brown:           #3E2723;
+
+$syntax-background-color: #F5F5F5;
+$syntax-text-color: $black-text;
+
+.highlight,
+.post-content .highlight code {
+  background: $syntax-background-color;
+  color: $syntax-text-color;
+
+  .c     { color: $syntax-gray; } // Comment
+  .err   { color: $syntax-background-color; background-color: $syntax-red; } // Error
+  .k     { color: $syntax-purple; } // Keyword
+  .o     {  } // Operator
+  .cm    { color: $syntax-gray; } // Comment.Multiline
+  .cp    { color: $syntax-purple; } // Comment.Preproc
+  .c1    { color: $syntax-gray; } // Comment.Single
+  .cs    { color: $syntax-purple; } // Comment.Special
+  .gd    { color: $syntax-red; } // Generic.Deleted
+  .ge    { font-style: italic } // Generic.Emph
+  .gr    { color: $syntax-background-color; background-color: $syntax-red; } // Generic.Error
+  .gh    { color: $syntax-red; } // Generic.Heading
+  .gi    { color: $syntax-green; } // Generic.Inserted
+  .go    {  } // Generic.Output
+  .gp    {  } // Generic.Prompt
+  .gs    { font-weight: bold } // Generic.Strong
+  .gu    { color: $syntax-red; } // Generic.Subheading
+  .gt    {  } // Generic.Traceback
+  .kc    {  } // Keyword.Constant
+  .kd    {  } // Keyword.Declaration
+  .kp    {  } // Keyword.Pseudo
+  .kr    {  } // Keyword.Reserved
+  .kt    { color: $syntax-yellow; } // Keyword.Type
+  .m     { color: $syntax-orange; } // Literal.Number
+  .s     { color: $syntax-green; } // Literal.String
+  .na    { color: $syntax-orange; } // Name.Attribute
+  .nb    { color: $syntax-purple; } // Name.Builtin
+  .nc    { color: $syntax-yellow; } // Name.Class
+  .no    { color: $syntax-orange; } // Name.Constant
+  .ni    { color: $syntax-green; } // Name.Entity
+  .ne    {  } // Name.Exception
+  .nf    { color: $syntax-blue; } // Name.Function
+  .nn    {  } // Name.Namespace
+  .nt    { color: $syntax-red; } // Name.Tag
+  .nv    { color: $syntax-red; } // Name.Variable
+  .ow    {  } // Operator.Word
+  .w     {  } // Text.Whitespace
+  .mf    { color: $syntax-orange; } // Literal.Number.Float
+  .mh    { color: $syntax-orange; } // Literal.Number.Hex
+  .mi    { color: $syntax-orange; } // Literal.Number.Integer
+  .mo    { color: $syntax-orange; } // Literal.Number.Oct
+  .sb    { color: $syntax-green; } // Literal.String.Backtick
+  .sc    { color: $syntax-green; } // Literal.String.Char
+  .sd    { color: $syntax-green; } // Literal.String.Doc
+  .s2    { color: $syntax-green; } // Literal.String.Double
+  .se    { color: $syntax-green; } // Literal.String.Escape
+  .sh    { color: $syntax-green; } // Literal.String.Heredoc
+  .si    { color: $syntax-brown; } // Literal.String.Interpol
+  .sx    { color: $syntax-green; } // Literal.String.Other
+  .sr    { color: $syntax-cyan; } // Literal.String.Regex
+  .s1    { color: $syntax-green; } // Literal.String.Single
+  .ss    { color: $syntax-green; } // Literal.String.Symbol
+  .bp    { color: $syntax-purple; } // Name.Builtin.Pseudo
+  .vc    {  } // Name.Variable.Class
+  .vg    {  } // Name.Variable.Global
+  .vi    {  } // Name.Variable.Instance
+  .il    { color: $syntax-orange; } // Literal.Number.Integer.Long
+}

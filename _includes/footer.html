@@ -1,0 +1,27 @@
+<footer class="footer">
+  <div class="footer-contents">
+    <img class="footer-avatar" src="/assets/images/avatar.jpg" alt="Author's avatar">
+
+    <div class="footer-text">
+      <h2 class="footer-heading">Hey there!</h2>
+      <p class="footer-description">{{ site.description | escape }}</p>
+    </div>
+
+    <div class="footer-icons">
+      <div class="footer-icons-row">
+        <a href="https://twitter.com/{{ site.twitter_username }}" class="footer-bubble footer-twitter"></a>
+        <a href="mailto:{{ site.email }}" class="footer-bubble footer-email"></a>
+      </div>
+      <div class="footer-icons-row">
+        <a href="{{ '/feed.xml' | relative_url }}" class="footer-bubble footer-feed"></a>
+        <a href="https://github.com/{{ site.github_username }}" class="footer-bubble footer-github"></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copyright">Articles under
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons 4.0 Attribution</a>,
+    code under <a rel="license" href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>
+    (unless otherwise indicated).</div>
+  </div>
+</footer>
