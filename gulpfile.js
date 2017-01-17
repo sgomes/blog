@@ -5,11 +5,11 @@ const csso = require('gulp-csso');
 const ghPages = require('gulp-gh-pages');
 
 const logo = 'assets/images/logo.svg';
-const touchDir = '_site/assets/images/touch';
+const touchDir = 'assets/images/touch';
 
-gulp.task('clean', shell.task(['rm -rf _site']));
+gulp.task('clean', shell.task(['rm -rf _site', `rm -rf ${touchDir}`]));
 
-gulp.task('create-touch-dir', shell.task(['mkdir -p _site/assets/images/touch']));
+gulp.task('create-touch-dir', shell.task([`mkdir -p ${touchDir}`]));
 
 gulp.task('generate-touch', ['create-touch-dir'],
   shell.task([16, 32, 144, 152, 192].map(size =>
