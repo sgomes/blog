@@ -13,6 +13,14 @@
 
     {% include footer.html %}
 
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js').catch(function(err) {
+          console.log('Service worker registration failed: ', err);
+        });
+      }
+    </script>
+
   </body>
 
 </html>
