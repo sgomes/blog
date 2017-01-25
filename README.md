@@ -1,5 +1,7 @@
 # sgomes::blog
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/sgomes/blog.svg)](https://greenkeeper.io/)
+
 Hello there!
 
 This is where I keep the source for my blog, as you can see.
