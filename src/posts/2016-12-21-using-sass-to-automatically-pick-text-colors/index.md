@@ -1,22 +1,21 @@
 ---
-layout: post
 title:  Using Sass to automatically pick text colors
 date:   2016-12-21 16:51:00 +0000
 excerpt: >
   Theming is always a challenge, particularly when you’re working on a library, rather than a standalone website. One example of an interesting issue that you’ll come across very frequently is choosing a text color that ensures readability and accessibility.
-tags:   sass theming
+tags:
+  - sass
+  - theming
 license: >
   This work is licensed under the Creative Commons Attribution 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/ or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
 ---
+
 *Originally [posted on Medium](https://medium.com/dev-channel/using-sass-to-automatically-pick-text-colors-4ba7645d2796)*
 
 Theming is always a challenge, particularly when you’re working on a library, rather than a standalone website. One example of an interesting issue that you’ll come across very frequently is choosing a text color that ensures readability and accessibility.
 
-{% include figure.html
-  filename="light-dark.png"
-  width="558"
-  height="146"
-  alt="Dark text on light background and vice-versa" %}
+{% set figure = { filename: 'light-dark.png', width: 558, height: 146, alt: 'Dark text on light background and vice-versa' } %}
+{% include 'includes/figure.html' %}
 
 This is easy enough when you have known light or dark backgrounds; you can create two CSS classes and have users of your CSS library manually add them in depending on context.
 
@@ -66,12 +65,8 @@ Users can override the `$theme-color`, and depending on what they pick, the `cho
 
 So how do we implement `choose-contrast-color`? It turns out that all of the necessary calculations and minimum contrast rules are well defined in the [WCAG 2.0 specification](https://www.w3.org/TR/WCAG20/). There’s a [whole section explaining visual contrast in detail](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html), several links to ISO and ANSI standards, and even [papers on the subject](https://www.w3.org/Graphics/Color/sRGB.html). Digging around for a while, I was able to find a [published W3C technique with a clear description of the algorithm](https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests):
 
-{% include figure.html
-  filename="algorithm.png"
-  width="1606"
-  height="1144"
-  alt="An excerpt of the algorithm for calculating color contrast"
-  caption="The algorithm for calculating color contrast" %}
+{% set figure = { filename: 'algorithm.png', width: 1606, height: 1144, caption: 'The algorithm for calculating color contrast' } %}
+{% include 'includes/figure.html' %}
 
 If you’re familiar with Sass, you’ll quickly notice an issue: the luminance calculations involve exponentiation, which isn’t available in the language or the standard library.
 
@@ -83,12 +78,8 @@ I was reviewing my math and exploring the possibility of using Newtonian approxi
 
 The only part that involves exponentiation is the per-channel color space conversions done as part of the luminance calculation. In addition, there are only 256 possible values for each channel. This means that we can easily create a lookup table.
 
-{% include figure.html
-  filename="lookup.png"
-  width="370"
-  height="584"
-  alt="An excerpt of the lookup table"
-  caption="An excerpt of the lookup table" %}
+{% set figure = { filename: 'lookup.png', width: 370, height: 584, caption: 'An excerpt of the lookup table' } %}
+{% include 'includes/figure.html' %}
 
 You can take a look at [the full table](https://github.com/material-components/material-components-web/blob/master/packages/mdc-theme/_constants.scss) that I generated for the [MDC-Web project](https://github.com/material-components/material-components-web) to avoid having to generate your own.
 

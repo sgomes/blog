@@ -1,0 +1,315 @@
+// Copyright 2017 Sérgio Gomes All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+// Define syntax highlighting colors following base16 convention, using
+// Material Design colors.
+
+// Grayscale
+$syntax-black:           #000000;
+$syntax-very-dark-gray:  #212121;
+$syntax-dark-gray:       #424242;
+$syntax-gray:            #616161;
+$syntax-light-gray:      #BDBDBD;
+$syntax-very-light-gray: #E0E0E0;
+$syntax-almost-white:    #EEEEEE;
+$syntax-white:           #F5F5F5;
+
+// Colors
+$syntax-red:             #B71C1C;
+$syntax-orange:          #E65100;
+$syntax-yellow:          #FBC02D;
+$syntax-green:           #1B5E20;
+$syntax-cyan:            #006064;
+$syntax-blue:            #0D47A1;
+$syntax-purple:          #4A148C;
+$syntax-brown:           #3E2723;
+
+$syntax-background-color: #F5F5F5;
+$syntax-text-color: $black-text;
+
+.post-content pre {
+  background: $syntax-background-color;
+}
+
+.post-content pre code {
+  color: $syntax-text-color;
+
+  .comment {
+    color: $syntax-gray;
+
+    .markup.link {
+      color: $syntax-gray;
+    }
+  }
+
+  .entity {
+
+    &.name.type {
+      color: $syntax-yellow;
+    }
+
+    &.other.inherited-class {
+      color: $syntax-green;
+    }
+  }
+
+  .keyword {
+    color: $syntax-purple;
+
+    &.control {
+      color: $syntax-purple;
+    }
+
+    &.operator {
+      color: $syntax-text-color;
+    }
+
+    &.other.special-method {
+      color: $syntax-blue;
+    }
+
+    &.other.unit {
+      color: $syntax-orange;
+    }
+  }
+
+  .storage {
+    color: $syntax-purple;
+  }
+
+  .constant {
+    color: $syntax-orange;
+
+    &.character.escape {
+      color: $syntax-cyan;
+    }
+
+    &.numeric {
+      color: $syntax-orange;
+    }
+
+    &.other.color {
+      color: $syntax-cyan;
+    }
+
+    &.other.symbol {
+      color: $syntax-green;
+    }
+  }
+
+  .variable {
+    color: $syntax-red;
+
+    &.interpolation {
+      color: $syntax-brown;
+    }
+
+    &.parameter.function {
+      color: $syntax-text-color;
+    }
+  }
+
+  .invalid.illegal {
+    background-color: $syntax-red;
+    color: $syntax-background-color;
+  }
+
+  .string {
+    color: $syntax-green;
+
+
+    &.regexp {
+      color: $syntax-cyan;
+
+      .source.ruby.embedded {
+        color: $syntax-yellow;
+      }
+    }
+
+    &.other.link {
+      color: $syntax-red;
+    }
+  }
+
+  .punctuation {
+    &.definition {
+      &.parameters,
+      &.array {
+        color: $syntax-text-color;
+      }
+
+      &.heading,
+      &.identity {
+        color: $syntax-blue;
+      }
+
+      &.bold {
+        color: $syntax-yellow;
+        font-weight: bold;
+      }
+
+      &.italic {
+        color: $syntax-purple;
+        font-style: italic;
+      }
+    }
+
+    &.section {
+      &.embedded {
+        color: $syntax-brown;
+      }
+
+      &.method,
+      &.class,
+      &.inner-class {
+        color: $syntax-text-color;
+      }
+    }
+  }
+
+  .support {
+    &.class {
+      color: $syntax-yellow;
+    }
+
+    &.function  {
+      color: $syntax-cyan;
+
+      &.any-method {
+        color: $syntax-blue;
+      }
+    }
+  }
+
+  .entity {
+
+    &.name.function {
+      color: $syntax-blue;
+    }
+
+    &.name.class, &.name.type.class {
+      color: $syntax-yellow;
+    }
+
+    &.name.section {
+      color: $syntax-blue;
+    }
+
+    &.name.tag {
+      color: $syntax-red;
+    }
+
+    &.other.attribute-name {
+      color: $syntax-orange;
+
+      &.id {
+        color: $syntax-blue;
+      }
+    }
+  }
+
+  .meta {
+    &.class {
+      color: $syntax-yellow;
+
+      &.body {
+        color: $syntax-text-color;
+      }
+    }
+
+    &.link {
+      color: $syntax-orange;
+    }
+
+    &.method-call,
+    &.method {
+      color: $syntax-text-color;
+    }
+
+    &.require {
+      color: $syntax-blue;
+    }
+
+    &.selector {
+      color: $syntax-purple;
+    }
+
+    &.separator {
+      background-color: #373b41;
+      color: $syntax-text-color;
+    }
+
+    &.tag {
+      color: $syntax-text-color;
+    }
+  }
+
+  .none {
+    color: $syntax-text-color;
+  }
+
+  .markup {
+    &.bold {
+      color: $syntax-orange;
+      font-weight: bold;
+    }
+
+    &.changed {
+      color: $syntax-purple;
+    }
+
+    &.deleted {
+      color: $syntax-red;
+    }
+
+    &.italic {
+      color: $syntax-purple;
+      font-style: italic;
+    }
+
+    &.heading {
+      color: $syntax-red;
+
+      .punctuation.definition.heading {
+        color: $syntax-blue;
+      }
+    }
+
+    &.link {
+      color: $syntax-blue;
+    }
+
+    &.inserted {
+      color: $syntax-green;
+    }
+
+    &.quote {
+      color: $syntax-orange;
+    }
+
+    &.raw {
+      color: $syntax-green;
+    }
+  }
+
+  .source.gfm {
+    .markup {
+      -webkit-font-smoothing: auto;
+    }
+
+    .link .entity {
+      color: $syntax-cyan;
+    }
+  }
+}

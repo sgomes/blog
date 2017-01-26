@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<html lang="{{ page.lang | default(site.lang) }}">
 
-  {% include head.html %}
+  {% include "includes/head.html" %}
 
   <body>
 
-    {% include header.html %}
+    {% include "includes/header.html" %}
 
     <main class="site-content" aria-label="Content">
-        {{ content }}
+        {% block content %}
+        {% endblock %}
     </main>
 
-    {% include footer.html %}
+    {% include "includes/footer.html" %}
 
     <script>
       if ('serviceWorker' in navigator) {

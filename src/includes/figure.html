@@ -1,0 +1,12 @@
+{% if figure.filename and figure.height and figure.width and (figure.alt or figure.caption) %}
+
+{% if figure.caption %}
+<figure>
+  <img class="post-image" src="{{ figure.filename }}" alt="{{ figure.caption }}" width="{{ figure.width }}"/>
+  <figcaption>{{ figure.caption }}</figcaption>
+</figure>
+{% else %}
+<img class="post-image" src="{{ figure.filename }}" alt="{{ figure.alt }}" width="{{ figure.width }}">
+{% endif %}
+
+{% endif %}

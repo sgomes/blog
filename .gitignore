@@ -1,7 +1,6 @@
-/_site
 /.sass-cache
+/.build
+/.dist
 /.publish
-/_includes/main.css
-/assets/images/touch
 node_modules
 .DS_Store

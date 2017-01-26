@@ -4,10 +4,19 @@
     "@material/button": "^0.1.1",
     "@material/elevation": "^0.1.1",
     "@material/typography": "^0.1.0",
+    "front-matter": "^2.1.1",
     "gulp": "^3.9.1",
+    "gulp-append-prepend": "^1.0.3",
     "gulp-csso": "^2.0.0",
+    "gulp-data": "^1.2.1",
     "gulp-gh-pages": "^0.5.4",
+    "gulp-markdown": "^1.2.0",
+    "gulp-nunjucks": "^3.0.0",
     "gulp-sass": "^3.1.0",
-    "gulp-shell": "^0.5.2"
+    "gulp-shell": "^0.5.2",
+    "highlights": "^2.1.1",
+    "moment": "^2.17.1",
+    "prismjs": "^1.6.0",
+    "through2": "^2.0.3"
   }
 }
