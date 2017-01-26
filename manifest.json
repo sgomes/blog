@@ -1,9 +1,6 @@
----
-# Process manifest for adding in site variables.
----
 {
-  "name": "{{ site.title }}",
-  "short_name": "{{ site.title }}",
+  "name": "sgom.es",
+  "short_name": "sgom.es",
   "icons": [{
         "src": "assets/images/touch/16x16.png",
         "sizes": "16x16",
