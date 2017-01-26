@@ -129,7 +129,11 @@ gulp.task('build-pages-prod', ['sass', 'build-post-data', 'copy-root'], () => bu
 gulp.task('build-dev', ['build-pages-dev', 'build-posts-dev', 'copy-assets', 'copy-post-assets', 'generate-touch']);
 gulp.task('build-prod', ['build-pages-prod', 'build-posts-prod', 'copy-assets', 'copy-post-assets', 'generate-touch']);
 
-gulp.task('deploy', ['build-prod'], () => {
-  return gulp.src('./.dist', {base: './.dist'})
+gulp.task('copy-cname', () => gulp.src(['./CNAME'])
+  .pipe(gulp.dest('./.dist'))
+);
+
+gulp.task('deploy', ['build-prod', 'copy-cname'], () => {
+  return gulp.src('./.dist/**/*', {base: './.dist'})
     .pipe(ghPages());
 });
