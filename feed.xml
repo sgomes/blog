@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sgom.es</id>
     <title>sgom.es</title>
-    <updated>2017-01-27T11:54:45Z</updated>
+    <updated>2017-01-27T14:57:18Z</updated>
     <author>
         <name>Sérgio Gomes</name>
         <email>mail@sgom.es</email>
@@ -19,6 +19,20 @@
         </link>
         <updated>2016-12-21T16:51:00Z</updated>
         <summary type="html"><![CDATA[Theming is always a challenge, particularly when you’re working on a library, rather than a standalone website. One example of an interesting issue that you’ll come across very frequently is choosing a text color that ensures readability and accessibility.
+]]></summary>
+        <author>
+            <name>Sérgio Gomes</name>
+            <email>mail@sgom.es</email>
+            <uri>https://sgom.es</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CSS Custom Properties - The Basics]]></title>
+        <id>https://sgom.es/posts/2017-01-27-css-custom-properties-the-basics/</id>
+        <link href="https://sgom.es/posts/2017-01-27-css-custom-properties-the-basics/">
+        </link>
+        <updated>2017-01-27T15:00:00Z</updated>
+        <summary type="html"><![CDATA[So you’ve heard about CSS Custom Properties (also known as CSS Variables) and you might have an idea of what they are. You’re not quite clear on the specifics or browser support, you haven’t heard anything about best practices, and you don’t know how they’re better than variables in Sass or Less, though. Well, read on!
 ]]></summary>
         <author>
             <name>Sérgio Gomes</name>
