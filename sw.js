@@ -1,5 +1,5 @@
-const CACHE_NAME = 'sgomes-v7';
-const TIMEOUT = 4;
+const CACHE_NAME = 'sgomes-v8';
+const TIMEOUT = 400;
 
 // Cached files
 const SITE_ASSETS = [
@@ -53,7 +53,7 @@ self.addEventListener('fetch', event => {
     } else if (requestUrl.pathname === '/' || requestUrl.pathname === '/index.html') {
       // Home. Try network first, with timeout. If it times out, go to cache.
       networkWithTimeoutAndUpdate(event);
-    } else if (/\.html$/.test(requestUrl.pathname)) {
+    } else if (/\.html$/.test(requestUrl.pathname) || /\/posts\/.*\/$/.test(requestUrl.pathname)) {
       // Article. Try network first, with timeout. If it times out, go to cache.
       networkWithTimeoutAndUpdate(event, true);
     } else {
