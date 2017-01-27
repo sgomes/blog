@@ -1,6 +1,7 @@
 {
   "site": {
     "title": "sgom.es",
+    "author": "Sérgio Gomes",
     "email": "mail@sgom.es",
     "description": "I’m Sérgio, and I work at Web Developer Relations at Google, helping developers make the web a better place.",
     "lang": "en",
