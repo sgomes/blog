@@ -155,6 +155,19 @@ gulp.task('build-posts-dev', ['sass', 'copy-post-assets'], () => buildPosts(fals
 gulp.task('build-posts-prod', ['sass', 'copy-post-assets'], () => buildPosts(true));
 
 function buildPages(production) {
+  posts.sort((a,b) => {
+    const dateA = moment(a.date, dateFormat).toDate();
+    const dateB = moment(b.date, dateFormat).toDate();
+
+    if (dateA < dateB) {
+      return 1;
+    } else if (dateA > dateB) {
+      return -1;
+    }
+
+    return 0;
+  });
+
   return gulp.src('./src/index.html', { base: './src' })
     .pipe(data(file => JSON.parse(fs.readFileSync('./src/site.json'))))
     .pipe(data(() => ({ environment: production ? 'production' : 'development' })))
