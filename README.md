@@ -17,15 +17,15 @@ First, install all the dependencies:
 npm i
 ```
 
-and run the `build` task:
+and run the `build-dev` or `build-prod` tasks:
 
 ```
-gulp build
+gulp build-dev
 ```
 
 ## Deploying
 
-The `deploy` task takes care of pushing to `gh-pages`:
+The `deploy` task takes care of building in production mode and pushing to `gh-pages`:
 
 ```
 gulp deploy

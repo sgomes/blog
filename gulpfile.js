@@ -14,13 +14,16 @@ const moment = require('moment');
 const nunjucks = require('nunjucks');
 const fm = require('front-matter');
 const through = require('through2');
-const highlights = require('highlights');
+const Highlights = require('highlights');
+const Feed = require('feed');
 
 const logo = 'src/assets/images/logo.svg';
 const touchDir = './.dist/assets/images/touch';
 
+const dateFormat = 'YYYY-MM-DD HH:mm Z';
+
 let env = new nunjucks.Environment(new nunjucks.FileSystemLoader(['./src/', './.build/']))
-    .addFilter('formatDate', (str, format) => moment(str, "YYYY-MM-DD HH:mm Z").format(format));
+    .addFilter('formatDate', (str, format) => moment(str, dateFormat).format(format));
 
 let posts = [];
 
@@ -65,6 +68,42 @@ gulp.task('build-post-data', () => gulp.src(['./src/posts/**/index.md'], { base:
   }))
 );
 
+function buildFeed() {
+  const data = JSON.parse(fs.readFileSync('./src/site.json'));
+  const site = data.site;
+
+  const author = {
+    name: site.author,
+    email: site.email,
+    link: site.url
+  };
+
+  const feed = new Feed({
+    title: site.title,
+    description: site.description,
+    id: site.url,
+    link: site.url,
+    image: `${site.url}/logo.svg`,
+    author: author
+  });
+
+  for (post of posts) {
+    feed.addItem({
+      title: post.title,
+      id: `${site.url}${post.url}`,
+      link: `${site.url}${post.url}`,
+      description: post.excerpt,
+      author: [author],
+      date: moment(post.date, dateFormat).toDate()
+    });
+  }
+
+  return feed.render('atom-1.0');
+}
+gulp.task('build-feed', ['build-post-data'], cb => {
+  fs.writeFile('./.dist/feed.xml', buildFeed(), cb);
+});
+
 function buildPosts(production) {
   return gulp.src(['./src/posts/**/index.md'], { base: './src' })
     .pipe(data(file => JSON.parse(fs.readFileSync('./src/site.json'))))
@@ -77,7 +116,7 @@ function buildPosts(production) {
     .pipe(nunjucksGulp.compile(null, {env: env}))
     .pipe(markdown({
       highlight: (code, lang) => {
-        const highlighter = new highlights();
+        const highlighter = new Highlights();
         let scopeName = null;
 
         switch(lang) {
@@ -126,8 +165,10 @@ function buildPages(production) {
 gulp.task('build-pages-dev', ['sass', 'build-post-data', 'copy-root'], () => buildPages(false));
 gulp.task('build-pages-prod', ['sass', 'build-post-data', 'copy-root'], () => buildPages(true));
 
-gulp.task('build-dev', ['build-pages-dev', 'build-posts-dev', 'copy-assets', 'copy-post-assets', 'generate-touch']);
-gulp.task('build-prod', ['build-pages-prod', 'build-posts-prod', 'copy-assets', 'copy-post-assets', 'generate-touch']);
+gulp.task('build-dev',
+    ['build-pages-dev', 'build-posts-dev', 'build-feed', 'copy-assets', 'copy-post-assets', 'generate-touch']);
+gulp.task('build-prod',
+    ['build-pages-prod', 'build-posts-prod', 'build-feed', 'copy-assets', 'copy-post-assets', 'generate-touch']);
 
 gulp.task('copy-cname', () => gulp.src(['./CNAME'])
   .pipe(gulp.dest('./.dist'))
