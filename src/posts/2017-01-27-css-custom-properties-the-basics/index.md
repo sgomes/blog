@@ -217,6 +217,7 @@ Here’s a quick overview of some of the functionality and whether or not it’s
 }
 </style>
 
+<div class="overflow-x">
 <table id="table1">
   <tr>
     <th>Functionality</th>
@@ -302,3 +303,4 @@ Here’s a quick overview of some of the functionality and whether or not it’s
     <td colspan="2"><b>No.</b> Impossible to achieve with preprocessors.</td>
   </tr>
 </table>
+</div>
