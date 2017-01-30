@@ -186,7 +186,7 @@ One of the important things to consider when comparing to variables in preproces
 You can access custom properties through the standard `getPropertyValue` and `setProperty` methods of [any element’s style property](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration):
 
 ```js
-const styles = getComputedStyles(document.querySelector('.foo'));
+const styles = getComputedStyle(document.querySelector('.foo'));
 // Read value. Be sure to trim to remove whitespace.
 const oldColor = foo.style.getPropertyValue('--color').trim();
 // Write value.
