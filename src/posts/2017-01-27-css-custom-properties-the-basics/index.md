@@ -188,7 +188,7 @@ You can access custom properties through the standard `getPropertyValue` and `se
 ```js
 const styles = getComputedStyle(document.querySelector('.foo'));
 // Read value. Be sure to trim to remove whitespace.
-const oldColor = foo.style.getPropertyValue('--color').trim();
+const oldColor = styles.getPropertyValue('--color').trim();
 // Write value.
 foo.style.setProperty('--color', 'green');
 ```
