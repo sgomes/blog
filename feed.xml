@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sgom.es</id>
     <title>sgom.es</title>
-    <updated>2017-01-30T10:14:23Z</updated>
+    <updated>2017-02-03T15:59:46Z</updated>
     <author>
         <name>Sérgio Gomes</name>
         <email>mail@sgom.es</email>
@@ -33,6 +33,20 @@
         </link>
         <updated>2017-01-27T15:00:00Z</updated>
         <summary type="html"><![CDATA[So you’ve heard about CSS Custom Properties (also known as CSS Variables) and you might have an idea of what they are. You’re not quite clear on the specifics or browser support, you haven’t heard anything about best practices, and you don’t know how they’re better than variables in Sass or Less, though. Well, read on!
+]]></summary>
+        <author>
+            <name>Sérgio Gomes</name>
+            <email>mail@sgom.es</email>
+            <uri>https://sgom.es</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[More Readable CSS with CSS Custom Properties]]></title>
+        <id>https://sgom.es/posts/2017-02-03-more-readable-css-with-css-custom-properties/</id>
+        <link href="https://sgom.es/posts/2017-02-03-more-readable-css-with-css-custom-properties/">
+        </link>
+        <updated>2017-02-03T16:00:00Z</updated>
+        <summary type="html"><![CDATA[Now that you know how CSS Custom Properties work, you can start thinking about using them to improve readability in your CSS and making future maintenance easier.
 ]]></summary>
         <author>
             <name>Sérgio Gomes</name>
