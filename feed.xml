@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sgom.es</id>
     <title>sgom.es</title>
-    <updated>2017-02-06T13:09:41Z</updated>
+    <updated>2017-02-10T16:06:08Z</updated>
     <author>
         <name>Sérgio Gomes</name>
         <email>mail@sgom.es</email>
@@ -47,6 +47,20 @@
         </link>
         <updated>2017-02-03T16:00:00Z</updated>
         <summary type="html"><![CDATA[Now that you know how CSS Custom Properties work, you can start thinking about using them to improve readability in your CSS and making future maintenance easier.
+]]></summary>
+        <author>
+            <name>Sérgio Gomes</name>
+            <email>mail@sgom.es</email>
+            <uri>https://sgom.es</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Bridging CSS and JS with Custom Properties]]></title>
+        <id>https://sgom.es/posts/2017-02-10-bridging-css-and-js-with-custom-properties/</id>
+        <link href="https://sgom.es/posts/2017-02-10-bridging-css-and-js-with-custom-properties/">
+        </link>
+        <updated>2017-02-10T16:00:00Z</updated>
+        <summary type="html"><![CDATA[CSS Custom Properties have many interesting uses beyond serving as a simple storage and retrieval mechanism for CSS values. In this article, we will explore the best practices around using them as a bridge between CSS and JavaScript.
 ]]></summary>
         <author>
             <name>Sérgio Gomes</name>

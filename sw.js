@@ -50,12 +50,10 @@ self.addEventListener('fetch', event => {
     if (SITE_ASSETS.find(url => requestUrl.pathname === url)) {
       // Installed asset. Cache only, with network fallback.
       cacheWithNetworkFallback(event);
-    } else if (requestUrl.pathname === '/' || requestUrl.pathname === '/index.html') {
-      // Home. Try network first, with timeout. If it times out, go to cache.
+    } else if (requestUrl.pathname === '/' ||  // Home. Try network first, with timeout. If it times out, go to cache.
+        /\.html$/.test(requestUrl.pathname) || // Article. Try network first, with timeout. If it times out, go to cache.
+        /\/posts\/.*\/$/.test(requestUrl.pathname)) {
       networkWithTimeoutAndUpdate(event);
-    } else if (/\.html$/.test(requestUrl.pathname) || /\/posts\/.*\/$/.test(requestUrl.pathname)) {
-      // Article. Try network first, with timeout. If it times out, go to cache.
-      networkWithTimeoutAndUpdate(event, true);
     } else {
       // Cache, then update.
       cacheThenUpdate(event);
