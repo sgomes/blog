@@ -28,12 +28,13 @@ $syntax-white:           #F5F5F5;
 // Colors
 $syntax-red:             #B71C1C;
 $syntax-orange:          #E65100;
-$syntax-yellow:          #FBC02D;
 $syntax-green:           #1B5E20;
 $syntax-cyan:            #006064;
 $syntax-blue:            #0D47A1;
 $syntax-purple:          #4A148C;
 $syntax-brown:           #3E2723;
+// Hacky fix for low contrast.
+$syntax-yellow:          $syntax-brown;//#FBC02D;
 
 $syntax-background-color: #F5F5F5;
 $syntax-text-color: $black-text;

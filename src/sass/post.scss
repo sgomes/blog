@@ -102,6 +102,10 @@
     overflow-x: auto;
   }
 
+  pre + pre {
+    margin-top: 16px;
+  }
+
   code {
     font-size: 0.9375rem;
     color: #0D47A1;
