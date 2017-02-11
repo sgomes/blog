@@ -37,7 +37,7 @@ The simplest case of this, and one that’s a long-established best practice, is
 const button = document.querySelector('.button');
 button.addEventListener('click', () => {
   button.classList.toggle('js-toggled');
-};
+});
 ```
 
 This approach allows for the CSS to handle all of the presentation, while the JavaScript merely triggers the state changes. You could easily switch to a different visual representation of the changes (say, changing color) in plain CSS, without touching a line of JavaScript. Similarly, you could change the condition that triggers the state change purely in JavaScript, with no changes to your CSS files.
@@ -140,20 +140,20 @@ Or in HTML:
 
 ```js
 const colorList = document.querySelectorAll('.js-update-color');
-for (let el of list) {
+for (let el of colorList) {
   el.style.setProperty('color', newColor);
 }
 
 const backgroundList =
     document.querySelectorAll('.js-update-background');
-for (let el of list) {
+for (let el of backgroundList) {
   el.style.setProperty('background-color', newColor);
 }
 ```
 
 Either way, this would make maintenance harder, as this parallel list of affected elements and properties would need to be kept up to date.
 
-Yet another option would be to inject a new stylesheet onto the page, which would override the default colors. This approach is probably slightly better (albeit somewhat hacky), but it would still require overriding a number of styles and require some sort of template, which would also require maintenance:
+Yet another option would be to inject a new stylesheet onto the page, which would override the default colors. This approach is probably slightly better (albeit somewhat hacky), but it would still require overriding a number of styles and keeping some sort of template, which would also need maintenance:
 
 ```txt
 .play-button {
@@ -190,7 +190,7 @@ document.querySelector('.player').style.setProperty(
     '--theme-color', newColor);
 ```
 
-This approach doesn’t require your script to have any awareness of which elements are affected, and doesn’t require you to maintain any sort of template for your changes. And as a bonus, it’s significantly simpler than any of the previous approaches!
+This approach doesn’t require your script to have any awareness of which elements are affected, and doesn’t force you to maintain any sort of template for your changes. And as a bonus, it’s significantly simpler than any of the previous approaches!
 
 
 ## Why this is important
@@ -199,6 +199,6 @@ Limiting your interactions to CSS class names and custom properties allows you t
 
 This means that any runtime changes are restricted to a set of well-defined entities, which are designed for interaction. By doing this, you’ll reduce the scope for bugs and unexpected behavior, as well as make it easier to test styling and behavior separately.
 
-Maintenance also becomes easier, since you’re able to modify and maintain styling and logic independent of each other, while sticking to the right tool for the job for each of them: CSS for styling and JS for logic.
+Maintenance also becomes easier, since you’re able to modify and maintain styling and logic independent of each other, while sticking to the right tools for the job: CSS for styling and JS for logic.
 
 Next week, we’ll take best practices even further and look at the benefits of designing modular and componentized CSS with custom properties. See you then!
