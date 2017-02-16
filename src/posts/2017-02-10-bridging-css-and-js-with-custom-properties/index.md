@@ -94,7 +94,7 @@ container.addEventListener('click', evt => {
 });
 ```
 
-Now we’re back to handling all the presentation details in CSS, and we’re free to change the visual representation without making changes to the JavaScript. In fact, we could now even replace the auxiliary element for an `::after` block:
+Now we’re back to handling all the presentation details in CSS, and we’re free to change the visual representation without making changes to the JavaScript. In fact, we could now even replace the auxiliary element with an `::after` block:
 
 ```css
 .container {
@@ -123,7 +123,7 @@ const thingsToUpdate = new Map([
   ['playButton', 'background-color'],
   ['title': 'color'],
   ['progress': 'background-color']
-])};
+]);
 
 for (let [id, property] of thingsToUpdate) {
   document.getElementById(id).style.setProperty(property, newColor);
