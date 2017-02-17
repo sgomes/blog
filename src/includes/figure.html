@@ -2,11 +2,17 @@
 
 {% if figure.caption %}
 <figure>
-  <img class="post-image" src="{{ figure.filename }}" alt="{{ figure.caption }}" width="{{ figure.width }}"/>
-  <figcaption>{{ figure.caption }}</figcaption>
+  <div class="aspect-ratio-image post-image"
+       style="width: {{ figure.width }}px; --aspect-w: {{ figure.width }}; --aspect-h: {{ figure.height }};">
+    <img src="{{ figure.filename }}" alt="{{ figure.caption | striptags }}">
+  </div>
+  <figcaption>{{ figure.caption | safe }}</figcaption>
 </figure>
 {% else %}
-<img class="post-image" src="{{ figure.filename }}" alt="{{ figure.alt }}" width="{{ figure.width }}">
+<div class="aspect-ratio-image post-image"
+     style="width: {{ figure.width }}px; --aspect-w: {{ figure.width }}; --aspect-h: {{ figure.height }};">
+  <img src="{{ figure.filename }}" alt="{{ figure.caption | striptags }}">
+</div>
 {% endif %}
 
 {% endif %}
