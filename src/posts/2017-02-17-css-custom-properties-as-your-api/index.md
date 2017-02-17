@@ -193,7 +193,8 @@ So let’s make it a fixed aspect ratio image wrapper, with a custom property-ba
 
 ```html
 <div class="my-content my-image-wrapper"
-     style="width: 768px; --my-image-wrapper-w: 4; --my-image-wrapper-h: 3;">
+ style="width:768px; --my-image-wrapper-w:4; --my-image-wrapper-h:3;">
+
   <img src="kitten.jpg" alt="A cute kitten">
 </div>
 ```
