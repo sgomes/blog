@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sgom.es</id>
     <title>sgom.es</title>
-    <updated>2017-02-11T19:22:03Z</updated>
+    <updated>2017-02-17T17:59:02Z</updated>
     <author>
         <name>Sérgio Gomes</name>
         <email>mail@sgom.es</email>
@@ -61,6 +61,20 @@
         </link>
         <updated>2017-02-10T16:00:00Z</updated>
         <summary type="html"><![CDATA[CSS Custom Properties have many interesting uses beyond serving as a simple storage and retrieval mechanism for CSS values. In this article, we will explore the best practices around using them as a bridge between CSS and JavaScript.
+]]></summary>
+        <author>
+            <name>Sérgio Gomes</name>
+            <email>mail@sgom.es</email>
+            <uri>https://sgom.es</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CSS Custom Properties as your API]]></title>
+        <id>https://sgom.es/posts/2017-02-17-css-custom-properties-as-your-api/</id>
+        <link href="https://sgom.es/posts/2017-02-17-css-custom-properties-as-your-api/">
+        </link>
+        <updated>2017-02-17T18:00:00Z</updated>
+        <summary type="html"><![CDATA[Now that you’re comfortable with custom properties and know how to use them to improve readability in your CSS, let’s look at how you can use them to enhance modularity and reusability in your code.
 ]]></summary>
         <author>
             <name>Sérgio Gomes</name>
