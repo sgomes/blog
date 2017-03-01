@@ -206,6 +206,8 @@ And now the kitten is no longer deformed!
 
 You could even make it part of your build pipeline and have it automatically applied to every image. Pretty neat!
 
+> **Note:** I turned this into an NPM package! Check out [css-aspect-ratio](https://www.npmjs.com/package/css-aspect-ratio).
+
 ## Web components
 
 [Web components](https://www.webcomponents.org/) are an exciting new set of web technologies that allow you to develop true encapsulated and reusable components.

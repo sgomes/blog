@@ -245,4 +245,4 @@ Now all of the calculations are done in a single place, and the only thing thatâ
 
 > **Note**: the excerpt above might be too advanced for CSS preprocessors. Please bear that in mind if youâ€™re using one and getting unexpected results!
 
-Now that you know how to make your CSS a bit more readable and maintainable, we will be taking a look at how even the JavaScript side of things can benefit from custom properties. See you next week!
+Now that you know how to make your CSS a bit more readable and maintainable, we will be taking a look at how [even the JavaScript side of things can benefit from custom properties](/posts/2017-02-10-bridging-css-and-js-with-custom-properties).

@@ -195,7 +195,7 @@ foo.style.setProperty('--color', 'green');
 
 Changing the value of a custom property in this way will immediately affect any CSS property that depends on it, just as if you had changed that property directly. This means it’s a great way to easily apply script-driven changes across many elements.
 
-We will cover this topic in further detail in a future article, where we also discuss best practices around this technique.
+We will cover this topic in further detail in [another article, where we also discuss best practices around this technique](/posts/2017-02-10-bridging-css-and-js-with-custom-properties).
 
 ## Appendix: Filling in the Gaps With Preprocessing
 

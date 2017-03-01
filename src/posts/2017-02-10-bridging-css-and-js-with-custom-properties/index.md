@@ -201,4 +201,4 @@ This means that any runtime changes are restricted to a set of well-defined enti
 
 Maintenance also becomes easier, since you’re able to modify and maintain styling and logic independent of each other, while sticking to the right tools for the job: CSS for styling and JS for logic.
 
-Next week, we’ll take best practices even further and look at the benefits of designing modular and componentized CSS with custom properties. See you then!
+On [the next article](/posts/2017-02-17-css-custom-properties-as-your-api), we’ll take best practices even further and look at the benefits of designing modular and componentized CSS with custom properties. See you then!
