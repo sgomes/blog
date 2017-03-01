@@ -1,12 +1,12 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const shell = require('gulp-shell');
-const csso = require('gulp-csso');
 const ghPages = require('gulp-gh-pages');
 const nunjucksGulp = require('gulp-nunjucks');
 const data = require('gulp-data');
 const markdown = require('gulp-markdown');
 const gap = require('gulp-append-prepend');
+const cleanCSS = require('gulp-clean-css');
 
 const path = require('path');
 const fs = require('fs');
@@ -41,7 +41,7 @@ gulp.task('generate-touch', ['create-touch-dir'],
 
 gulp.task('sass', () => gulp.src('./src/sass/main.scss')
   .pipe(sass({includePaths: 'node_modules'}).on('error', sass.logError))
-  .pipe(csso())
+  .pipe(cleanCSS({compatibility: 'ie9'}))
   .pipe(gulp.dest('./.build'))
 );
 

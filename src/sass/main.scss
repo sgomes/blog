@@ -36,7 +36,7 @@ $mdc-theme-background: #fff;
 @import "home";
 @import "footer";
 @import "syntax";
-@import "aspect-ratio";
+@import "css-aspect-ratio/css-aspect-ratio";
 
 html, body {
   display: flex;
