@@ -124,7 +124,7 @@ However, doing this with a `max-width` doesn’t work very well. The browser doe
 {% set figure = { filename: 'deformed-kitten.jpg', width: 610, height: 780, caption: 'A deformed kitten. Original photo by <a href="https://www.flickr.com/photos/lachlanrogers/">latch.r</a>.' } %}
 {% include 'includes/figure.html' %}
 
-So how do you preserve the aspect ratio? There’s a very popular CSS-only trick for maintaining the aspect ratio of a block, which makes use of some quirks in `padding`. Here’s how you would implement a 16:9 aspect ratio:
+So how do you preserve the aspect ratio? There’s a very popular CSS-only trick for maintaining the aspect ratio of a block ([original article here](https://alistapart.com/article/creating-intrinsic-ratios-for-video)), which makes use of some quirks in `padding`. Here’s how you would implement a 16:9 aspect ratio:
 
 ```css
 .aspect-ratio-16-9 {
@@ -273,3 +273,5 @@ If you’re using Shadow DOM in your components, it becomes even more important 
 Separating out concerns between a module (or web component) and its client code is important, because it allows developers that are using your code to know what’s safe to change, and what they are modifying at their own risk. Even if the developer using your code is yourself, several months down the line, it could be that things that are obvious now won’t even register then.
 
 Establishing a set of well-defined custom properties makes your modules and components more reusable, makes client code less brittle, and even serves as built-in documentation for what your module or component can do.
+
+**Edit (2017-03-02):** Added original source for CSS aspect ratio trick.
