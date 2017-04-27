@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sgom.es</id>
     <title>sgom.es</title>
-    <updated>2017-04-24T16:06:03Z</updated>
+    <updated>2017-04-27T12:23:19Z</updated>
     <author>
         <name>Sérgio Gomes</name>
         <email>mail@sgom.es</email>
@@ -88,7 +88,7 @@
         <link href="https://sgom.es/posts/2017-04-24-material-money-sample/">
         </link>
         <updated>2017-04-24T17:05:00Z</updated>
-        <summary type="html"><![CDATA[Over the past while, I've been working on a sample Progressive Web App with Mustafa. We learned a lot! This post is an overview of what I learned as a developer, and what I'd like to explore further.
+        <summary type="html"><![CDATA[Over the past while, I’ve been working on a sample Progressive Web App with Mustafa. We learned a lot! This post is an overview of what I learned as a developer, and what I’d like to explore further.
 ]]></summary>
         <author>
             <name>Sérgio Gomes</name>
