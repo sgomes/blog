@@ -153,7 +153,7 @@ In fact, you could extend this idea to the entire layout of your site, by making
 }
 
 .title {
-  text-size: calc(5 * var(--page-grid));
+  font-size: calc(5 * var(--page-grid));
 }
 
 .paragraph {

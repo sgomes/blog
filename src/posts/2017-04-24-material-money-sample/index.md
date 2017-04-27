@@ -19,7 +19,7 @@ In any case, it’s now been released as [Material Money](https://material.money
 
 ## Overview
 
-So what went into making this PWA? Here are a few higlights:
+So what went into making this PWA? Here are a few highlights:
 
 - **Vanilla (no frameworks).** I wanted to see what it took to develop a nice-feeling application without using any frameworks or complex runtime libraries. As a single-page application, this was quite doable; it may be harder for larger applications, but I hope to explore that at some point.
 - **Smooth.** The goal is for the app to always hit 60fps. Transitions are CSS-driven with JS orchestration, which works quite well, given that the app is not scripting-heavy, and the main thread is usually free. The app also uses [Material Components for the web](https://github.com/material-components/material-components-web) for the UI elements, that have themselves been built with performance in mind. Beyond that, there are a number of interesting tricks in there to speed things up, such as using proxy elements in animations.
