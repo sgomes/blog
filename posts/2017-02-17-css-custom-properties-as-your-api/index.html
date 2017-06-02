@@ -109,8 +109,8 @@
 </code></pre>
 <p>However, doing this with a <code>max-width</code> doesn’t work very well. The browser doesn’t take into account the image’s aspect ratio when resizing, and will apply the maximum width of 600px while maintaining a height of 768px, resulting in a sadly deformed kitten.</p>
 <figure>
-  <div class="aspect-ratio-image post-image"
-       style="width: 610px; --aspect-w: 610; --aspect-h: 780;">
+  <div class="aspect-ratio post-image"
+       style="width: 610px; --aspect-ratio-w: 610; --aspect-ratio-h: 780;">
     <img src="deformed-kitten.jpg" alt="A deformed kitten. Original photo by latch.r.">
   </div>
   <figcaption>A deformed kitten. Original photo by <a href="https://www.flickr.com/photos/lachlanrogers/">latch.r</a>.</figcaption>
@@ -135,8 +135,8 @@
 </code></pre>
 <p>And now the kitten is no longer deformed!</p>
 <figure>
-  <div class="aspect-ratio-image post-image"
-       style="width: 614px; --aspect-w: 614; --aspect-h: 464;">
+  <div class="aspect-ratio post-image"
+       style="width: 614px; --aspect-ratio-w: 614; --aspect-ratio-h: 464;">
     <img src="healthy-kitten.jpg" alt="A healthy, undeformed kitten. Original photo by latch.r.">
   </div>
   <figcaption>A healthy, undeformed kitten. Original photo by <a href="https://www.flickr.com/photos/lachlanrogers/">latch.r</a>.</figcaption>

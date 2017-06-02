@@ -84,8 +84,8 @@
     
 <p><em>Originally <a href="https://medium.com/dev-channel/using-sass-to-automatically-pick-text-colors-4ba7645d2796">posted on Medium</a></em></p>
 <p>Theming is always a challenge, particularly when you’re working on a library, rather than a standalone website. One example of an interesting issue that you’ll come across very frequently is choosing a text color that ensures readability and accessibility.</p>
-<div class="aspect-ratio-image post-image"
-     style="width: 558px; --aspect-w: 558; --aspect-h: 146;">
+<div class="aspect-ratio post-image"
+     style="width: 558px; --aspect-ratio-w: 558; --aspect-ratio-h: 146;">
   <img src="light-dark.png" alt="">
 </div>
 
@@ -108,8 +108,8 @@
 <p>Users can override the <code>$theme-color</code>, and depending on what they pick, the <code>choose-contrast-color</code> function will return either <code>black</code> or <code>white</code>.</p>
 <p>So how do we implement <code>choose-contrast-color</code>? It turns out that all of the necessary calculations and minimum contrast rules are well defined in the <a href="https://www.w3.org/TR/WCAG20/">WCAG 2.0 specification</a>. There’s a <a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html">whole section explaining visual contrast in detail</a>, several links to ISO and ANSI standards, and even <a href="https://www.w3.org/Graphics/Color/sRGB.html">papers on the subject</a>. Digging around for a while, I was able to find a <a href="https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests">published W3C technique with a clear description of the algorithm</a>:</p>
 <figure>
-  <div class="aspect-ratio-image post-image"
-       style="width: 1606px; --aspect-w: 1606; --aspect-h: 1144;">
+  <div class="aspect-ratio post-image"
+       style="width: 1606px; --aspect-ratio-w: 1606; --aspect-ratio-h: 1144;">
     <img src="algorithm.png" alt="The algorithm for calculating color contrast">
   </div>
   <figcaption>The algorithm for calculating color contrast</figcaption>
@@ -125,8 +125,8 @@
 <p>I was reviewing my math and exploring the possibility of using Newtonian approximation for the fractional parts of the exponent, until I had a chat with <a href="https://twitter.com/wibblymat">@wibblymat</a>, who happened to be implementing an emulator at the time. He suggested a much simpler, old-school approach: using a lookup table!</p>
 <p>The only part that involves exponentiation is the per-channel color space conversions done as part of the luminance calculation. In addition, there are only 256 possible values for each channel. This means that we can easily create a lookup table.</p>
 <figure>
-  <div class="aspect-ratio-image post-image"
-       style="width: 370px; --aspect-w: 370; --aspect-h: 584;">
+  <div class="aspect-ratio post-image"
+       style="width: 370px; --aspect-ratio-w: 370; --aspect-ratio-h: 584;">
     <img src="lookup.png" alt="An excerpt of the lookup table">
   </div>
   <figcaption>An excerpt of the lookup table</figcaption>
