@@ -2,15 +2,15 @@
 
 {% if figure.caption %}
 <figure>
-  <div class="aspect-ratio-image post-image"
-       style="width: {{ figure.width }}px; --aspect-w: {{ figure.width }}; --aspect-h: {{ figure.height }};">
+  <div class="aspect-ratio post-image"
+       style="width: {{ figure.width }}px; --aspect-ratio-w: {{ figure.width }}; --aspect-ratio-h: {{ figure.height }};">
     <img src="{{ figure.filename }}" alt="{{ figure.caption | striptags }}">
   </div>
   <figcaption>{{ figure.caption | safe }}</figcaption>
 </figure>
 {% else %}
-<div class="aspect-ratio-image post-image"
-     style="width: {{ figure.width }}px; --aspect-w: {{ figure.width }}; --aspect-h: {{ figure.height }};">
+<div class="aspect-ratio post-image"
+     style="width: {{ figure.width }}px; --aspect-ratio-w: {{ figure.width }}; --aspect-ratio-h: {{ figure.height }};">
   <img src="{{ figure.filename }}" alt="{{ figure.caption | striptags }}">
 </div>
 {% endif %}
