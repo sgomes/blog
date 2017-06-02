@@ -1,6 +1,7 @@
 ---
 title:  CSS Custom Properties as your API
 date:   2017-02-17 18:00:00 +0000
+updated: 2017-03-02 18:00:00 +0000
 excerpt: >
   Now that you’re comfortable with custom properties and know how to use them to improve readability in your CSS, let’s look at how you can use them to enhance modularity and reusability in your code.
 tags:
@@ -18,7 +19,7 @@ Now that you’re [comfortable with custom properties](/posts/2017-01-27-css-cus
 If you don't have access to the superb [CSS Grid](https://www.w3.org/TR/css-grid-1/), building a [flexbox](https://www.w3.org/TR/css-flexbox-1/)-based grid becomes a very interesting CSS exercise, that can turn out to be an extremely customizable and reusable module. Let’s look at a simple implementation:
 
 ```css
-.grid {  
+.grid {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

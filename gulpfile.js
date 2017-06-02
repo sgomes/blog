@@ -21,6 +21,7 @@ const logo = 'src/assets/images/logo.svg';
 const touchDir = './.dist/assets/images/touch';
 
 const dateFormat = 'YYYY-MM-DD HH:mm Z';
+const imageSizes = [16, 32, 144, 152, 192, 512];
 
 let env = new nunjucks.Environment(new nunjucks.FileSystemLoader(['./src/', './.build/']))
     .addFilter('formatDate', (str, format) => moment(str, dateFormat).format(format));
@@ -34,8 +35,14 @@ gulp.task('clean', shell.task(['rm -rf .build', 'rm -rf .dist']));
 gulp.task('create-touch-dir', shell.task([`mkdir -p ${touchDir}`]));
 
 gulp.task('generate-touch', ['create-touch-dir'],
-  shell.task([16, 32, 144, 152, 192].map(size =>
+  shell.task(imageSizes.map(size =>
     `convert -background none -density 512 -resize ${size}x ${logo} ${touchDir}/${size}x${size}.png`
+  ))
+);
+
+gulp.task('compress-touch', ['generate-touch'],
+  shell.task(imageSizes.map(size =>
+    `optipng ${touchDir}/${size}x${size}.png`
   ))
 );
 
@@ -68,8 +75,7 @@ gulp.task('build-post-data', () => gulp.src(['./src/posts/**/index.md'], { base:
   }))
 );
 
-function buildFeed() {
-  const data = JSON.parse(fs.readFileSync('./src/site.json'));
+function buildAtomFeed(data) {
   const site = data.site;
 
   const author = {
@@ -98,10 +104,11 @@ function buildFeed() {
     });
   }
 
-  return feed.render('atom-1.0');
+  return feed.atom1();
 }
 gulp.task('build-feed', ['build-post-data'], cb => {
-  fs.writeFile('./.dist/feed.xml', buildFeed(), cb);
+  const data = JSON.parse(fs.readFileSync('./src/site.json'));
+  fs.writeFile('./.dist/feed.xml', buildAtomFeed(data), cb);
 });
 
 function buildPosts(production) {
@@ -179,9 +186,9 @@ gulp.task('build-pages-dev', ['sass', 'build-post-data', 'copy-root'], () => bui
 gulp.task('build-pages-prod', ['sass', 'build-post-data', 'copy-root'], () => buildPages(true));
 
 gulp.task('build-dev',
-    ['build-pages-dev', 'build-posts-dev', 'build-feed', 'copy-assets', 'copy-post-assets', 'generate-touch']);
+    ['build-pages-dev', 'build-posts-dev', 'build-feed', 'copy-assets', 'copy-post-assets', 'compress-touch']);
 gulp.task('build-prod',
-    ['build-pages-prod', 'build-posts-prod', 'build-feed', 'copy-assets', 'copy-post-assets', 'generate-touch']);
+    ['build-pages-prod', 'build-posts-prod', 'build-feed', 'copy-assets', 'copy-post-assets', 'compress-touch']);
 
 gulp.task('copy-cname', () => gulp.src(['./CNAME'])
   .pipe(gulp.dest('./.dist'))
