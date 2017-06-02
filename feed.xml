@@ -2,7 +2,8 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sgom.es</id>
     <title>sgom.es</title>
-    <updated>2017-04-27T12:26:05Z</updated>
+    <updated>2017-06-02T12:40:59Z</updated>
+    <generator>Feed for Node.js</generator>
     <author>
         <name>Sérgio Gomes</name>
         <email>mail@sgom.es</email>
@@ -11,7 +12,6 @@
     <link rel="alternate" href="https://sgom.es"/>
     <subtitle>I’m Sérgio, and I work at Web Developer Relations at Google, helping developers make the web a better place.</subtitle>
     <logo>https://sgom.es/logo.svg</logo>
-    <generator>Feed for Node.js</generator>
     <entry>
         <title type="html"><![CDATA[Using Sass to automatically pick text colors]]></title>
         <id>https://sgom.es/posts/2016-12-21-using-sass-to-automatically-pick-text-colors/</id>

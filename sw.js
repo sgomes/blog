@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sgomes-v8';
+const CACHE_NAME = 'sgomes-v9';
 const TIMEOUT = 400;
 
 // Cached files
@@ -15,6 +15,7 @@ const SITE_ASSETS = [
   '/assets/images/touch/144x144.png',
   '/assets/images/touch/152x152.png',
   '/assets/images/touch/192x192.png',
+  '/assets/images/touch/512x512.png',
   '/assets/fonts/oMMgfZMQthOryQo9n22dcuvvDin1pK8aKteLpeZ5c0A.woff2',
   '/assets/fonts/RxZJdnzeo3R5zSexge8UUZBw1xU1rKptJj_0jans920.woff2',
   '/assets/fonts/d-6IYplOFocCacKzxwXSOJBw1xU1rKptJj_0jans920.woff2',
