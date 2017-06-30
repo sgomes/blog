@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sgom.es</id>
     <title>sgom.es</title>
-    <updated>2017-06-02T12:56:28Z</updated>
+    <updated>2017-06-30T16:49:01Z</updated>
     <generator>Feed for Node.js</generator>
     <author>
         <name>Sérgio Gomes</name>
@@ -89,6 +89,20 @@
         </link>
         <updated>2017-04-24T17:05:00Z</updated>
         <summary type="html"><![CDATA[Over the past while, I’ve been working on a sample Progressive Web App with Mustafa. We learned a lot! This post is an overview of what I learned as a developer, and what I’d like to explore further.
+]]></summary>
+        <author>
+            <name>Sérgio Gomes</name>
+            <email>mail@sgom.es</email>
+            <uri>https://sgom.es</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Browser module loading - can we stop bundling yet?]]></title>
+        <id>https://sgom.es/posts/2017-06-30-ecmascript-module-loading-can-we-unbundle-yet/</id>
+        <link href="https://sgom.es/posts/2017-06-30-ecmascript-module-loading-can-we-unbundle-yet/">
+        </link>
+        <updated>2017-06-30T17:50:00Z</updated>
+        <summary type="html"><![CDATA[Browsers are now getting to a point where we can stop bundling JavaScript altogether. But should we?
 ]]></summary>
         <author>
             <name>Sérgio Gomes</name>
