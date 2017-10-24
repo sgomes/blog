@@ -129,6 +129,8 @@ And we very quickly run into problems. Chrome and Firefox have issues, with Chro
 {% set figure = { filename: 'firefox.png', width: 1194, height: 364, caption: 'Tab crash in Firefox' } %}
 {% include 'includes/figure.html' %}
 
+> *Note (2017–07–19):* The Chrome bug has since been fixed.
+
 Bugs have been filed for both [Chrome](https://bugs.chromium.org/p/chromium/issues/detail?id=732765) and [Firefox](https://bugzilla.mozilla.org/show_bug.cgi?id=1372258). This is not totally unexpected, since these are experimental features that are still being worked on, but it does mean that we can’t run our benchmark on them just yet.
 
 As for Edge, I ran into issues testing with module loading enabled, due to my particular test setup and the fact that I didn’t immediately have access to a physical Windows machine running Windows 10 Preview.
@@ -324,3 +326,5 @@ But ultimately, there isn’t much to gain from unbundling at the moment, anyway
 ## Next steps
 
 Once Chrome and Firefox have fixed the outstanding issues, I’d like to revisit this benchmark and analyse how much variability there is between browsers. As for Edge, I’m hoping to get a test setup for running this benchmark sometime soon — although it could be a case of finding out that there are bugs there too.
+
+> *Note (2017–07–19):* The Chrome bug has since been fixed.
