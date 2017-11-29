@@ -117,7 +117,7 @@
     border-radius: 2px;
     margin: 0;
     padding: 16px 16px 0 16px;
-    font-size: 0.9375rem;
+    font-size: 0.9375em;
     font-style: normal;
     font-weight: 400;
     letter-spacing: normal;
@@ -132,7 +132,7 @@
   }
 
   code {
-    font-size: 0.9375rem;
+    font-size: 0.9375em;
     color: #0D47A1;
     font-family: 'Roboto Mono', monospace;
   }
@@ -155,7 +155,7 @@
   }
 
   blockquote {
-    margin: 1.5em 2.5em 2em 2.5em;
+    margin: 1.5em 0 2em 2.5em;
     border-left: 1px solid #00bfa5;
     padding-left: 1rem;
   }

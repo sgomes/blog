@@ -63,10 +63,13 @@ Let’s say we have a container, and we want to represent the last location the 
 ```
 
 ```js
-document.querySelector('.container').addEventListener('click', evt => {
-  const aux = document.querySelector('.container > .auxElement');
-  aux.style.transform = `translate(${evt.clientX}px, ${evt.clientY}px)`;
-});
+document.querySelector('.container').addEventListener(
+  'click', evt => {
+    const aux =
+        document.querySelector('.container > .auxElement');
+    aux.style.transform =
+        `translate(${evt.clientX}px, ${evt.clientY}px)`;
+  });
 ```
 
 The above works, but there’s no abstraction between CSS and JavaScript. Not only are we aware of the auxiliary element in JavaScript (which, ideally, we shouldn’t have to be), but we’re even manipulating its properties directly.
@@ -126,7 +129,8 @@ const thingsToUpdate = new Map([
 ]);
 
 for (let [id, property] of thingsToUpdate) {
-  document.getElementById(id).style.setProperty(property, newColor);
+  document.getElementById(id).style
+      .setProperty(property, newColor);
 }
 ```
 
@@ -139,7 +143,8 @@ Or in HTML:
 ```
 
 ```js
-const colorList = document.querySelectorAll('.js-update-color');
+const colorList =
+    document.querySelectorAll('.js-update-color');
 for (let el of colorList) {
   el.style.setProperty('color', newColor);
 }

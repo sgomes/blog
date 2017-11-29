@@ -110,7 +110,8 @@ With the channel values calculated, we can implement the rest of the algorithm e
 }
 
 /**
- * Determine whether to use dark or light text on top of given color.
+ * Determine whether to use dark or light text on top of
+ * given color.
  * Returns black for dark text and white for light text.
  */
 @function choose-contrast-color($color) {

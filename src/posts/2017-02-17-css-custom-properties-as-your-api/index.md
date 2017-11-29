@@ -55,7 +55,8 @@ How can we make this more modular? First, let’s namespace everything carefully
   display: block;
   /* Fallback for browsers without custom properties. */
   width: calc(100% - 8px);
-  width: calc(100% / var(--my-grid-columns) - var(--my-grid-margin));
+  width: calc(100% / var(--my-grid-columns) -
+      var(--my-grid-margin));
   /* Fallback for browsers without custom properties. */
   margin: 8px;
   margin: calc(var(--my-grid-margin) / 2);
@@ -117,7 +118,8 @@ Let’s imagine you’re building a site (say, a personal blog where you talk ab
 If you want to avoid content shifting down as your image loads, you need to reserve enough space on your page for it. That’s done in your HTML, perhaps as part of your build pipeline:
 
 ```html
-<img src="kitten.jpg" height="1024" width="768" alt="A cute kitten">
+<img src="kitten.jpg" height="1024" width="768"
+     alt="A cute kitten">
 ```
 
 However, doing this with a `max-width` doesn’t work very well. The browser doesn’t take into account the image’s aspect ratio when resizing, and will apply the maximum width of 600px while maintaining a height of 768px, resulting in a sadly deformed kitten.
@@ -164,9 +166,9 @@ So let’s make it a fixed aspect ratio image wrapper, with a custom property-ba
 ```css
 .my-image-wrapper {
   /* my-image-wrapper custom properties */
-  /* The width portion of the aspect ratio, e.g. 16 in 16:9. */
+  /* Width portion of the aspect ratio, e.g. 16 in 16:9 */
   --my-image-wrapper-w: 1;
-  /* The height portion of the aspect ratio, e.g. 9 in 16:9. */
+  /* Height portion of the aspect ratio, e.g. 9 in 16:9 */
   --my-image-wrapper-h: 1;
 
   position: relative;
@@ -194,7 +196,9 @@ So let’s make it a fixed aspect ratio image wrapper, with a custom property-ba
 
 ```html
 <div class="my-content my-image-wrapper"
- style="width:768px; --my-image-wrapper-w:4; --my-image-wrapper-h:3;">
+     style="width:768px;
+            --my-image-wrapper-w:4;
+            --my-image-wrapper-h:3;">
 
   <img src="kitten.jpg" alt="A cute kitten">
 </div>

@@ -186,7 +186,8 @@ One of the important things to consider when comparing to variables in preproces
 You can access custom properties through the standard `getPropertyValue` and `setProperty` methods of [any element’s style property](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration):
 
 ```js
-const styles = getComputedStyle(document.querySelector('.foo'));
+const styles =
+    getComputedStyle(document.querySelector('.foo'));
 // Read value. Be sure to trim to remove whitespace.
 const oldColor = styles.getPropertyValue('--color').trim();
 // Write value.
@@ -218,7 +219,7 @@ Here’s a quick overview of some of the functionality and whether or not it’s
 </style>
 
 <div class="overflow-x">
-<table id="table1">
+<table id="table1" style="font-size: 0.9rem">
   <tr>
     <th>Functionality</th>
     <th>Code sample</th>
@@ -230,7 +231,9 @@ Here’s a quick overview of some of the functionality and whether or not it’s
     <td>Definition in the `:root` scope</td>
     <td><pre>:root {
   --color: red;
-}</pre>
+}
+
+</pre>
     </td>
     <td colspan="2"><b>Yes.</b></td>
   </tr>
@@ -239,17 +242,21 @@ Here’s a quick overview of some of the functionality and whether or not it’s
     <td>Definition in other scopes</td>
     <td><pre>body {
   --color: red;
-}</pre>
+}
+
+</pre>
     </td>
     <td><b>No.</b></td>
-    <td><b>Yes.</b> [May result in incorrect behaviour](https://github.com/MadLittleMods/postcss-css-variables#caveats)</td>
+    <td><b>Yes.</b><br/>[May result in incorrect behaviour](https://github.com/MadLittleMods/postcss-css-variables#caveats)</td>
   </tr>
 
   <tr>
     <td>Simple retrieval</td>
     <td><pre>.foo {
   color: var(--color);
-}</pre>
+}
+
+</pre>
     </td>
     <td colspan="2"><b>Yes.</b></td>
   </tr>
@@ -258,7 +265,9 @@ Here’s a quick overview of some of the functionality and whether or not it’s
     <td>Retrieval with fallback value</td>
     <td><pre>.foo {
   color: var(--color, red);
-}</pre>
+}
+
+</pre>
     </td>
     <td colspan="2"><b>Yes.</b></td>
   </tr>
@@ -269,20 +278,24 @@ Here’s a quick overview of some of the functionality and whether or not it’s
   :root {
     --color: red;
   }
-}</pre>
+}
+
+</pre>
     </td>
     <td><b>No.</b></td>
-    <td><b>Yes.</b> [May result in incorrect behaviour](https://github.com/MadLittleMods/postcss-css-variables/issues/30)</td>
+    <td><b>Yes.</b><br/>[May result in incorrect behaviour](https://github.com/MadLittleMods/postcss-css-variables/issues/30)</td>
   </tr>
 
   <tr>
     <td>Definition inside pseudo&#8209;selector</td>
     <td><pre>.foo:hover {
   --color: red;
-}</pre>
+}
+
+</pre>
     </td>
     <td><b>No.</b></td>
-    <td><b>Yes.</b> [May result in incorrect behaviour](https://github.com/MadLittleMods/postcss-css-variables#caveats)</td>
+    <td><b>Yes.</b><br/>[May result in incorrect behaviour](https://github.com/MadLittleMods/postcss-css-variables#caveats)</td>
   </tr>
 
   <tr>
@@ -290,7 +303,9 @@ Here’s a quick overview of some of the functionality and whether or not it’s
     <td><pre>.foo {
   text-size: calc(2 *
     var(--size));
-}</pre>
+}
+
+</pre>
     </td>
     <td colspan="2"><b>Yes</b>, with [postcss-calc](https://github.com/postcss/postcss-calc).</td>
   </tr>
@@ -298,7 +313,8 @@ Here’s a quick overview of some of the functionality and whether or not it’s
   <tr>
     <td>Changing a custom property value from Javascript</td>
     <td><pre>el.style.setProperty(
-  '--color', 'red');</pre>
+  '--color', 'red');
+  </pre>
     </td>
     <td colspan="2"><b>No.</b> Impossible to achieve with preprocessors.</td>
   </tr>

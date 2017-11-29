@@ -17,9 +17,9 @@ Now that you know [how CSS Custom Properties work](/posts/2017-01-27-css-custom-
 > **Note**: For brevity, I will omit fallbacks in `var()` lookups in this article, but remember you should always make your lookups as solid as possible by following the pattern:
 > ```css
 .foo {
-  /* For browsers that don't understand custom properties */
+  /* For browsers that don't understand custom props */
   color: black;
-  /* `black` used as fallback if `--color` isn't defined */
+  /* `black` used as fallback if `--color` undefined */
   color: var(--color, black);
 }
 ```
@@ -44,7 +44,8 @@ Let’s do a case study. Here is some bad CSS, with lots of repetition:
 }
 
 .caption {
-  color: gray; /* Should always be gray, regardless of theme. */
+  /* Should always be gray, regardless of theme. */
+  color: gray;
 }
 ```
 
@@ -225,7 +226,8 @@ Because of the complexity of the calculations, we needed to add some comments to
 
 .image-grid > .image {
   margin: calc(var(--grid-spacing) / 2);
-  width: calc(100% / var(--grid-columns) - var(--grid-spacing));
+  width: calc(100% / var(--grid-columns) -
+      var(--grid-spacing));
 }
 
 @media (min-size: 600px) {
