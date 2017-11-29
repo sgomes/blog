@@ -10,13 +10,16 @@
         </h2>
         <span class="post-meta home-post-meta">({{ post.date | formatDate('YYYY-MM-DD') }})</span>
         <p class="home-post-excerpt">{{ post.excerpt | escape }}</p>
-        <div class="home-post-bottom">Tags:&nbsp;
-          <div class="post-tags">
-            {% for tag in post.tags %}
-              {{ tag | escape }}
-            {% endfor %}
+        <div class="home-post-bottom">
+          <div class="home-post-tags post-tags">
+            <span class="post-tags-head">Tags:&nbsp;</span>
+            <div class="post-tags-list">
+              {% for tag in post.tags %}
+                {{ tag | escape }}
+              {% endfor %}
+            </div>
           </div>
-          <a href="{{ post.url }}" class="mdc-button mdc-button--raised mdc-button--primary">Full article</a>
+          <a href="{{ post.url }}" class="home-post-button mdc-button mdc-button--raised mdc-button--primary">Full article</a>
         </div>
       </li>
     {% endfor %}

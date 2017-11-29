@@ -28,7 +28,7 @@
 
 .home-post-entry {
   background: $post-background;
-  padding: 16px;
+  padding: 2rem 3.5rem;
   box-sizing: border-box;
   width: 100%;
   border-radius: 2px;
@@ -47,8 +47,6 @@
 
   @include mdc-typography(headline);
   @include mdc-typography-adjust-margin(headline);
-
-  font-weight: bold;
 }
 
 .home-post-title > a {
@@ -58,7 +56,6 @@
 }
 
 .home-post-meta {
-  display: inline-block;
   margin-bottom: 0;
 }
 
@@ -75,6 +72,7 @@
   display: flex;
   flex-flow: row;
   padding-top: 16px;
+  align-items: flex-end;
 }
 
 .home-pagination {
@@ -93,4 +91,19 @@
 
 .home-page-next {
   margin-left: auto;
+}
+
+@media screen and (max-width: 600px) {
+  .home-post-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .home-post-tags {
+    margin-bottom: 1rem;
+  }
+
+  .home-post-entry {
+    padding: 1rem;
+  }
 }

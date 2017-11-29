@@ -13,11 +13,13 @@
     {% endblock %}
   </div>
 
-  Tags:&nbsp;
   <div class="post-tags">
-    {% for tag in post.tags %}
-      {{ tag | escape }}
-    {% endfor %}
+      <span class="post-tags-head">Tags:&nbsp;</span>
+      <div class="post-tags-list">
+        {% for tag in post.tags %}
+          {{ tag | escape }}
+        {% endfor %}
+      </div>
   </div>
 </article>
 {% endblock %}
