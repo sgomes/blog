@@ -110,7 +110,7 @@
 
   a {
     @include flat-link($primary);
-    text-decoration-skip: ink;
+    text-decoration-skip-ink: auto;
   }
 
   pre {
