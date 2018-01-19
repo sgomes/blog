@@ -48,7 +48,7 @@ dist/
   checkout.js
 ```
 
-Only one of the bundle files would be loaded, depending on which route the user takes to get to the site. This file would then lazily load the other modules, as needed, without loading its own. So if the user were to come in through a product, they would load bundle-product.js, which would boot up the page and then would only fetch home.js, category.js and checkout.js if needed.
+Only one of the bundle files would be loaded, depending on which route the user takes to get to the site. This file would then lazily load the other modules, as needed, without loading its own. So if the user were to come in through a product, they would load `bundle-product.js`, which would boot up the page and then would only fetch `home.js`, `category.js` and `checkout.js` if needed.
 
 This solution loads all the necessary code for executing the user’s immediate request while only loading the rest if needed. And while it involves having the same code in multiple files, the user should really only download one version of each module as they navigate through the site.
 
