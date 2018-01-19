@@ -2,7 +2,7 @@
 title:  Multiple routes, bundling and lazy-loading with webpack
 date:   2018-01-18 17:30:00 +0000
 excerpt: >
-  Splitting your JavaScript bundler per route sounds difficult, but webpack
+  Splitting your JavaScript bundles per route sounds difficult, but webpack
   makes it pretty easy.
 tags:
   - modules
