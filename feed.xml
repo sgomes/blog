@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sgom.es</id>
     <title>sgom.es</title>
-    <updated>2018-01-19T13:29:24Z</updated>
+    <updated>2018-01-30T11:24:37Z</updated>
     <generator>Feed for Node.js</generator>
     <author>
         <name>Sérgio Gomes</name>
@@ -10,7 +10,7 @@
         <uri>https://sgom.es</uri>
     </author>
     <link rel="alternate" href="https://sgom.es"/>
-    <subtitle>I’m Sérgio, and I work at Web Developer Relations at Google, helping developers make the web a better place.</subtitle>
+    <subtitle>I’m Sérgio, and I work with Web frontend code. Sometimes I write about it here.</subtitle>
     <logo>https://sgom.es/logo.svg</logo>
     <entry>
         <title type="html"><![CDATA[Using Sass to automatically pick text colors]]></title>
