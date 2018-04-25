@@ -4,7 +4,9 @@
     "@material/button": "^0.3.7",
     "@material/elevation": "^0.1.8",
     "@material/typography": "^0.2.2",
-    "css-aspect-ratio": "^1.0.5",
+    "css-aspect-ratio": "^1.0.5"
+  },
+  "devDependencies": {
     "feed": "^1.1.1",
     "front-matter": "^2.3.0",
     "gulp": "^3.9.1",
