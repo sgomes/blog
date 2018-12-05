@@ -17,10 +17,10 @@ First, install all the dependencies:
 npm i
 ```
 
-and run the `build-dev` or `build-prod` tasks:
+and run the `buildDev` or `buildProd` tasks:
 
 ```
-gulp build-dev
+gulp buildDev
 ```
 
 ## Deploying
