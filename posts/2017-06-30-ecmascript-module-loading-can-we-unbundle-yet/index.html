@@ -90,16 +90,13 @@
 <p>If you’d like a bit more background on ECMAScript modules, HTTP/2 and other features that can be used to speed things up, keep reading!</p>
 <h2 id="modules-what-are-they-">Modules: what are they?</h2>
 <p>ECMAScript modules have been a boon to the developer community; not only do they allow for organizing code better, but they also provide important features like deduplication and easier code sharing.</p>
-<pre><code class="lang-js"><div class="line"><span class="source js"><span class="comment line double-slash js"><span class="punctuation definition comment js"><span>//</span></span><span>&nbsp;dependency.js</span></span></span></div><div class="line"><span class="source js"><span class="meta export js"><span class="keyword control js"><span>export</span></span><span>&nbsp;</span></span><span class="meta function js"><span class="storage type function js"><span>function</span></span><span>&nbsp;</span><span class="entity name function js"><span>dependencyMethod</span></span><span class="meta parameters js"><span class="punctuation definition parameters begin bracket round js"><span>(</span></span><span class="punctuation definition parameters end bracket round js"><span>)</span></span></span></span><span>&nbsp;</span><span class="punctuation definition function body begin bracket curly js"><span>{</span></span><span>&nbsp;</span><span class="keyword operator spread js"><span>...</span></span><span>&nbsp;</span><span class="punctuation definition function body end bracket curly js"><span>}</span></span></span></div>
-</code></pre>
-<pre><code class="lang-js"><div class="line"><span class="source js"><span class="comment line double-slash js"><span class="punctuation definition comment js"><span>//</span></span><span>&nbsp;app.js</span></span></span></div><div class="line"><span class="source js"><span class="meta import js"><span class="keyword control js"><span>import</span></span><span>&nbsp;</span><span class="punctuation definition modules begin js"><span>{</span></span><span>&nbsp;</span><span class="variable other module js"><span>dependencyMethod</span></span><span>&nbsp;</span><span class="punctuation definition modules end js"><span>}</span></span><span>&nbsp;</span><span class="keyword control js"><span>from</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation definition string begin js"><span>&#39;</span></span><span>./dependency.js</span><span class="punctuation definition string end js"><span>&#39;</span></span></span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div>
-</code></pre>
+<pre><code class="language-js"><div class="line"><span class="source js"><span class="comment line double-slash js"><span class="punctuation definition comment js"><span>//</span></span><span>&nbsp;dependency.js</span></span></span></div><div class="line"><span class="source js"><span class="meta export js"><span class="keyword control js"><span>export</span></span><span>&nbsp;</span></span><span class="meta function js"><span class="storage type function js"><span>function</span></span><span>&nbsp;</span><span class="entity name function js"><span>dependencyMethod</span></span><span class="meta parameters js"><span class="punctuation definition parameters begin bracket round js"><span>(</span></span><span class="punctuation definition parameters end bracket round js"><span>)</span></span></span></span><span>&nbsp;</span><span class="punctuation definition function body begin bracket curly js"><span>{</span></span><span>&nbsp;</span><span class="keyword operator spread js"><span>...</span></span><span>&nbsp;</span><span class="punctuation definition function body end bracket curly js"><span>}</span></span></span></div></code></pre>
+<pre><code class="language-js"><div class="line"><span class="source js"><span class="comment line double-slash js"><span class="punctuation definition comment js"><span>//</span></span><span>&nbsp;app.js</span></span></span></div><div class="line"><span class="source js"><span class="meta import js"><span class="keyword control js"><span>import</span></span><span>&nbsp;</span><span class="punctuation definition modules begin js"><span>{</span></span><span>&nbsp;</span><span class="variable other module js"><span>dependencyMethod</span></span><span>&nbsp;</span><span class="punctuation definition modules end js"><span>}</span></span><span>&nbsp;</span><span class="keyword control js"><span>from</span></span><span>&nbsp;</span><span class="string quoted single js"><span class="punctuation definition string begin js"><span>&#39;</span></span><span>./dependency.js</span><span class="punctuation definition string end js"><span>&#39;</span></span></span></span><span class="punctuation terminator statement js"><span>;</span></span></span></div></code></pre>
 <blockquote>
 <p><strong>Note:</strong> The browser is picky about the import syntax, particularly where it comes to the URL. All paths must be either absolute or relative, and relative paths must start with &#39;<code>.</code>&#39; or &#39;<code>..</code>&#39;</p>
 </blockquote>
 <p>Up until now, we’ve been using bundlers like <a href="https://rollupjs.org/">rollup</a> and <a href="https://webpack.js.org/">webpack</a> to turn all of those modules into a single JavaScript file that the browser can run (or perhaps several of them, if we’re code-splitting). This is because up until recently browsers couldn’t handle the module loading themselves; but Safari (10.1, unflagged), Chrome M60 (behind a flag), Firefox 54 (behind a flag) and Edge 15 (behind a flag) now support it.</p>
-<pre><code class="lang-html"><div class="line"><span class="text html basic"><span class="source js embedded html"><span class="punctuation definition tag html"><span>&lt;</span></span><span class="entity name tag script html"><span>script</span></span><span>&nbsp;</span><span class="entity other attribute-name html"><span>type</span></span><span>=</span><span class="string quoted double html"><span class="punctuation definition string begin html"><span>&quot;</span></span><span>module</span><span class="punctuation definition string end html"><span>&quot;</span></span></span><span>&nbsp;</span><span class="entity other attribute-name html"><span>src</span></span><span>=</span><span class="string quoted double html"><span class="punctuation definition string begin html"><span>&quot;</span></span><span>app.js</span><span class="punctuation definition string end html"><span>&quot;</span></span></span><span class="punctuation definition tag html"><span>&gt;</span></span></span></span></div>
-</code></pre>
+<pre><code class="language-html"><div class="line"><span class="text html basic"><span class="source js embedded html"><span class="punctuation definition tag html"><span>&lt;</span></span><span class="entity name tag script html"><span>script</span></span><span>&nbsp;</span><span class="entity other attribute-name html"><span>type</span></span><span>=</span><span class="string quoted double html"><span class="punctuation definition string begin html"><span>&quot;</span></span><span>module</span><span class="punctuation definition string end html"><span>&quot;</span></span></span><span>&nbsp;</span><span class="entity other attribute-name html"><span>src</span></span><span>=</span><span class="string quoted double html"><span class="punctuation definition string begin html"><span>&quot;</span></span><span>app.js</span><span class="punctuation definition string end html"><span>&quot;</span></span></span><span class="punctuation definition tag html"><span>&gt;</span></span></span></span></div></code></pre>
 <blockquote>
 <p><strong>Note:</strong> Scripts making use of modules need to be loaded with <code>type=&quot;module&quot;</code>.</p>
 </blockquote>
@@ -118,12 +115,10 @@
 <p>While this gives you a great way of speeding things up, it also means you should be very careful when using push. If the items being pushed end up not being needed, they effectively just waste bandwidth. This may even cause bytes to go down the wire for an item which the browser already has in its HTTP cache, depending on how the browser chooses to handle those pushes (for details, check <a href="https://jakearchibald.com/2017/h2-push-tougher-than-i-thought/">my colleague Jake Archibald’s excellent writeup on HTTP/2 push</a>).</p>
 <h4 id="preload">Preload</h4>
 <p>Another option is to add a <code>&lt;link rel=&quot;preload&quot;&gt;</code> to the HTML. This instructs the browser to start retrieving the resource, without actually doing anything with it just yet. You’d then use it normally further down in the page:</p>
-<pre><code class="lang-html"><div class="line"><span class="text html basic"><span class="meta tag structure any html"><span class="punctuation definition tag html"><span>&lt;</span></span><span class="entity name tag structure any html"><span>head</span></span><span class="punctuation definition tag html"><span>&gt;</span></span></span></span></div><div class="line"><span class="text html basic"><span>&nbsp;&nbsp;</span><span class="meta tag inline any html"><span class="punctuation definition tag begin html"><span>&lt;</span></span><span class="entity name tag inline any html"><span>link</span></span><span>&nbsp;</span><span class="entity other attribute-name html"><span>rel</span></span><span>=</span><span class="string quoted double html"><span class="punctuation definition string begin html"><span>&quot;</span></span><span>preload</span><span class="punctuation definition string end html"><span>&quot;</span></span></span><span>&nbsp;</span><span class="entity other attribute-name html"><span>href</span></span><span>=</span><span class="string quoted double html"><span class="punctuation definition string begin html"><span>&quot;</span></span><span>/app.js</span><span class="punctuation definition string end html"><span>&quot;</span></span></span><span>&nbsp;</span><span class="entity other attribute-name html"><span>as</span></span><span>=</span><span class="string quoted double html"><span class="punctuation definition string begin html"><span>&quot;</span></span><span>script</span><span class="punctuation definition string end html"><span>&quot;</span></span></span><span class="punctuation definition tag end html"><span>&gt;</span></span></span></span></div><div class="line"><span class="text html basic"><span>&nbsp;&nbsp;</span><span class="meta tag inline any html"><span class="punctuation definition tag begin html"><span>&lt;</span></span><span class="entity name tag inline any html"><span>link</span></span><span>&nbsp;</span><span class="entity other attribute-name html"><span>rel</span></span><span>=</span><span class="string quoted double html"><span class="punctuation definition string begin html"><span>&quot;</span></span><span>preload</span><span class="punctuation definition string end html"><span>&quot;</span></span></span><span>&nbsp;</span><span class="entity other attribute-name html"><span>href</span></span><span>=</span><span class="string quoted double html"><span class="punctuation definition string begin html"><span>&quot;</span></span><span>/dependency.js</span><span class="punctuation definition string end html"><span>&quot;</span></span></span><span>&nbsp;</span><span class="entity other attribute-name html"><span>as</span></span><span>=</span><span class="string quoted double html"><span class="punctuation definition string begin html"><span>&quot;</span></span><span>script</span><span class="punctuation definition string end html"><span>&quot;</span></span></span><span class="punctuation definition tag end html"><span>&gt;</span></span></span></span></div><div class="line"><span class="text html basic"><span class="meta tag structure any html"><span class="punctuation definition tag html"><span>&lt;/</span></span><span class="entity name tag structure any html"><span>head</span></span><span class="punctuation definition tag html"><span>&gt;</span></span></span></span></div><div class="line"><span class="text html basic"><span class="meta tag structure any html"><span class="punctuation definition tag html"><span>&lt;</span></span><span class="entity name tag structure any html"><span>body</span></span><span class="punctuation definition tag html"><span>&gt;</span></span></span></span></div><div class="line"><span class="text html basic"><span class="source js embedded html"><span>&nbsp;&nbsp;</span><span class="punctuation definition tag html"><span>&lt;</span></span><span class="entity name tag script html"><span>script</span></span><span>&nbsp;</span><span class="entity other attribute-name html"><span>type</span></span><span>=</span><span class="string quoted double html"><span class="punctuation definition string begin html"><span>&quot;</span></span><span>module</span><span class="punctuation definition string end html"><span>&quot;</span></span></span><span>&nbsp;</span><span class="entity other attribute-name html"><span>src</span></span><span>=</span><span class="string quoted double html"><span class="punctuation definition string begin html"><span>&quot;</span></span><span>app.js</span><span class="punctuation definition string end html"><span>&quot;</span></span></span><span class="punctuation definition tag html"><span>&gt;</span><span>&lt;/</span></span><span class="entity name tag script html"><span>script</span></span><span class="punctuation definition tag html"><span>&gt;</span></span><span>&nbsp;</span></span></span></div><div class="line"><span class="text html basic"><span class="meta tag structure any html"><span class="punctuation definition tag html"><span>&lt;/</span></span><span class="entity name tag structure any html"><span>body</span></span><span class="punctuation definition tag html"><span>&gt;</span></span></span></span></div>
-</code></pre>
+<pre><code class="language-html"><div class="line"><span class="text html basic"><span class="meta tag structure any html"><span class="punctuation definition tag html"><span>&lt;</span></span><span class="entity name tag structure any html"><span>head</span></span><span class="punctuation definition tag html"><span>&gt;</span></span></span></span></div><div class="line"><span class="text html basic"><span>&nbsp;&nbsp;</span><span class="meta tag inline any html"><span class="punctuation definition tag begin html"><span>&lt;</span></span><span class="entity name tag inline any html"><span>link</span></span><span>&nbsp;</span><span class="entity other attribute-name html"><span>rel</span></span><span>=</span><span class="string quoted double html"><span class="punctuation definition string begin html"><span>&quot;</span></span><span>preload</span><span class="punctuation definition string end html"><span>&quot;</span></span></span><span>&nbsp;</span><span class="entity other attribute-name html"><span>href</span></span><span>=</span><span class="string quoted double html"><span class="punctuation definition string begin html"><span>&quot;</span></span><span>/app.js</span><span class="punctuation definition string end html"><span>&quot;</span></span></span><span>&nbsp;</span><span class="entity other attribute-name html"><span>as</span></span><span>=</span><span class="string quoted double html"><span class="punctuation definition string begin html"><span>&quot;</span></span><span>script</span><span class="punctuation definition string end html"><span>&quot;</span></span></span><span class="punctuation definition tag end html"><span>&gt;</span></span></span></span></div><div class="line"><span class="text html basic"><span>&nbsp;&nbsp;</span><span class="meta tag inline any html"><span class="punctuation definition tag begin html"><span>&lt;</span></span><span class="entity name tag inline any html"><span>link</span></span><span>&nbsp;</span><span class="entity other attribute-name html"><span>rel</span></span><span>=</span><span class="string quoted double html"><span class="punctuation definition string begin html"><span>&quot;</span></span><span>preload</span><span class="punctuation definition string end html"><span>&quot;</span></span></span><span>&nbsp;</span><span class="entity other attribute-name html"><span>href</span></span><span>=</span><span class="string quoted double html"><span class="punctuation definition string begin html"><span>&quot;</span></span><span>/dependency.js</span><span class="punctuation definition string end html"><span>&quot;</span></span></span><span>&nbsp;</span><span class="entity other attribute-name html"><span>as</span></span><span>=</span><span class="string quoted double html"><span class="punctuation definition string begin html"><span>&quot;</span></span><span>script</span><span class="punctuation definition string end html"><span>&quot;</span></span></span><span class="punctuation definition tag end html"><span>&gt;</span></span></span></span></div><div class="line"><span class="text html basic"><span class="meta tag structure any html"><span class="punctuation definition tag html"><span>&lt;/</span></span><span class="entity name tag structure any html"><span>head</span></span><span class="punctuation definition tag html"><span>&gt;</span></span></span></span></div><div class="line"><span class="text html basic"><span class="meta tag structure any html"><span class="punctuation definition tag html"><span>&lt;</span></span><span class="entity name tag structure any html"><span>body</span></span><span class="punctuation definition tag html"><span>&gt;</span></span></span></span></div><div class="line"><span class="text html basic"><span class="source js embedded html"><span>&nbsp;&nbsp;</span><span class="punctuation definition tag html"><span>&lt;</span></span><span class="entity name tag script html"><span>script</span></span><span>&nbsp;</span><span class="entity other attribute-name html"><span>type</span></span><span>=</span><span class="string quoted double html"><span class="punctuation definition string begin html"><span>&quot;</span></span><span>module</span><span class="punctuation definition string end html"><span>&quot;</span></span></span><span>&nbsp;</span><span class="entity other attribute-name html"><span>src</span></span><span>=</span><span class="string quoted double html"><span class="punctuation definition string begin html"><span>&quot;</span></span><span>app.js</span><span class="punctuation definition string end html"><span>&quot;</span></span></span><span class="punctuation definition tag html"><span>&gt;</span><span>&lt;/</span></span><span class="entity name tag script html"><span>script</span></span><span class="punctuation definition tag html"><span>&gt;</span></span><span>&nbsp;</span></span></span></div><div class="line"><span class="text html basic"><span class="meta tag structure any html"><span class="punctuation definition tag html"><span>&lt;/</span></span><span class="entity name tag structure any html"><span>body</span></span><span class="punctuation definition tag html"><span>&gt;</span></span></span></span></div></code></pre>
 <p>Note that a preload retrieves the item and places it in the cache so that it’s available when needed, even if it’s not explicitly in the DOM. In the above example, <code>dependency.js</code> can still get the benefits of a quick load from cache even though it’s only loaded as a dependency by <code>app.js</code>.</p>
 <p>Preloads can also be done as an additional HTTP header that gets attached to the response, instead of being part of the HTML.</p>
-<pre><code><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Link:&nbsp;&lt;/app.js&gt;;&nbsp;rel=preload;&nbsp;as=script,&nbsp;&lt;/dependency.js&gt;;&nbsp;rel=preload;&nbsp;as=script</span></span></span></div>
-</code></pre><p>Note that the browser still initiates the retrieval itself, just as with the <code>&lt;link&gt;</code> option. HTTP/2 push is the only one that’s cheeky enough to attach bytes that weren’t requested to the response it sends.</p>
+<pre><code><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Link:&nbsp;&lt;/app.js&gt;;&nbsp;rel=preload;&nbsp;as=script,&nbsp;&lt;/dependency.js&gt;;&nbsp;rel=preload;&nbsp;as=script</span></span></span></div></code></pre><p>Note that the browser still initiates the retrieval itself, just as with the <code>&lt;link&gt;</code> option. HTTP/2 push is the only one that’s cheeky enough to attach bytes that weren’t requested to the response it sends.</p>
 <p>Sadly, preload is still somewhat lacking in browser support, with Firefox, Edge, and Safari iOS missing it entirely.</p>
 <h2 id="building-a-benchmark">Building a benchmark</h2>
 <p>So in theory this should all work really well, and we should be able to just unbundle everything and run it in production (assuming users have the browser support). In practice, though, is that really the case? Time for some testing!</p>
@@ -198,8 +193,7 @@
 <th>Time</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Bundled, optimized</td>
 <td>2</td>
 <td>49.7KB</td>
@@ -220,8 +214,7 @@
 <td>81.31KB</td>
 <td>5.92s</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p><em>three.js</em></p>
 <table>
 <thead>
@@ -233,8 +226,7 @@
 <th>Time</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Bundled, optimized</td>
 <td>2</td>
 <td>468.2KB</td>
@@ -255,8 +247,7 @@
 <td>328.47KB</td>
 <td>16.53s</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>Unbundled performance is terrible, as expected, with an unbundled three.js taking around 6x as long to load.</p>
 <p>Looking at the file sizes, we notice that the unbundled size is significantly larger than even the unoptimized bundle. This is likely due to the fact that there are gains to be made from minifying a single large file, rather than many small ones, since there will be less reuse in the latter case. Compression only compounds the problem further, since there are also gains from gzipping a single large file, rather than many small files individually.</p>
 <p>If we enable preload for the unbundled version, we don’t expect things to change much. Let’s take a look:</p>
@@ -271,8 +262,7 @@
 <th>Time</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Bundled, optimized</td>
 <td>2</td>
 <td>49.7KB</td>
@@ -293,8 +283,7 @@
 <td>82.06KB</td>
 <td>4.91s</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p><em>three.js</em></p>
 <table>
 <thead>
@@ -306,8 +295,7 @@
 <th>Time</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Bundled, optimized</td>
 <td>2</td>
 <td>468.2KB</td>
@@ -328,8 +316,7 @@
 <td>330.78KB</td>
 <td>15.79s</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>The bundled versions are unchanged, and therefore produce approximate results on this test run. The unbundled versions produce a modest improvement: loading is 1.21x as fast in moment, and 1.05x in three.js.</p>
 <p>Note the somewhat larger total size on the unbundled versions, compared to before. This is because of the all of the extra markup we needed to add to the HTML, in the form of <code>&lt;link rel=&quot;preload&quot;&gt;</code> tags. It compresses quite well, though, because of all the repetition, so it doesn’t have much impact in the end.</p>
 <p>Let’s switch to HTTP/2 and see what happens.</p>
@@ -346,8 +333,7 @@
 <th>Speedup vs HTTP/1.1 w/o preload</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Bundled, optimized</td>
 <td>667ms</td>
 <td>1.69x</td>
@@ -362,8 +348,7 @@
 <td>2.00s</td>
 <td>2.96x</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p><em>three.js</em></p>
 <table>
 <thead>
@@ -373,8 +358,7 @@
 <th>Speedup vs HTTP/1.1 w/o preload</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Bundled, optimized</td>
 <td>2.12s</td>
 <td>1.23x</td>
@@ -389,8 +373,7 @@
 <td>4.71s</td>
 <td>3.51x</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>Results are a good improvement over HTTP/1.1, even for the bundled versions, loading at between 1.21x and 1.69x as fast. The unbundled versions make considerable gains, running between 2.96x and 3.51x as fast.</p>
 <p>We’re not dealing with the dependency issue in the unbundled versions yet, though; the browser still has to load each individual JS file to in order to know what to load next, which is a particular problem in our testing environment (and a lot of real-world networks) due to the 200ms spent on every round trip.</p>
 <h3 id="http-2-with-push">HTTP/2 with push</h3>
@@ -408,8 +391,7 @@
 <th>Speedup vs HTTP/2 w/o push</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Bundled, optimized</td>
 <td>671ms</td>
 <td>1.68x</td>
@@ -427,8 +409,7 @@
 <td>4.11x</td>
 <td>1.39x</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p><em>three.js</em></p>
 <table>
 <thead>
@@ -439,8 +420,7 @@
 <th>Speedup vs HTTP/2 w/o push</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Bundled, optimized</td>
 <td>2.13s</td>
 <td>1.23x</td>
@@ -458,8 +438,7 @@
 <td>—</td>
 <td>—</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>Statistical variation aside, the results for the bundled versions should be the same as for HTTP/2 without push, since we haven’t changed anything.</p>
 <p>As for the unbundled versions, things get interesting. Again we see a significant improvement, with moment loading 1.39x as fast with push than without. However, with three.js, we get an error!</p>
 <figure>
@@ -492,8 +471,7 @@
 <th>Speedup vs HTTP/2 w/o preload</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Bundled, optimized</td>
 <td>676ms</td>
 <td>1.66x</td>
@@ -511,8 +489,7 @@
 <td>4.06x</td>
 <td>1.79x</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p><em>three.js</em></p>
 <table>
 <thead>
@@ -523,8 +500,7 @@
 <th>Speedup vs HTTP/2 w/o preload</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Bundled, optimized</td>
 <td>2.13s</td>
 <td>1.12x</td>
@@ -542,8 +518,7 @@
 <td>3.82x</td>
 <td>1.14x</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>First of all, it looks like we managed to run three.js this time around! Hooray! The preload gains are quite modest when compared to HTTP/2 without preload, though.</p>
 <p>The moment.js test case paints a more interesting story: it looks like preload (1.21s) is actually faster than push (1.44s). The reasons behind this may have to do with the fact that with preload the browser is still in control, whereas with push it’s the server that chooses what to send, and when. This means that with preload the browser has more opportunity to get what it needs first, rather than passively wait until it’s delivered.</p>
 <p>The speedup vs HTTP/2 without preload is much larger in the case of moment.js. I suspect this may have to do with the module structure for both projects; you might get different gains depending on how deep or wide your dependency tree is.</p>
@@ -560,8 +535,7 @@
 <th>Unbundled</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>moment.js</td>
 <td>676ms</td>
 <td>710ms</td>
@@ -573,8 +547,7 @@
 <td>2.30s</td>
 <td>4.13s</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>Even if we assume that the unoptimized bundle is the fairest comparison, we’re still looking at taking 1.70x (moment) or 1.80x (three) as long to load.</p>
 <p>It will be hard to find gains elsewhere to compensate for this loss. These are all static dependencies, so it would be difficult to organize the code so that we could load things at different points in time. And even if we could do that, it would mean we could apply the same technique to the bundled version, by splitting it into the corresponding smaller bundles.</p>
 <p>Beyond this, there is the immediate issue of tooling, in that our optimal solution requires up-front knowledge of what files need to be loaded. Plugins would need to be written, to create this dependency tree and inject preload lists into the HTML or the HTTP headers. But tooling is something that the Web community is very comfortable with, so this would be a temporary hurdle, at worst.</p>
