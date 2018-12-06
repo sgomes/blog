@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sgom.es</id>
     <title>sgom.es</title>
-    <updated>2018-12-06T12:51:35.747Z</updated>
+    <updated>2018-12-06T12:54:13.800Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sérgio Gomes</name>
@@ -13,82 +13,12 @@
     <subtitle>I’m Sérgio, and I work with Web frontend code. Sometimes I write about it here.</subtitle>
     <logo>https://sgom.es/logo.svg</logo>
     <entry>
-        <title type="html"><![CDATA[Using Sass to automatically pick text colors]]></title>
-        <id>https://sgom.es/posts/2016-12-21-using-sass-to-automatically-pick-text-colors/</id>
-        <link href="https://sgom.es/posts/2016-12-21-using-sass-to-automatically-pick-text-colors/">
+        <title type="html"><![CDATA[Multiple routes, bundling and lazy-loading with webpack]]></title>
+        <id>https://sgom.es/posts/2018-01-18-multiple-routes-webpack/</id>
+        <link href="https://sgom.es/posts/2018-01-18-multiple-routes-webpack/">
         </link>
-        <updated>2016-12-21T16:51:00.000Z</updated>
-        <summary type="html"><![CDATA[Theming is always a challenge, particularly when you’re working on a library, rather than a standalone website. One example of an interesting issue that you’ll come across very frequently is choosing a text color that ensures readability and accessibility.
-]]></summary>
-        <author>
-            <name>Sérgio Gomes</name>
-            <email>mail@sgom.es</email>
-            <uri>https://sgom.es</uri>
-        </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[CSS Custom Properties - The Basics]]></title>
-        <id>https://sgom.es/posts/2017-01-27-css-custom-properties-the-basics/</id>
-        <link href="https://sgom.es/posts/2017-01-27-css-custom-properties-the-basics/">
-        </link>
-        <updated>2017-01-27T15:00:00.000Z</updated>
-        <summary type="html"><![CDATA[So you’ve heard about CSS Custom Properties (also known as CSS Variables) and you might have an idea of what they are. You’re not quite clear on the specifics or browser support, you haven’t heard anything about best practices, and you don’t know how they’re better than variables in Sass or Less, though. Well, read on!
-]]></summary>
-        <author>
-            <name>Sérgio Gomes</name>
-            <email>mail@sgom.es</email>
-            <uri>https://sgom.es</uri>
-        </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[More Readable CSS with CSS Custom Properties]]></title>
-        <id>https://sgom.es/posts/2017-02-03-more-readable-css-with-css-custom-properties/</id>
-        <link href="https://sgom.es/posts/2017-02-03-more-readable-css-with-css-custom-properties/">
-        </link>
-        <updated>2017-02-03T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Now that you know how CSS Custom Properties work, you can start thinking about using them to improve readability in your CSS and making future maintenance easier.
-]]></summary>
-        <author>
-            <name>Sérgio Gomes</name>
-            <email>mail@sgom.es</email>
-            <uri>https://sgom.es</uri>
-        </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Bridging CSS and JS with Custom Properties]]></title>
-        <id>https://sgom.es/posts/2017-02-10-bridging-css-and-js-with-custom-properties/</id>
-        <link href="https://sgom.es/posts/2017-02-10-bridging-css-and-js-with-custom-properties/">
-        </link>
-        <updated>2017-02-10T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[CSS Custom Properties have many interesting uses beyond serving as a simple storage and retrieval mechanism for CSS values. In this article, we will explore the best practices around using them as a bridge between CSS and JavaScript.
-]]></summary>
-        <author>
-            <name>Sérgio Gomes</name>
-            <email>mail@sgom.es</email>
-            <uri>https://sgom.es</uri>
-        </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[CSS Custom Properties as your API]]></title>
-        <id>https://sgom.es/posts/2017-02-17-css-custom-properties-as-your-api/</id>
-        <link href="https://sgom.es/posts/2017-02-17-css-custom-properties-as-your-api/">
-        </link>
-        <updated>2017-02-17T18:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Now that you’re comfortable with custom properties and know how to use them to improve readability in your CSS, let’s look at how you can use them to enhance modularity and reusability in your code.
-]]></summary>
-        <author>
-            <name>Sérgio Gomes</name>
-            <email>mail@sgom.es</email>
-            <uri>https://sgom.es</uri>
-        </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Material Money - a sample PWA]]></title>
-        <id>https://sgom.es/posts/2017-04-24-material-money-sample/</id>
-        <link href="https://sgom.es/posts/2017-04-24-material-money-sample/">
-        </link>
-        <updated>2017-04-24T17:05:00.000Z</updated>
-        <summary type="html"><![CDATA[Over the past while, I’ve been working on a sample Progressive Web App with Mustafa. We learned a lot! This post is an overview of what I learned as a developer, and what I’d like to explore further.
+        <updated>2018-01-18T17:30:00.000Z</updated>
+        <summary type="html"><![CDATA[Splitting your JavaScript bundles per route sounds difficult, but webpack makes it pretty easy.
 ]]></summary>
         <author>
             <name>Sérgio Gomes</name>
@@ -111,12 +41,82 @@
         </author>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Multiple routes, bundling and lazy-loading with webpack]]></title>
-        <id>https://sgom.es/posts/2018-01-18-multiple-routes-webpack/</id>
-        <link href="https://sgom.es/posts/2018-01-18-multiple-routes-webpack/">
+        <title type="html"><![CDATA[Material Money - a sample PWA]]></title>
+        <id>https://sgom.es/posts/2017-04-24-material-money-sample/</id>
+        <link href="https://sgom.es/posts/2017-04-24-material-money-sample/">
         </link>
-        <updated>2018-01-18T17:30:00.000Z</updated>
-        <summary type="html"><![CDATA[Splitting your JavaScript bundles per route sounds difficult, but webpack makes it pretty easy.
+        <updated>2017-04-24T17:05:00.000Z</updated>
+        <summary type="html"><![CDATA[Over the past while, I’ve been working on a sample Progressive Web App with Mustafa. We learned a lot! This post is an overview of what I learned as a developer, and what I’d like to explore further.
+]]></summary>
+        <author>
+            <name>Sérgio Gomes</name>
+            <email>mail@sgom.es</email>
+            <uri>https://sgom.es</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CSS Custom Properties as your API]]></title>
+        <id>https://sgom.es/posts/2017-02-17-css-custom-properties-as-your-api/</id>
+        <link href="https://sgom.es/posts/2017-02-17-css-custom-properties-as-your-api/">
+        </link>
+        <updated>2017-02-17T18:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Now that you’re comfortable with custom properties and know how to use them to improve readability in your CSS, let’s look at how you can use them to enhance modularity and reusability in your code.
+]]></summary>
+        <author>
+            <name>Sérgio Gomes</name>
+            <email>mail@sgom.es</email>
+            <uri>https://sgom.es</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Bridging CSS and JS with Custom Properties]]></title>
+        <id>https://sgom.es/posts/2017-02-10-bridging-css-and-js-with-custom-properties/</id>
+        <link href="https://sgom.es/posts/2017-02-10-bridging-css-and-js-with-custom-properties/">
+        </link>
+        <updated>2017-02-10T16:00:00.000Z</updated>
+        <summary type="html"><![CDATA[CSS Custom Properties have many interesting uses beyond serving as a simple storage and retrieval mechanism for CSS values. In this article, we will explore the best practices around using them as a bridge between CSS and JavaScript.
+]]></summary>
+        <author>
+            <name>Sérgio Gomes</name>
+            <email>mail@sgom.es</email>
+            <uri>https://sgom.es</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[More Readable CSS with CSS Custom Properties]]></title>
+        <id>https://sgom.es/posts/2017-02-03-more-readable-css-with-css-custom-properties/</id>
+        <link href="https://sgom.es/posts/2017-02-03-more-readable-css-with-css-custom-properties/">
+        </link>
+        <updated>2017-02-03T16:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Now that you know how CSS Custom Properties work, you can start thinking about using them to improve readability in your CSS and making future maintenance easier.
+]]></summary>
+        <author>
+            <name>Sérgio Gomes</name>
+            <email>mail@sgom.es</email>
+            <uri>https://sgom.es</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CSS Custom Properties - The Basics]]></title>
+        <id>https://sgom.es/posts/2017-01-27-css-custom-properties-the-basics/</id>
+        <link href="https://sgom.es/posts/2017-01-27-css-custom-properties-the-basics/">
+        </link>
+        <updated>2017-01-27T15:00:00.000Z</updated>
+        <summary type="html"><![CDATA[So you’ve heard about CSS Custom Properties (also known as CSS Variables) and you might have an idea of what they are. You’re not quite clear on the specifics or browser support, you haven’t heard anything about best practices, and you don’t know how they’re better than variables in Sass or Less, though. Well, read on!
+]]></summary>
+        <author>
+            <name>Sérgio Gomes</name>
+            <email>mail@sgom.es</email>
+            <uri>https://sgom.es</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Using Sass to automatically pick text colors]]></title>
+        <id>https://sgom.es/posts/2016-12-21-using-sass-to-automatically-pick-text-colors/</id>
+        <link href="https://sgom.es/posts/2016-12-21-using-sass-to-automatically-pick-text-colors/">
+        </link>
+        <updated>2016-12-21T16:51:00.000Z</updated>
+        <summary type="html"><![CDATA[Theming is always a challenge, particularly when you’re working on a library, rather than a standalone website. One example of an interesting issue that you’ll come across very frequently is choosing a text color that ensures readability and accessibility.
 ]]></summary>
         <author>
             <name>Sérgio Gomes</name>
