@@ -223,8 +223,8 @@ function buildPagesProd() {
   return buildThePages({ production: true });
 };
 
-const buildDocumentsDev = series(buildPostsDev, buildPagesDev, buildPostData, buildFeed);
-const buildDocumentsProd = series(buildPostsProd, buildPagesProd, buildPostData, buildFeed);
+const buildDocumentsDev = series(buildPostData, buildPostsDev, buildPagesDev, buildFeed);
+const buildDocumentsProd = series(buildPostData, buildPostsProd, buildPagesProd, buildFeed);
 
 export const buildDev = series(clean, parallel(scss, buildDocumentsDev, copyStatic, createIcons));
 export const buildProd = series(clean, parallel(scss, buildDocumentsProd, copyStatic, createIcons));
