@@ -87,7 +87,7 @@
 <p>Hey folks!</p>
 <p>Today I&#39;ll be focusing on a specific library, Redux, and the performance implications of using it. If your project doesn&#39;t depend on it and you&#39;re not planning on changing that, you can probably skip this, even though the categories of problems introduced aren&#39;t necessarily exclusive to Redux. Otherwise, read on!</p>
 <h3 id="why-redux-">Why Redux?</h3>
-<p><em>My understanding of Redux is still limited, but I&#39;ll attempt a brief introduction throughout this post where I hope I won&#39;t make too many mistakes. If I do, please let me know through your comments!</em></p>
+<p><em>My understanding of Redux is still limited, but I&#39;ll attempt a brief introduction throughout this post where I hope I won&#39;t make too many mistakes. If I do, please let me know on Twitter!</em></p>
 <p>Redux and its associated tooling ecosystem came about as a way of isolating state for your application into a big immutable state tree of nested objects, which can be manipulated with a fair amount of abstraction and isolation.</p>
 <p>Through interfacing libraries such as <code>react-redux</code>, components in your application can loosely couple to this tree by registering as being able to modify it, receive updates from it, or both. State is thus centralized, instead of explicitly or implicitly living inside the various components of your application.</p>
 <p>As a core principle, state is not mutated, but rather replaced with a new copy when changes take place. Old and new can thus easily be compared by looking at the references rather than with deep comparisons.</p>
