@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sgom.es</id>
     <title>sgom.es</title>
-    <updated>2018-12-06T12:54:13.800Z</updated>
+    <updated>2018-12-06T13:09:06.793Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sérgio Gomes</name>
@@ -12,6 +12,20 @@
     <link rel="alternate" href="https://sgom.es"/>
     <subtitle>I’m Sérgio, and I work with Web frontend code. Sometimes I write about it here.</subtitle>
     <logo>https://sgom.es/logo.svg</logo>
+    <entry>
+        <title type="html"><![CDATA[So you want to use Redux (pt 1) — selectors]]></title>
+        <id>https://sgom.es/posts/2018-12-06-so-you-want-to-use-redux-part-1/</id>
+        <link href="https://sgom.es/posts/2018-12-06-so-you-want-to-use-redux-part-1/">
+        </link>
+        <updated>2018-12-06T13:10:00.000Z</updated>
+        <summary type="html"><![CDATA[Redux is a clever and useful state management library, but using it comes with some performance gotchas. We'll start by looking at selectors.
+]]></summary>
+        <author>
+            <name>Sérgio Gomes</name>
+            <email>mail@sgom.es</email>
+            <uri>https://sgom.es</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Multiple routes, bundling and lazy-loading with webpack]]></title>
         <id>https://sgom.es/posts/2018-01-18-multiple-routes-webpack/</id>

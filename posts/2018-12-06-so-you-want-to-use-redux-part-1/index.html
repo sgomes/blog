@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>sgom.es</title>
+  <title>So you want to use Redux (pt 1) — selectors</title>
   <meta name="description" content="I’m Sérgio, and I work with Web frontend code. Sometimes I write about it here.">
 
     <!--
@@ -75,235 +75,99 @@
 
     <main class="site-content" aria-label="Content">
         
-<div class="home">
-  <ul class="home-post-list">
-    
-      <li class="home-post-entry">
-        <h2 class="home-post-title">
-          <a href="/posts/2018-12-06-so-you-want-to-use-redux-part-1/">So you want to use Redux (pt 1) — selectors</a>
-        </h2>
-        <span class="post-meta home-post-meta">(2018-12-06)</span>
-        <p class="home-post-excerpt">Redux is a clever and useful state management library, but using it comes with some performance gotchas. We&#39;ll start by looking at selectors.
-</p>
-        <div class="home-post-bottom">
-          <div class="home-post-tags post-tags">
-            <span class="post-tags-head">Tags:&nbsp;</span>
-            <div class="post-tags-list">
-              
-                redux
-              
-                react
-              
-                performance
-              
-                memoization
-              
-            </div>
-          </div>
-          <a href="/posts/2018-12-06-so-you-want-to-use-redux-part-1/" class="home-post-button mdc-button mdc-button--raised mdc-button--primary">Full article</a>
-        </div>
-      </li>
-    
-      <li class="home-post-entry">
-        <h2 class="home-post-title">
-          <a href="/posts/2018-01-18-multiple-routes-webpack/">Multiple routes, bundling and lazy-loading with webpack</a>
-        </h2>
-        <span class="post-meta home-post-meta">(2018-01-18)</span>
-        <p class="home-post-excerpt">Splitting your JavaScript bundles per route sounds difficult, but webpack makes it pretty easy.
-</p>
-        <div class="home-post-bottom">
-          <div class="home-post-tags post-tags">
-            <span class="post-tags-head">Tags:&nbsp;</span>
-            <div class="post-tags-list">
-              
-                modules
-              
-                javascript
-              
-                bundling
-              
-                webpack
-              
-            </div>
-          </div>
-          <a href="/posts/2018-01-18-multiple-routes-webpack/" class="home-post-button mdc-button mdc-button--raised mdc-button--primary">Full article</a>
-        </div>
-      </li>
-    
-      <li class="home-post-entry">
-        <h2 class="home-post-title">
-          <a href="/posts/2017-06-30-ecmascript-module-loading-can-we-unbundle-yet/">Browser module loading - can we stop bundling yet?</a>
-        </h2>
-        <span class="post-meta home-post-meta">(2017-06-30)</span>
-        <p class="home-post-excerpt">Browsers are now getting to a point where we can stop bundling JavaScript altogether. But should we?
-</p>
-        <div class="home-post-bottom">
-          <div class="home-post-tags post-tags">
-            <span class="post-tags-head">Tags:&nbsp;</span>
-            <div class="post-tags-list">
-              
-                modules
-              
-                javascript
-              
-                bundling
-              
-            </div>
-          </div>
-          <a href="/posts/2017-06-30-ecmascript-module-loading-can-we-unbundle-yet/" class="home-post-button mdc-button mdc-button--raised mdc-button--primary">Full article</a>
-        </div>
-      </li>
-    
-      <li class="home-post-entry">
-        <h2 class="home-post-title">
-          <a href="/posts/2017-04-24-material-money-sample/">Material Money - a sample PWA</a>
-        </h2>
-        <span class="post-meta home-post-meta">(2017-04-24)</span>
-        <p class="home-post-excerpt">Over the past while, I’ve been working on a sample Progressive Web App with Mustafa. We learned a lot! This post is an overview of what I learned as a developer, and what I’d like to explore further.
-</p>
-        <div class="home-post-bottom">
-          <div class="home-post-tags post-tags">
-            <span class="post-tags-head">Tags:&nbsp;</span>
-            <div class="post-tags-list">
-              
-                pwa
-              
-                release
-              
-            </div>
-          </div>
-          <a href="/posts/2017-04-24-material-money-sample/" class="home-post-button mdc-button mdc-button--raised mdc-button--primary">Full article</a>
-        </div>
-      </li>
-    
-      <li class="home-post-entry">
-        <h2 class="home-post-title">
-          <a href="/posts/2017-02-17-css-custom-properties-as-your-api/">CSS Custom Properties as your API</a>
-        </h2>
-        <span class="post-meta home-post-meta">(2017-02-17)</span>
-        <p class="home-post-excerpt">Now that you’re comfortable with custom properties and know how to use them to improve readability in your CSS, let’s look at how you can use them to enhance modularity and reusability in your code.
-</p>
-        <div class="home-post-bottom">
-          <div class="home-post-tags post-tags">
-            <span class="post-tags-head">Tags:&nbsp;</span>
-            <div class="post-tags-list">
-              
-                css
-              
-                custom-properties
-              
-                abstraction
-              
-            </div>
-          </div>
-          <a href="/posts/2017-02-17-css-custom-properties-as-your-api/" class="home-post-button mdc-button mdc-button--raised mdc-button--primary">Full article</a>
-        </div>
-      </li>
-    
-      <li class="home-post-entry">
-        <h2 class="home-post-title">
-          <a href="/posts/2017-02-10-bridging-css-and-js-with-custom-properties/">Bridging CSS and JS with Custom Properties</a>
-        </h2>
-        <span class="post-meta home-post-meta">(2017-02-10)</span>
-        <p class="home-post-excerpt">CSS Custom Properties have many interesting uses beyond serving as a simple storage and retrieval mechanism for CSS values. In this article, we will explore the best practices around using them as a bridge between CSS and JavaScript.
-</p>
-        <div class="home-post-bottom">
-          <div class="home-post-tags post-tags">
-            <span class="post-tags-head">Tags:&nbsp;</span>
-            <div class="post-tags-list">
-              
-                css
-              
-                custom-properties
-              
-                js
-              
-                abstraction
-              
-            </div>
-          </div>
-          <a href="/posts/2017-02-10-bridging-css-and-js-with-custom-properties/" class="home-post-button mdc-button mdc-button--raised mdc-button--primary">Full article</a>
-        </div>
-      </li>
-    
-      <li class="home-post-entry">
-        <h2 class="home-post-title">
-          <a href="/posts/2017-02-03-more-readable-css-with-css-custom-properties/">More Readable CSS with CSS Custom Properties</a>
-        </h2>
-        <span class="post-meta home-post-meta">(2017-02-03)</span>
-        <p class="home-post-excerpt">Now that you know how CSS Custom Properties work, you can start thinking about using them to improve readability in your CSS and making future maintenance easier.
-</p>
-        <div class="home-post-bottom">
-          <div class="home-post-tags post-tags">
-            <span class="post-tags-head">Tags:&nbsp;</span>
-            <div class="post-tags-list">
-              
-                css
-              
-                custom-properties
-              
-                readability
-              
-                DRY
-              
-            </div>
-          </div>
-          <a href="/posts/2017-02-03-more-readable-css-with-css-custom-properties/" class="home-post-button mdc-button mdc-button--raised mdc-button--primary">Full article</a>
-        </div>
-      </li>
-    
-      <li class="home-post-entry">
-        <h2 class="home-post-title">
-          <a href="/posts/2017-01-27-css-custom-properties-the-basics/">CSS Custom Properties - The Basics</a>
-        </h2>
-        <span class="post-meta home-post-meta">(2017-01-27)</span>
-        <p class="home-post-excerpt">So you’ve heard about CSS Custom Properties (also known as CSS Variables) and you might have an idea of what they are. You’re not quite clear on the specifics or browser support, you haven’t heard anything about best practices, and you don’t know how they’re better than variables in Sass or Less, though. Well, read on!
-</p>
-        <div class="home-post-bottom">
-          <div class="home-post-tags post-tags">
-            <span class="post-tags-head">Tags:&nbsp;</span>
-            <div class="post-tags-list">
-              
-                css
-              
-                custom-properties
-              
-            </div>
-          </div>
-          <a href="/posts/2017-01-27-css-custom-properties-the-basics/" class="home-post-button mdc-button mdc-button--raised mdc-button--primary">Full article</a>
-        </div>
-      </li>
-    
-      <li class="home-post-entry">
-        <h2 class="home-post-title">
-          <a href="/posts/2016-12-21-using-sass-to-automatically-pick-text-colors/">Using Sass to automatically pick text colors</a>
-        </h2>
-        <span class="post-meta home-post-meta">(2016-12-21)</span>
-        <p class="home-post-excerpt">Theming is always a challenge, particularly when you’re working on a library, rather than a standalone website. One example of an interesting issue that you’ll come across very frequently is choosing a text color that ensures readability and accessibility.
-</p>
-        <div class="home-post-bottom">
-          <div class="home-post-tags post-tags">
-            <span class="post-tags-head">Tags:&nbsp;</span>
-            <div class="post-tags-list">
-              
-                sass
-              
-                theming
-              
-            </div>
-          </div>
-          <a href="/posts/2016-12-21-using-sass-to-automatically-pick-text-colors/" class="home-post-button mdc-button mdc-button--raised mdc-button--primary">Full article</a>
-        </div>
-      </li>
-    
-  </ul>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <div class="home-pagination">
-    
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">So you want to use Redux (pt 1) — selectors</h1>
+    <time class="post-meta" datetime="2018-12-06T13:10:00+00:00" itemprop="datePublished">(2018-12-06)</time>
+  </header>
 
+  <div class="post-content" itemprop="articleBody">
     
+<p>Hey folks!</p>
+<p>Today I&#39;ll be focusing on a specific library, Redux, and the performance implications of using it. If your project doesn&#39;t depend on it and you&#39;re not planning on changing that, you can probably skip this, even though the categories of problems introduced aren&#39;t necessarily exclusive to Redux. Otherwise, read on!</p>
+<h3 id="why-redux-">Why Redux?</h3>
+<p><em>My understanding of Redux is still limited, but I&#39;ll attempt a brief introduction throughout this post where I hope I won&#39;t make too many mistakes. If I do, please let me know through your comments!</em></p>
+<p>Redux and its associated tooling ecosystem came about as a way of isolating state for your application into a big immutable state tree of nested objects, which can be manipulated with a fair amount of abstraction and isolation.</p>
+<p>Through interfacing libraries such as <code>react-redux</code>, components in your application can loosely couple to this tree by registering as being able to modify it, receive updates from it, or both. State is thus centralized, instead of explicitly or implicitly living inside the various components of your application.</p>
+<p>As a core principle, state is not mutated, but rather replaced with a new copy when changes take place. Old and new can thus easily be compared by looking at the references rather than with deep comparisons.</p>
+<p>When writing to the tree, modifications are performed through a set of actions, that get transformed into state tree changes via reducer functions. Each action can affect multiple reducers and hence multiple parts of the tree. For example, accepting a friendship invitation would both remove the invitation from the pending list as well as add a new entry to the friends list.</p>
+<p>When reading from the tree, you have selector functions (a well-known pattern outside of Redux, too), which offer a simple and convenient way of returning a part of the state tree, or a chunk of data derived from one or multiple parts of the state tree. Through <code>react-redux</code> or similar libraries, components specify which selectors they need, and get props with the values returned by these selectors every time they change.</p>
+<p>If you want more details, the <a href="https://redux.js.org/introduction/coreconcepts">Core Concepts page on the Redux documentation</a> is a good starting point.</p>
+<p>It&#39;s a clever architecture, but it&#39;s not without its problems. Performance-wise, it comes with a number of ways you can accidentally shoot yourself in the foot.</p>
+<h3 id="selectors">Selectors</h3>
+<p>In this post we&#39;re going to be focusing on selectors.</p>
+<p>As I mentioned before, selectors return a part of the state tree for your component to consume (or, alternatively, something derived from one or more parts the state tree). In a React world, this is done via the <code>connect</code> method from <code>react-redux</code> and looks something like this:</p>
+<pre><code><div class="line"><span class="text plain"><span class="meta paragraph text"><span>import&nbsp;{&nbsp;connect&nbsp;}&nbsp;from&nbsp;&#39;react-redux&#39;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>​</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>class&nbsp;MyComponent&nbsp;extends&nbsp;React.Component&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>[...]</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>const&nbsp;ConnectedMyComponent&nbsp;=&nbsp;connect(</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>mapStateToProps,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;mapDispatchToProps</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>)(MyComponent);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>​</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>export&nbsp;default&nbsp;ConnectedMyComponent;</span></span></span></div></code></pre><p><code>connect</code> takes two methods and uses them to produce a function that will wrap your component in a higher-order component that is connected to Redux. Phew.</p>
+<p>The first method that <code>connect</code> takes, <code>mapStateToProps</code>, is where you get to return an object composed from the various selectors you need:</p>
+<pre><code><div class="line"><span class="text plain"><span class="meta paragraph text"><span>function&nbsp;mapStateToProps(state)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>return&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>color:&nbsp;getDefaultColor(state),</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;language:&nbsp;getUserLanguage(state),</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>}</span></span></span></div></code></pre><p>As a result, your component gets the <code>color</code> and <code>language</code> props from the selectors you specified, and will automatically get new values for these props whenever the values returned by the selectors change. These selectors are nothing magical, though; they&#39;re plain pure JavaScript functions that simply return a part of the state tree:</p>
+<pre><code><div class="line"><span class="text plain"><span class="meta paragraph text"><span>function&nbsp;getDefaultColor(state)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>return&nbsp;state.defaults.color;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>function&nbsp;getUserLanguage(state)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>return&nbsp;state.loggedInUser&nbsp;?</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>state.loggedInUser.settings.language&nbsp;:</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;state.defaults.language;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>}</span></span></span></div></code></pre><p>So if these are just plain functions and you&#39;re not explicitly declaring any dependency on any part of the state tree, how does the framework know when to send new props to your component? Well, it&#39;s very simple: <strong>it needs to run <em>every</em> selector registered to <em>every connected component instance</em> on <em>any change</em> to <em>any part</em> of the state tree</strong>.</p>
+<p>Or actually even worse, in the case of <code>react-redux</code>: <strong>every time an action is dispatched, regardless of whether it produced any changes</strong>.</p>
+<p>Making sure that doesn&#39;t cause performance problems can quickly get tricky, as I&#39;m sure you can imagine.</p>
+<h3 id="problem-1-slow-selectors">Problem #1: slow selectors</h3>
+<p>Performance is usually not a problem at all when your selectors are just picking an existing part of the state tree and sending it along. As in the examples above, you get an object reference, you return that object reference, and you&#39;re done.</p>
+<p>But sometimes selectors are more complex than this and need to do something more expensive, such as transforming the data for serialization.</p>
+<p>Now you have a problem not just with any component that uses this selector, but also with your application in general. Remember, every selector runs every time as long as a component instance is using it, so you&#39;re going to get that hit every time anything changes in your state tree. And you&#39;re going to be getting it as many times as you have component instances hooked up to it.</p>
+<p>The fix is usually to add memoization, so that you only incur the expense once, provided things haven&#39;t changed. Defining the meaning of &quot;things haven&#39;t changed&quot; and validating it can be difficult, though; more on that later.</p>
+<h3 id="problem-2-returning-new-references">Problem #2: returning new references</h3>
+<p>Even if your selector is really fast at getting the data it needs, composing it together, and returning it, it may still be a source of inadvertent problems. Unless you&#39;ve come across this problem before (or read the title of this section), you might not see anything wrong with this code:</p>
+<pre><code><div class="line"><span class="text plain"><span class="meta paragraph text"><span>function&nbsp;getUserDefaults(state)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>const&nbsp;userSettings&nbsp;=&nbsp;state.loggedInUser&nbsp;?</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>loggedInUserSettings&nbsp;:</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;[];</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>return&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>...state.defaults,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;...userSettings,</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>}</span></span></span></div></code></pre><p>This just overrides the default settings with the user settings where available and returns the whole thing, right? Yes, that&#39;s exactly what it does, and it is very fast at doing it if the list of settings is small.</p>
+<p>But it returns a new instance of that object every time. This instance gets passed as a prop to your React component, which, unless you&#39;ve taken special care, sees it as a change and triggers a render. So now every instance of every component that uses this selector is going to re-render every time anything changes in the state tree. That could be a problem.</p>
+<p>The solution here is usually memoization too. Alternatives include moving the objects to state, so you can simply return the reference instead of computing it, or instead returning a primitive type (e.g. a string) where possible.</p>
+<h3 id="problem-3-returning-new-references">Problem #3: returning new references</h3>
+<p>No, that&#39;s not a typo, the same problem can occur elsewhere. Remember that <code>mapStateToProps</code> function? This bug can happen there too.</p>
+<p>It&#39;s common (albeit likely inadvisable) to have code that looks something like this:</p>
+<pre><code><div class="line"><span class="text plain"><span class="meta paragraph text"><span>function&nbsp;mapStateToProps(state)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>const&nbsp;someData&nbsp;=&nbsp;selector1(state);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;const&nbsp;otherData&nbsp;=&nbsp;selector2(state);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;const&nbsp;theDataINeed&nbsp;=&nbsp;combineDataSomehow(someData,&nbsp;otherData);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>}</span></span></span></div></code></pre><p>So now the onus is on <code>combineDataSomehow</code> to ensure that it doesn&#39;t generate a new reference every time. Here the impact of a mistake isn&#39;t quite as large, as it will only affect this particular component, but it will affect every instance of it.</p>
+<p>The fix? You guessed it, memoization.</p>
+<h3 id="so-about-that-memoization">So about that memoization</h3>
+<p>A quick disclaimer before going any further: the first thing with any performance-related fixes is <strong>making sure you measure</strong>. Sure, you could theoretically be causing problems by not memoizing something that runs on every dispatch, but it&#39;s best to assume otherwise until proven.</p>
+<p>As Donald Knuth put it:</p>
+<blockquote>
+<p><strong>Premature optimization is the root of all evil (or at least most of it) in programming</strong></p>
+<p>Donald Knuth, Computer Programming as an Art (1974), among other sources</p>
+</blockquote>
+<p>Optimization usually leads to more complex code, and more complex code often leads to bugs. With memoization, the risk is that the cache doesn&#39;t get invalidated as often as it should and ends up returning stale data.</p>
+<p>But let&#39;s assume for a second that there is in fact a problem and you&#39;ve traced it to a particular selector. Well, this doesn&#39;t seem like much of a problem at all. All you have to do is pull out <code>[memoize](https://lodash.com/docs/4.17.11#memoize)</code> from <code>[lodash](https://lodash.com)</code> and call it a day, right?</p>
+<p>Maybe. But it&#39;s usually more complex than that. Let&#39;s go back to <code>getUserDefaults</code>. If you naively add memoization, what you get is the following:</p>
+<pre><code><div class="line"><span class="text plain"><span class="meta paragraph text"><span>const&nbsp;getUserDefaults&nbsp;=&nbsp;memoize((state)&nbsp;=&gt;&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>const&nbsp;userSettings&nbsp;=&nbsp;state.loggedInUser&nbsp;?</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>loggedInUserSettings&nbsp;:</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;[];</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>return&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>...state.defaults,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;...userSettings,</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>});</span></span></span></div></code></pre><p>If you&#39;re following standard Redux rules and avoiding mutation, the <code>state</code> instance will be the same if nothing changes and will be different if something does. This means that if the state doesn&#39;t change, the memoized selector will return the same instance, solving the aforementioned problems. Great!</p>
+<p>But is that really all we want? Right now if <strong>anything</strong> changes in the state, even if it&#39;s completely unrelated to what this selector cares about, you&#39;ll end up with a new instance and thus a new entry in the memoization cache. Besides making that grow to a potentially large size and keeping the previous states around for no good reason (since <code>memoize</code> uses a <code>Map</code>, not a <code>WeakMap</code>, by default), you&#39;re still only saving time if the state doesn&#39;t change very often, which is unlikely in a large interactive application.</p>
+<p>If the goal is to have a large state tree with all aspects of the application&#39;s state in there, we need to be cleverer.</p>
+<h3 id="a-library-for-the-library">A library for the library</h3>
+<p>Enter <code>[reselect](https://github.com/reduxjs/reselect)</code>, <code>[rememo](https://github.com/aduth/rememo)</code>, <code>[wp-calypso](https://github.com/Automattic/wp-calypso/blob/master/client/lib/create-selector/index.js)</code><a href="https://github.com/Automattic/wp-calypso/blob/master/client/lib/create-selector/index.js">&#39;s</a> <code>[createSelector](https://github.com/Automattic/wp-calypso/blob/master/client/lib/create-selector/index.js)</code>, and friends. These are libraries that are specifically designed to help you with the task of creating memoized Redux selectors that try to strike that error-prone balance between invalidating your memoization cache too much (leading to unnecessary recomputation), and invalidating it too little (leading to stale data being returned).</p>
+<p>So now you can depend on just the parts of the state tree that your selector cares about. In the case of <code>rememo</code> or <code>wp-calypso</code>&#39;s <code>createSelector</code>:</p>
+<pre><code><div class="line"><span class="text plain"><span class="meta paragraph text"><span>const&nbsp;getUserDefaults&nbsp;=&nbsp;createSelector(</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>(state)&nbsp;=&gt;&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>const&nbsp;userSettings&nbsp;=&nbsp;state.loggedInUser&nbsp;?</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>loggedInUserSettings&nbsp;:</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[];</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>return&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>...state.defaults,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...userSettings,</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>},</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;(state)&nbsp;=&gt;&nbsp;[state.loggedInUser,&nbsp;state.defaults]</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>);</span></span></span></div></code></pre><p>Now the selector is only invalidated if <code>state.loggedInUser</code> or <code>state.defaults</code> change. Even better, you could narrow it down to just the properties we care about inside those, but you would need to start adding some error checks.</p>
+<h3 id="but-things-are-always-trickier-with-collections">But things are always trickier with collections</h3>
+<p>For individual properties that you know exactly where to get, as in the examples above, things are straightforward. But very often you have arrays or other collections of objects and you have to find the item you want inside that structure.</p>
+<p>Let&#39;s say a user has posts, and could have hundreds or thousands of them, but you want your selector to fetch a single one. Well, that&#39;s not a problem; since your selector is a plain JavaScript function, you can add a parameter. Ignoring error checking, this would look like:</p>
+<pre><code><div class="line"><span class="text plain"><span class="meta paragraph text"><span>function&nbsp;getUserPost(state,&nbsp;postId)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>return&nbsp;state.loggedInUser.posts[postId];</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>getUserPost(state,&nbsp;12);</span></span></span></div></code></pre><p>Great! But now how do we memoize this? We don&#39;t want to depend on every post, or otherwise every time any one of the posts changes your selector gets invalidated, even if it&#39;s for a different post:</p>
+<pre><code><div class="line"><span class="text plain"><span class="meta paragraph text"><span>const&nbsp;getUserPost&nbsp;=&nbsp;createSelector(</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>(state,&nbsp;postId)&nbsp;=&gt;&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>return&nbsp;state.loggedInUser.posts[postId];</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>},</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;(state)&nbsp;=&gt;&nbsp;[state.loggedInUser.posts]</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>);</span></span></span></div></code></pre><p>Well, if you want to make this work correctly, you have to either use a library that supports parameters on the dependant function, or you have to write your own custom memoization. <code>wp-calypso</code>&#39;s <code>createSelector</code> does support parameters on the dependant function:</p>
+<pre><code><div class="line"><span class="text plain"><span class="meta paragraph text"><span>const&nbsp;getUserPost&nbsp;=&nbsp;createSelector(</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>(state,&nbsp;postId)&nbsp;=&gt;&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>return&nbsp;state.loggedInUser.posts[postId];</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>},</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;(state,&nbsp;postId)&nbsp;=&gt;&nbsp;[state.loggedInUser.posts[postId]]</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>);</span></span></span></div></code></pre><p>But even then, this might not be doing what you expect! The cache is not per-<code>postId</code>, but still global; it only tracks <code>postId</code> to make sure it doesn&#39;t change, but if it does it still invalidates it.</p>
+<p>As long as you&#39;re always asking for the same <code>postId</code>, everything will work great and you&#39;ll get memoized results when the post doesn&#39;t change in the state. But if you&#39;re alternating between two different IDs, you&#39;re going to be invalidating the cache every single time:</p>
+<pre><code><div class="line"><span class="text plain"><span class="meta paragraph text"><span>getUserPost(state,&nbsp;10);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>getUserPost(state,&nbsp;20);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>getUserPost(state,&nbsp;10);&nbsp;//&nbsp;Not&nbsp;cached,&nbsp;last&nbsp;one&nbsp;was&nbsp;20</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>getUserPost(state,&nbsp;20);&nbsp;//&nbsp;Not&nbsp;cached,&nbsp;last&nbsp;one&nbsp;was&nbsp;10</span></span></span></div></code></pre><p>For this, you&#39;d want to use something like <code>[wp-calypso](https://github.com/Automattic/wp-calypso/tree/master/client/lib/tree-select)</code><a href="https://github.com/Automattic/wp-calypso/tree/master/client/lib/tree-select">&#39;s</a> <code>[treeSelect](https://github.com/Automattic/wp-calypso/tree/master/client/lib/tree-select)</code>, which does keep track of the different branches in different caches. Or write your own error-prone custom memoization function that invalidates the cache every time it needs to, but only when it really needs to. Can&#39;t be that hard, right?</p>
+<h3 id="next-steps">Next steps</h3>
+<p>Alright, so once you understand all the intricacies of selectors, their potential performance implications, and how to memoize them if needed, you should be able to start writing nice and performant code for your Redux application. Great!</p>
+<p>Only, not really... 😔 This is actually just the beginning. Redux still has a bunch of ways it can cause subtle and hard-to-find performance issues, and I&#39;ll be writing about them in one or more future articles.</p>
+<p>In the meantime, let me know if I missed something on selectors, or if I got anything wrong here!</p>
+<p><strong>And finally, huge thanks to Andrew Duthie and Jarda Snajdr for reviewing a draft of this post and suggesting some great changes!</strong></p>
+
+
   </div>
-</div>
+
+  <div class="post-tags">
+      <span class="post-tags-head">Tags:&nbsp;</span>
+      <div class="post-tags-list">
+        
+          redux
+        
+          react
+        
+          performance
+        
+          memoization
+        
+      </div>
+  </div>
+</article>
 
     </main>
 
