@@ -245,7 +245,7 @@ getUserPost(state, 10); // Not cached, last one was 20
 getUserPost(state, 20); // Not cached, last one was 10
 ```
 
-For this, you'd want to use something like [`wp-calypso`'s `treeSelect`](https://github.com/Automattic/wp-calypso/tree/master/client/lib/tree-select), which does keep track of the different branches in different caches. Or write your own error-prone custom memoization function that invalidates the cache every time it needs to, but only when it really needs to. Can't be that hard, right?
+For this, you'd want to use something like [`wp-calypso`'s `treeSelect`](https://www.npmjs.com/package/@automattic/tree-select), which does keep track of the different branches in different caches. Or write your own error-prone custom memoization function that invalidates the cache every time it needs to, but only when it really needs to. Can't be that hard, right?
 
 ### Next steps
 
