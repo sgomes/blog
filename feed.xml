@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sgom.es</id>
     <title>sgom.es</title>
-    <updated>2018-12-10T14:27:59.779Z</updated>
+    <updated>2019-01-15T11:48:32.638Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sérgio Gomes</name>
@@ -12,6 +12,20 @@
     <link rel="alternate" href="https://sgom.es"/>
     <subtitle>I’m Sérgio, and I work with Web frontend code. Sometimes I write about it here.</subtitle>
     <logo>https://sgom.es/logo.svg</logo>
+    <entry>
+        <title type="html"><![CDATA[So you want to use Redux (pt 2) — reducers and scale]]></title>
+        <id>https://sgom.es/posts/2019-01-15-so-you-want-to-use-redux-part-2/</id>
+        <link href="https://sgom.es/posts/2019-01-15-so-you-want-to-use-redux-part-2/">
+        </link>
+        <updated>2019-01-15T11:45:00.000Z</updated>
+        <summary type="html"><![CDATA[After looking at potential performance issues with selectors in Redux and React apps, this time we'll look at reducers and scaling issues.
+]]></summary>
+        <author>
+            <name>Sérgio Gomes</name>
+            <email>mail@sgom.es</email>
+            <uri>https://sgom.es</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[So you want to use Redux (pt 1) — selectors]]></title>
         <id>https://sgom.es/posts/2018-12-06-so-you-want-to-use-redux-part-1/</id>
