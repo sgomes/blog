@@ -32,7 +32,7 @@ let posts = [];
 // Tasks
 
 export function clean(cb) {
-  shell.task(['rm -rf .build', 'rm -rf .dist'])(cb);
+  shell.task(['rm -rf .build', 'rm -rf .dist', 'rm -rf .publish'])(cb);
 }
 
 function createTouchDir(cb) {
