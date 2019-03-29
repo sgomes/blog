@@ -66,7 +66,6 @@
 
 .footer-heading {
   @include mdc-typography(title);
-  @include mdc-typography-adjust-margin(title);
 
   margin-bottom: 8px;
 }
@@ -148,6 +147,7 @@
   padding: 0 8px;
 
   @include mdc-typography(caption);
+  margin: 0;
 
   a {
     @include flat-link(white);

@@ -223,8 +223,16 @@ Here’s a quick overview of some of the functionality and whether or not it’s
   <tr>
     <th>Functionality</th>
     <th>Code sample</th>
-    <th>[`postcss-custom-properties`](https://github.com/postcss/postcss-custom-properties)</th>
-    <th>[`postcss-css-variables`](https://github.com/MadLittleMods/postcss-css-variables)</th>
+    <th>
+      <a href="https://github.com/postcss/postcss-custom-properties">
+        <code>postcss-custom-properties</code>
+      </a>
+    </th>
+    <th>
+      <a href="https://github.com/MadLittleMods/postcss-css-variables">
+        <code>postcss-css-variables</code>
+      </a>
+    </th>
   </tr>
 
   <tr>
@@ -232,7 +240,6 @@ Here’s a quick overview of some of the functionality and whether or not it’s
     <td><pre>:root {
   --color: red;
 }
-
 </pre>
     </td>
     <td colspan="2"><b>Yes.</b></td>
@@ -243,11 +250,10 @@ Here’s a quick overview of some of the functionality and whether or not it’s
     <td><pre>body {
   --color: red;
 }
-
 </pre>
     </td>
     <td><b>No.</b></td>
-    <td><b>Yes.</b><br/>[May result in incorrect behaviour](https://github.com/MadLittleMods/postcss-css-variables#caveats)</td>
+    <td><b>Yes.</b><br/><a href="https://github.com/MadLittleMods/postcss-css-variables#caveats">May result in incorrect behaviour</a></td>
   </tr>
 
   <tr>
@@ -255,7 +261,6 @@ Here’s a quick overview of some of the functionality and whether or not it’s
     <td><pre>.foo {
   color: var(--color);
 }
-
 </pre>
     </td>
     <td colspan="2"><b>Yes.</b></td>
@@ -266,7 +271,6 @@ Here’s a quick overview of some of the functionality and whether or not it’s
     <td><pre>.foo {
   color: var(--color, red);
 }
-
 </pre>
     </td>
     <td colspan="2"><b>Yes.</b></td>
@@ -279,11 +283,10 @@ Here’s a quick overview of some of the functionality and whether or not it’s
     --color: red;
   }
 }
-
 </pre>
     </td>
     <td><b>No.</b></td>
-    <td><b>Yes.</b><br/>[May result in incorrect behaviour](https://github.com/MadLittleMods/postcss-css-variables/issues/30)</td>
+    <td><b>Yes.</b><br/><a href="https://github.com/MadLittleMods/postcss-css-variables#caveats">May result in incorrect behaviour</a></td>
   </tr>
 
   <tr>
@@ -291,11 +294,10 @@ Here’s a quick overview of some of the functionality and whether or not it’s
     <td><pre>.foo:hover {
   --color: red;
 }
-
 </pre>
     </td>
     <td><b>No.</b></td>
-    <td><b>Yes.</b><br/>[May result in incorrect behaviour](https://github.com/MadLittleMods/postcss-css-variables#caveats)</td>
+    <td><b>Yes.</b><br/><a href="https://github.com/MadLittleMods/postcss-css-variables#caveats">May result in incorrect behaviour</a></td>
   </tr>
 
   <tr>
@@ -304,17 +306,16 @@ Here’s a quick overview of some of the functionality and whether or not it’s
   text-size: calc(2 *
     var(--size));
 }
-
 </pre>
     </td>
-    <td colspan="2"><b>Yes</b>, with [postcss-calc](https://github.com/postcss/postcss-calc).</td>
+    <td colspan="2"><b>Yes</b>, with <a href="https://github.com/postcss/postcss-calc">postcss-calc</a>.</td>
   </tr>
 
   <tr>
     <td>Changing a custom property value from Javascript</td>
     <td><pre>el.style.setProperty(
   '--color', 'red');
-  </pre>
+</pre>
     </td>
     <td colspan="2"><b>No.</b> Impossible to achieve with preprocessors.</td>
   </tr>

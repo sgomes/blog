@@ -226,8 +226,8 @@ function buildPagesProd() {
 const buildDocumentsDev = series(buildPostData, buildPostsDev, buildPagesDev, buildFeed);
 const buildDocumentsProd = series(buildPostData, buildPostsProd, buildPagesProd, buildFeed);
 
-export const buildDev = series(clean, parallel(scss, buildDocumentsDev, copyStatic, createIcons));
-export const buildProd = series(clean, parallel(scss, buildDocumentsProd, copyStatic, createIcons));
+export const buildDev = series(clean, scss, parallel(buildDocumentsDev, copyStatic, createIcons));
+export const buildProd = series(clean, scss, parallel(buildDocumentsProd, copyStatic, createIcons));
 
 function copyCname() {
   return src(['./CNAME']).pipe(dest('./.dist'));

@@ -34,7 +34,6 @@
   border-radius: 2px;
 
   @include mdc-elevation(2);
-  @include mdc-typography(body1);
 }
 
 .home-post-entry + .home-post-entry {
@@ -42,11 +41,12 @@
 }
 
 .home-post-title {
-  display: inline;
   padding-right: 4px;
 
   @include mdc-typography(headline);
-  @include mdc-typography-adjust-margin(headline);
+
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .home-post-title > a {
@@ -60,12 +60,12 @@
 }
 
 .home-post-excerpt {
-  margin: 8px 0 0 0;
   color: $black-text;
 
   @include mdc-typography(body1);
   font-size: 1rem;
   letter-spacing: normal;
+  margin: 8px 0 0 0;
 }
 
 .home-post-bottom {
@@ -73,6 +73,9 @@
   flex-flow: row;
   padding-top: 16px;
   align-items: flex-end;
+
+  @include mdc-typography(body1);
+  margin: 0;
 }
 
 .home-pagination {

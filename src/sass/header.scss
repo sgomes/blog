@@ -30,7 +30,6 @@
 
   @include flat-link(white);
   @include mdc-typography(display1);
-  @include mdc-typography-adjust-margin(display1);
 
   font-weight: bold;
 }
