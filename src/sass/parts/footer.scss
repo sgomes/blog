@@ -16,7 +16,7 @@
   display: flex;
   flex-flow: column nowrap;
   width: 100%;
-  background-color: $primary;
+  background: $primary;
   color: white;
   padding: 16px;
   box-sizing: border-box;
@@ -150,8 +150,14 @@
   margin: 0;
 
   a {
-    @include flat-link(white);
+    @include flat-link($white-text);
     text-decoration: none;
     font-weight: bold;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .footer, .footer-copyright {
+    background: $primary-darker;
   }
 }

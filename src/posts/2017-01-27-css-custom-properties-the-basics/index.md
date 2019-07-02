@@ -216,6 +216,12 @@ Here’s a quick overview of some of the functionality and whether or not it’s
   padding: 0;
   background: #f5f5f5;
 }
+
+@media (prefers-color-scheme: dark) {
+  #table1 td:nth-child(2) {
+    background: #212121;
+  }
+}
 </style>
 
 <div class="overflow-x">

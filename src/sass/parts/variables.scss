@@ -13,55 +13,19 @@
 // limitations under the License.
 
 $primary: #009688;
-$secondary: #00BFA5;
+$primary-darker: #00695C;
+$primary-lighter: #80CBC4;
 $black-text: rgba(0, 0, 0, 0.87);
+$white-text: rgba(255, 255, 255, 0.9);
 $site-max-width: 45rem;
 $mobile-max-width: 600px;
 $post-background: white;
+$post-background-dark: #424242;
 $page-background: #eceff1;
+$page-background-dark: #212121;
 
 $mdc-theme-primary: $primary;
 $mdc-theme-accent: #ffab40;
 $mdc-theme-background: #fff;
 
 $mdc-typography-font-family: Rubik, sans-serif;
-
-@import url('https://fonts.googleapis.com/css?family=Roboto+Mono|Rubik:400,500');
-
-@import "@material/typography/mixins";
-@import "typography";
-
-@import "@material/elevation/mixins";
-@import "@material/typography/mixins";
-@import "@material/button/mdc-button";
-@import "mixins";
-@import "header";
-@import "post";
-@import "home";
-@import "footer";
-@import "syntax";
-@import "css-aspect-ratio/css-aspect-ratio";
-
-html, body {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  @include mdc-typography-base;
-  height: 100%;
-}
-
-.site-content {
-  flex-grow: 1;
-  background: $page-background;
-  box-sizing: border-box;
-}
-
-.mdc-button {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  // TODO: remove this once fixed in MDC-Web.
-  text-decoration: none;
-}

@@ -1,0 +1,16 @@
+.post-tags {
+  display: flex;
+  align-items: baseline;
+  flex-grow: 1;
+  line-height: normal;
+}
+
+.post-tags-list {
+  display: inline-block;
+  flex-grow: 1;
+
+  margin-left: 0.2rem;
+
+  font-family: 'Roboto Mono', monospace;
+  letter-spacing: normal;
+}

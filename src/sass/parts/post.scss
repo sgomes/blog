@@ -1,0 +1,197 @@
+// Copyright 2017 Sérgio Gomes All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+.post {
+  background: $post-background;
+  padding: 3.5rem 4.5rem;
+  margin: 0 auto;
+  color: $black-text;
+
+  @include page-width;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 600px) {
+  .post {
+    padding: 2rem 1rem;
+  }
+}
+
+.post-title {
+  display: block;
+  color: $primary;
+
+  @include mdc-typography(headline);
+
+  margin-bottom: 0;
+}
+
+.post-meta {
+  display: block;
+  color: $primary;
+
+  @include mdc-typography(body2);
+
+  margin-top: 0;
+
+  @media (prefers-color-scheme: dark) {
+    color: $primary-lighter;
+  }
+}
+
+.post-image {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.post-image > img {
+  display: block;
+}
+
+.post-content {
+  @include mdc-typography(body1);
+  font-size: 1rem;
+  letter-spacing: normal;
+  box-sizing: border-box;
+  margin: 0;
+
+
+  h1 {
+    @include mdc-typography(headline);
+  }
+
+  h2 {
+    @include mdc-typography(title);
+    margin: 0;
+    margin-top: 2rem;
+  }
+
+  h2 + h3 {
+    margin-top: 1em;
+  }
+
+  h3 {
+    @include mdc-typography(title);
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+    margin: 2em 0 0;
+  }
+
+  h4 {
+    @include mdc-typography(body2);
+    font-size: 1rem;
+    letter-spacing: normal;
+    margin: 2em 0 0;
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  a {
+    @include flat-link($primary);
+    text-decoration-skip-ink: auto;
+  }
+
+  pre {
+    border-radius: 2px;
+    margin: 0;
+    padding: 16px;
+    font-size: 0.9375em;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: normal;
+
+    font-family: 'Roboto Mono', monospace;
+    overflow-x: auto;
+  }
+
+  pre + pre {
+    margin-top: 16px;
+  }
+
+  code {
+    font-size: 0.9375em;
+    color: #0D47A1;
+    font-family: 'Roboto Mono', monospace;
+  }
+
+  strong {
+    @include mdc-typography(body2);
+    font-size: 1rem;
+    letter-spacing: normal;
+  }
+
+  figure {
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  figcaption {
+    text-align: center;
+    @include mdc-typography(caption);
+    margin: 0;
+  }
+
+  blockquote {
+    margin: 1.5em 0 2em 2.5em;
+    border-left: 1px solid #00bfa5;
+    padding-left: 1rem;
+  }
+
+  table {
+    display: block;
+    margin: 0 0 2rem;
+    border-collapse: collapse;
+    text-align: center;
+    overflow-x: auto;
+
+    th {
+      font-weight: 500;
+    }
+
+    td, th {
+      padding: 8px;
+      border: 1px solid #dddddd;
+    }
+  }
+
+  li + li {
+    margin-top: 0.5rem;
+  }
+
+  .overflow-x {
+    overflow-x: auto;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .post {
+    color: $white-text;
+    background: $post-background-dark;
+  }
+
+  .post-title {
+    color: $primary-lighter;
+  }
+
+  .post-content {
+    a {
+      @include flat-link($primary-lighter);
+    }
+
+    code {
+      color: #BBDEFB;
+    }
+  }
+}

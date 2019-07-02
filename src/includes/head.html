@@ -42,7 +42,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
 
   <style>
-  {% include "main.css" %}
+  {% if css %}
+  {% include css + ".css" %}
+  {% else %}
+  {% include "home.css" %}
+  {% endif %}
   </style>
 
   {% if environment == 'production' and site.google_analytics %}

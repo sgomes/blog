@@ -28,8 +28,14 @@
 .header-title {
   text-decoration: none;
 
-  @include flat-link(white);
+  @include flat-link($white-text);
   @include mdc-typography(display1);
 
   font-weight: bold;
+}
+
+@media (prefers-color-scheme: dark) {
+  .header {
+    background: $primary-darker;
+  }
 }

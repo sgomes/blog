@@ -1,6 +1,5 @@
 import { src, dest, series, parallel } from 'gulp';
 import sass from 'gulp-sass';
-import shell from 'gulp-shell';
 import ghPages from 'gulp-gh-pages';
 import nunjucksGulp from 'gulp-nunjucks';
 import data from 'gulp-data';
@@ -17,6 +16,7 @@ import fm from 'front-matter';
 import through from 'through2';
 import Highlights from 'highlights';
 import { Feed } from 'feed';
+import { exec } from 'node-exec-promise';
 
 const logo = 'src/assets/images/logo.svg';
 const touchDir = './.dist/assets/images/touch';
@@ -31,15 +31,17 @@ let posts = [];
 
 // Tasks
 
-export function clean(cb) {
-  shell.task(['rm -rf .build', 'rm -rf .dist', 'rm -rf .publish'])(cb);
+export async function clean() {
+  await exec('rm -rf .build', 'rm -rf .dist', 'rm -rf .publish');
 }
 
-function createTouchDir(cb) {
-  shell.task([`mkdir -p ${touchDir}`])(cb);
+async function createTouchDir() {
+  await exec(`mkdir -p ${touchDir}`);
 }
 
 export async function generateTouch() {
+  await exec(`mkdir -p ${touchDir}`);
+
   const promises = imageSizes.map(size => new Promise((resolve, reject) => {
     gm(logo)
       .in('-size', 1024)
@@ -58,19 +60,23 @@ export async function generateTouch() {
   await Promise.all(promises);
 }
 
-function compressTouch(cb) {
-  shell.task(imageSizes.map(size =>
-    `optipng ${touchDir}/${size}x${size}.png`
-  ))(cb);
+async function compressTouch() {
+  await Promise.all(imageSizes.map(size =>
+    exec(`optipng ${touchDir}/${size}x${size}.png`)
+  ));
 }
 
 const createIcons = series(createTouchDir, generateTouch, compressTouch);
 
-function scss() {
-  return src('./src/sass/main.scss')
+function scssTarget(name) {
+  return src(`./src/sass/${name}.scss`)
     .pipe(sass({includePaths: 'node_modules'}).on('error', sass.logError))
-    .pipe(cleanCSS({compatibility: 'ie9'}))
+    .pipe(cleanCSS())
     .pipe(dest('./.build'));
+}
+
+async function scss(name) {
+  return await Promise.all([scssTarget('home'), scssTarget('post')]);
 }
 
 function copyRoot() {
