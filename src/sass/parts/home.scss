@@ -11,7 +11,15 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-@include mdc-button-without-ripple;
+
+@use "./variables";
+@use "./mixins";
+@use "./theme";
+@use "./typography";
+@use "@material/elevation";
+@use "@material/button";
+
+@include button.core-styles;
 
 .home {
   padding: 1rem 0;
@@ -24,18 +32,18 @@
   padding: 0 1rem;
   margin: 0 auto 0 auto;
 
-  @include page-width;
+  @include mixins.page-width;
 }
 
 .home-post-entry {
-  background: $post-background;
+  background: variables.$post-background;
   background: var(--post-background);
   padding: 2rem 3.5rem;
   box-sizing: border-box;
   width: 100%;
   border-radius: 2px;
 
-  @include mdc-elevation(2);
+  @include elevation.elevation(2);
 }
 
 .home-post-entry + .home-post-entry {
@@ -45,7 +53,7 @@
 .home-post-title {
   padding-right: 4px;
 
-  @include mdc-typography(headline);
+  @include typography.typography(headline5);
 
   margin-top: 0;
   margin-bottom: 0;
@@ -54,7 +62,7 @@
 .home-post-title > a {
   text-decoration: none;
 
-  @include flat-link($primary, var(--primary-color-text));
+  @include mixins.flat-link(variables.$primary, var(--primary-color-text));
 }
 
 .home-post-button {
@@ -65,32 +73,32 @@
 
 .home-post-meta {
   display: block;
-  color: $primary;
+  color: variables.$primary;
   color: var(--primary-color-text);
 
-  @include mdc-typography(body2);
+  @include typography.typography(body2);
 
   margin-top: 0;
   margin-bottom: 0;
 }
 
 .home-post-excerpt {
-  color: $black-text;
+  color: variables.$black-text;
   color: var(--text-color);
 
-  @include mdc-typography(body1);
+  @include typography.typography(body1);
   font-size: 1rem;
   letter-spacing: normal;
-  margin: 8px 0 0 0;
+  margin: 8px 0 8px 0;
 }
 
 .home-post-bottom {
   display: flex;
   flex-flow: row;
   padding-top: 16px;
-  align-items: flex-end;
+  align-items: center;
 
-  @include mdc-typography(body1);
+  @include typography.typography(body1);
   margin: 0;
 }
 
@@ -101,7 +109,7 @@
   box-sizing: border-box;
   margin: 0 auto;
 
-  @include page-width;
+  @include mixins.page-width;
 }
 
 .home-page-previous {

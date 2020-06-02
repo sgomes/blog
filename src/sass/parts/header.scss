@@ -12,10 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+@use "./variables";
+@use "./mixins";
+@use "./theme";
+@use "./typography";
+@use "@material/elevation";
+
 .header {
   display: flex;
   height: 80px;
-  background: $primary;
+  background: variables.$primary;
   background: var(--primary-color);
   color: white;
   justify-content: center;
@@ -23,14 +29,14 @@
   flex-shrink: 0;
   z-index: 2;
 
-  @include mdc-elevation(2);
+  @include elevation.elevation(2);
 }
 
 .header-title {
   text-decoration: none;
 
-  @include flat-link($white-text);
-  @include mdc-typography(display1);
+  @include mixins.flat-link(variables.$white-text);
+  @include typography.typography(headline4);
 
   font-weight: bold;
 }

@@ -12,11 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+@use "./variables";
+@use "./mixins";
+@use "./theme";
+@use "./typography";
+@use "@material/elevation";
+
 .footer {
   display: flex;
   flex-flow: column nowrap;
   width: 100%;
-  background: $primary;
+  background: variables.$primary;
   background: var(--primary-color);
   color: white;
   padding: 16px;
@@ -24,7 +30,7 @@
   flex-shrink: 0;
   z-index: 2;
 
-  @include mdc-elevation(2);
+  @include elevation.elevation(2);
 }
 
 .footer-contents {
@@ -38,9 +44,9 @@
   box-sizing: border-box;
   padding: 0 24px;
 
-  @include page-width;
+  @include mixins.page-width;
 
-  @media (max-width: $mobile-max-width) {
+  @media (max-width: variables.$mobile-max-width) {
     flex-wrap: wrap;
     padding: 0;
   }
@@ -55,7 +61,7 @@
   flex-shrink: 0;
   margin-right: 16px;
 
-  @include mdc-elevation(2);
+  @include elevation.elevation(2);
 }
 
 .footer-text {
@@ -66,7 +72,7 @@
 }
 
 .footer-heading {
-  @include mdc-typography(title);
+  @include typography.typography(headline6);
 
   margin-bottom: 8px;
 }
@@ -85,7 +91,7 @@
   display: block;
   flex-shrink: 0;
 
-  @media (max-width: $mobile-max-width) {
+  @media (max-width: variables.$mobile-max-width) {
     display: inline-block;
   }
 }
@@ -127,7 +133,7 @@
   margin: 8px auto 0 auto;
   flex-shrink: 0;
 
-  @include page-width;
+  @include mixins.page-width;
 
   &::before {
     display: block;
@@ -143,16 +149,16 @@
 .footer-copyright {
   display: inline-block;
   text-align: center;
-  background: $primary;
+  background: variables.$primary;
   background: var(--primary-color);
   z-index: 2;
   padding: 0 8px;
 
-  @include mdc-typography(caption);
+  @include typography.typography(caption);
   margin: 0;
 
   a {
-    @include flat-link($white-text);
+    @include mixins.flat-link(variables.$white-text);
     text-decoration: none;
     font-weight: bold;
   }

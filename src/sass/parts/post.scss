@@ -12,15 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+@use "./variables";
+@use "./mixins";
+@use "./theme";
+@use "./typography";
+@use "@material/elevation";
+@use "@material/button";
+
 .post {
-  background: $post-background;
+  background: variables.$post-background;
   background: var(--post-background);
   padding: 3.5rem 4.5rem;
   margin: 0 auto;
-  color: $black-text;
+  color: variables.$black-text;
   color: var(--text-color);
 
-  @include page-width;
+  @include mixins.page-width;
   box-sizing: border-box;
 }
 
@@ -32,20 +39,21 @@
 
 .post-title {
   display: block;
-  color: $primary;
+  color: variables.$primary;
   color: var(--primary-color-text);
 
-  @include mdc-typography(headline);
+  @include typography.typography(headline4);
 
   margin-bottom: 0;
+  margin-top: 0;
 }
 
 .post-meta {
   display: block;
-  color: $primary;
+  color: variables.$primary;
   color: var(--primary-color-text);
 
-  @include mdc-typography(body2);
+  @include typography.typography(body2);
 
   margin-top: 0;
 }
@@ -60,7 +68,7 @@
 }
 
 .post-content {
-  @include mdc-typography(body1);
+  @include typography.typography(body1);
   font-size: 1rem;
   letter-spacing: normal;
   box-sizing: border-box;
@@ -68,11 +76,11 @@
 
 
   h1 {
-    @include mdc-typography(headline);
+    @include typography.typography(headline5);
   }
 
   h2 {
-    @include mdc-typography(title);
+    @include typography.typography(headline6);
     margin: 0;
     margin-top: 2rem;
   }
@@ -82,23 +90,23 @@
   }
 
   h3 {
-    @include mdc-typography(title);
+    @include typography.typography(headline6);
     font-size: 1.1rem;
     line-height: 1.5rem;
     margin: 2em 0 0;
   }
 
   h4 {
-    @include mdc-typography(body2);
+    @include typography.typography(body2);
     font-size: 1rem;
     letter-spacing: normal;
     margin: 2em 0 0;
-    color: $faded-color;
+    color: variables.$faded-color;
     color: var(--faded-color);
   }
 
   a {
-    @include flat-link($primary, var(--primary-color-text));
+    @include mixins.flat-link(variables.$primary, var(--primary-color-text));
     text-decoration-skip-ink: auto;
   }
 
@@ -122,13 +130,13 @@
 
   code {
     font-size: 0.9375em;
-    color: $code-color;
+    color: variables.$code-color;
     color: var(--code-color);
     font-family: 'Roboto Mono', monospace;
   }
 
   strong {
-    @include mdc-typography(body2);
+    @include typography.typography(body2);
     font-size: 1rem;
     letter-spacing: normal;
   }
@@ -141,7 +149,7 @@
 
   figcaption {
     text-align: center;
-    @include mdc-typography(caption);
+    @include typography.typography(caption);
     margin: 0;
   }
 

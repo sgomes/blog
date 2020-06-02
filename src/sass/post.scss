@@ -1,13 +1,5 @@
-@import "parts/variables";
-
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono|Rubik:400,500&display=fallback');
 
-@import "@material/typography/mixins";
-@import "parts/typography";
-
-@import "@material/elevation/mixins";
-@import "@material/typography/mixins";
-@import "parts/mixins";
 @import "parts/header";
 @import "parts/post";
 @import "parts/tags";
@@ -15,4 +7,4 @@
 @import "parts/syntax";
 @import "css-aspect-ratio/css-aspect-ratio";
 
-@import "parts/main.scss";
+@import "parts/main";

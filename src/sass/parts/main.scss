@@ -1,25 +1,27 @@
-@import "variables";
+@use "./variables";
+@use "./theme";
+@use "./typography";
 
 @mixin light-mode-vars {
-  --mdc-theme-primary:  #{$primary};
-  --primary-color: #{$primary};
-  --primary-color-text: #{$primary};
-  --page-background: #{$page-background};
-  --post-background: #{$post-background};
-  --text-color: #{$black-text};
-  --code-color: #{$code-color};
-  --faded-color: #{$faded-color};
+  --mdc-theme-primary: #{variables.$primary};
+  --primary-color: #{variables.$primary};
+  --primary-color-text: #{variables.$primary};
+  --page-background: #{variables.$page-background};
+  --post-background: #{variables.$post-background};
+  --text-color: #{variables.$black-text};
+  --code-color: #{variables.$code-color};
+  --faded-color: #{variables.$faded-color};
 }
 
 @mixin dark-mode-vars {
-  --mdc-theme-primary: #{$primary-darker};
-  --primary-color: #{$primary-darker};
-  --primary-color-text: #{$primary-lighter};
-  --page-background: #{$page-background-dark};
-  --post-background: #{$post-background-dark};
-  --text-color: #{$white-text};
-  --code-color: #{$code-color-lighter};
-  --faded-color: #{$faded-color-lighter};
+  --mdc-theme-primary: #{variables.$primary-darker};
+  --primary-color: #{variables.$primary-darker};
+  --primary-color-text: #{variables.$primary-lighter};
+  --page-background: #{variables.$page-background-dark};
+  --post-background: #{variables.$post-background-dark};
+  --text-color: #{variables.$white-text};
+  --code-color: #{variables.$code-color-lighter};
+  --faded-color: #{variables.$faded-color-lighter};
 }
 
 :root, .light-mode.light-mode {
@@ -42,15 +44,15 @@ html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  @include mdc-typography-base;
+  @include typography.base;
   height: 100%;
-  color: $black-text;
+  color: variables.$black-text;
   color: var(--text-color);
 }
 
 .site-content {
   flex-grow: 1;
-  background: $page-background;
+  background: variables.$page-background;
   background: var(--page-background);
   box-sizing: border-box;
 }

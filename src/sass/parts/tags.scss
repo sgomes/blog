@@ -1,8 +1,12 @@
+@use "./variables";
+
 .post-tags {
   display: flex;
   align-items: baseline;
   flex-grow: 1;
   line-height: normal;
+  color: variables.$faded-color;
+  color: var(--faded-color);
 }
 
 .post-tags-list {

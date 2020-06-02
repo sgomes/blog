@@ -1,4 +1,4 @@
-// Copyright 2017 Sérgio Gomes All Rights Reserved.
+// Copyright 2020 Sérgio Gomes All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,23 +13,8 @@
 // limitations under the License.
 
 @use "./variables";
-
-@mixin flat-link($color, $color-var: false) {
-  color: $color;
-  @if($color-var) {
-    color: $color-var;
-  }
-
-  &:visited,
-  &:hover {
-    color: $color;
-    @if($color-var) {
-      color: $color-var;
-    }
-  }
-}
-
-@mixin page-width {
-  width: 100%;
-  max-width: variables.$site-max-width;
-}
+@forward "@material/theme" with (
+  $primary: variables.$primary,
+  $accent: #ffab40,
+  $background: #fff,
+)

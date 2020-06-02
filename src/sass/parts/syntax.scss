@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+@use "./variables";
+
 // Define syntax highlighting colors following base16 convention, using
 // Material Design colors.
 
@@ -36,7 +38,7 @@ $syntax-colors: (
   // Hacky fix for low contrast.
   "yellow":          #3E2723,//#FBC02D,
   "gray":            $syntax-gray,
-  "text":            $black-text,
+  "text":            variables.$black-text,
   "separator":       #373B41,
   "background":      $syntax-white,
 );
@@ -58,32 +60,32 @@ $syntax-colors-dark-mode: (
 
 :root, .light-mode.light-mode {
   @each $name, $value in $syntax-colors {
-    --syntax-color-#{$name}: #{$value};
+    --syntax-#{$name}: #{$value};
   }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     @each $name, $value in $syntax-colors-dark-mode {
-      --syntax-color-#{$name}: #{$value};
+      --syntax-#{$name}: #{$value};
     }
   }
 }
 
 .dark-mode.dark-mode {
   @each $name, $value in $syntax-colors-dark-mode {
-    --syntax-color-#{$name}: #{$value};
+    --syntax-#{$name}: #{$value};
   }
 }
 
 @mixin syntax-color($color) {
   color: map-get($syntax-colors, $color);
-  color: var(--syntax-color-#{$color});
+  color: var(--syntax-#{$color});
 }
 
 @mixin syntax-bg($color) {
   background: map-get($syntax-colors, $color);
-  background: var(--syntax-color-#{$color});
+  background: var(--syntax-#{$color});
 }
 
 .post-content pre {
