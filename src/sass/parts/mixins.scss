@@ -12,12 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-@mixin flat-link($color) {
+@mixin flat-link($color, $color-var: false) {
   color: $color;
+  @if($color-var) {
+    color: $color-var;
+  }
 
   &:visited,
   &:hover {
     color: $color;
+    @if($color-var) {
+      color: $color-var;
+    }
   }
 }
 

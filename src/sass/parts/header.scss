@@ -16,6 +16,7 @@
   display: flex;
   height: 80px;
   background: $primary;
+  background: var(--primary-color);
   color: white;
   justify-content: center;
   align-items: center;
@@ -32,10 +33,4 @@
   @include mdc-typography(display1);
 
   font-weight: bold;
-}
-
-@media (prefers-color-scheme: dark) {
-  .header {
-    background: $primary-darker;
-  }
 }

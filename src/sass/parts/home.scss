@@ -29,6 +29,7 @@
 
 .home-post-entry {
   background: $post-background;
+  background: var(--post-background);
   padding: 2rem 3.5rem;
   box-sizing: border-box;
   width: 100%;
@@ -53,7 +54,7 @@
 .home-post-title > a {
   text-decoration: none;
 
-  @include flat-link($primary);
+  @include flat-link($primary, var(--primary-color-text));
 }
 
 .home-post-button {
@@ -65,19 +66,17 @@
 .home-post-meta {
   display: block;
   color: $primary;
+  color: var(--primary-color-text);
 
   @include mdc-typography(body2);
 
   margin-top: 0;
   margin-bottom: 0;
-
-  @media (prefers-color-scheme: dark) {
-    color: $primary-lighter;
-  }
 }
 
 .home-post-excerpt {
   color: $black-text;
+  color: var(--text-color);
 
   @include mdc-typography(body1);
   font-size: 1rem;
@@ -125,19 +124,5 @@
 
   .home-post-entry {
     padding: 1rem;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .home-post-entry {
-    background: $post-background-dark;
-  }
-
-  .home-post-title > a {
-    @include flat-link($primary-lighter);
-  }
-
-  .home-post-excerpt {
-    color: $white-text;
   }
 }

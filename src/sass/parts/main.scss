@@ -1,5 +1,41 @@
 @import "variables";
 
+@mixin light-mode-vars {
+  --mdc-theme-primary:  #{$primary};
+  --primary-color: #{$primary};
+  --primary-color-text: #{$primary};
+  --page-background: #{$page-background};
+  --post-background: #{$post-background};
+  --text-color: #{$black-text};
+  --code-color: #{$code-color};
+  --faded-color: #{$faded-color};
+}
+
+@mixin dark-mode-vars {
+  --mdc-theme-primary: #{$primary-darker};
+  --primary-color: #{$primary-darker};
+  --primary-color-text: #{$primary-lighter};
+  --page-background: #{$page-background-dark};
+  --post-background: #{$post-background-dark};
+  --text-color: #{$white-text};
+  --code-color: #{$code-color-lighter};
+  --faded-color: #{$faded-color-lighter};
+}
+
+:root, .light-mode.light-mode {
+  @include light-mode-vars;
+}
+
+.dark-mode.dark-mode {
+  @include dark-mode-vars;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include dark-mode-vars;
+  }
+}
+
 html, body {
   display: flex;
   flex-direction: column;
@@ -9,11 +45,13 @@ html, body {
   @include mdc-typography-base;
   height: 100%;
   color: $black-text;
+  color: var(--text-color);
 }
 
 .site-content {
   flex-grow: 1;
   background: $page-background;
+  background: var(--page-background);
   box-sizing: border-box;
 }
 
@@ -21,15 +59,4 @@ html, body {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-}
-
-@media (prefers-color-scheme: dark) {
-  html, body {
-    color: $white-text;
-    --mdc-theme-primary: #{$primary-darker};
-  }
-
-  .site-content {
-    background: $page-background-dark;
-  }
 }
