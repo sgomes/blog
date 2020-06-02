@@ -9,6 +9,7 @@
   "scripts": {
     "build:css": "gulp buildDev",
     "build:posts": "gulp buildDocumentsDev",
+    "deploy": "gulp deploy",
     "serve": "browser-sync start --server '.dist' --files '.dist'",
     "watch:css": "onchange 'src/sass' -- npm run build:css",
     "watch:posts": "onchange 'src/posts' -- npm run build:posts",
