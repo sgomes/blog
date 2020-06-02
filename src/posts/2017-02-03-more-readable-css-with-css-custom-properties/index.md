@@ -16,13 +16,13 @@ Now that you know [how CSS Custom Properties work](/posts/2017-01-27-css-custom-
 
 > **Note**: For brevity, I will omit fallbacks in `var()` lookups in this article, but remember you should always make your lookups as solid as possible by following the pattern:
 > ```css
-.foo {
-  /* For browsers that don't understand custom props */
-  color: black;
-  /* `black` used as fallback if `--color` undefined */
-  color: var(--color, black);
-}
-```
+> .foo {
+>   /* For browsers that don't understand custom props */
+>   color: black;
+>   /* `black` used as fallback if `--color` undefined */
+>   color: var(--color, black);
+> }
+> ```
 
 ## Keeping it DRY
 

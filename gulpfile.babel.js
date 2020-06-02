@@ -6,6 +6,7 @@ import data from 'gulp-data';
 import markdown from 'gulp-markdown';
 import gap from 'gulp-append-prepend';
 import cleanCSS from 'gulp-clean-css';
+import dartSass from 'dart-sass';
 
 import path from 'path';
 import fs from 'fs';
@@ -17,6 +18,8 @@ import through from 'through2';
 import Highlights from 'highlights';
 import { Feed } from 'feed';
 import { exec } from 'node-exec-promise';
+
+sass.compiler = dartSass;
 
 const logo = 'src/assets/images/logo.svg';
 const touchDir = './.dist/assets/images/touch';

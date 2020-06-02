@@ -105,6 +105,7 @@ $mdc-typography-styles: (
     letter-spacing: normal,
     margin: inherit /* We do not have adjust margin for button */,
     text-decoration: none,
-    text-transform: uppercase
+    text-transform: uppercase,
+    word-spacing: 0.2rem
   )
 );

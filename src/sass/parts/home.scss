@@ -56,6 +56,12 @@
   @include flat-link($primary);
 }
 
+.home-post-button {
+  display: inline-block;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
 .home-post-meta {
   display: block;
   color: $primary;
