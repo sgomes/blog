@@ -8,12 +8,13 @@
   },
   "scripts": {
     "build:css": "gulp buildDev",
-    "build:posts": "gulp buildDocumentsDev",
+    "build:posts": "gulp buildDev",
     "deploy": "gulp deploy",
     "serve": "browser-sync start --server '.dist' --files '.dist'",
     "watch:css": "onchange 'src/sass' -- npm run build:css",
     "watch:posts": "onchange 'src/posts' -- npm run build:posts",
-    "watch": "run-p serve watch:css"
+    "watch:includes": "onchange 'src/includes' -- npm run build:posts",
+    "watch": "run-p serve watch:css watch:posts watch:includes"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",

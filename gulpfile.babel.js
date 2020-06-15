@@ -168,6 +168,9 @@ function buildThePosts({ production = false } = {}) {
           case 'js':
             scopeName = 'source.js';
             break;
+          case 'json':
+            scopeName = 'source.json';
+            break;
           case 'css':
             scopeName = 'source.css';
             break;
