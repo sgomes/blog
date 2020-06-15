@@ -115,6 +115,29 @@ This allows the bundler to assume that only the modules that were declared have 
 
 The above example tells the bundler that it should assume that anything outside the `components` and `utils` directories contains side effects, and nothing in those directories does. This approach should guarantee that everything in `components` and `utils` can be tree-shaken without side effect concerns, and will only potentially cause problems if one of the files in there uses side effects.
 
+*Edit (2020-06-15)*: In some situations, it may be preferable to mark a specific function call as side effect-free, rather than a whole file. Consider the following example:
+
+```js
+function noSideEffects() {
+  // Do something.
+}
+
+noSideEffects();
+```
+
+The bundler is unable to tell if the top-level call to `noSideEffects` contains any side effects. One solution would be to include the module in the `package.json` `sideEffects` field, as we've seen above. We can also handle it in code with a `PURE` hint, however:
+
+```js
+function noSideEffects() {
+  // Do something.
+}
+
+/*#__PURE__*/ noSideEffects();
+```
+
+Big thanks to [Jake Archibald](https://twitter.com/jaffathecake) for letting me know about this one! 👍
+
+
 ## Missing side effects as a consumer
 
 Let’s switch hats for a bit. You’re now the consumer, and you’re importing a package that uses side effects. You want to make use of them; in fact, you’re relying on those side effects to happen, or otherwise your code won’t work correctly.
