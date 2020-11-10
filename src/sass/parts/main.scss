@@ -48,6 +48,8 @@ html, body {
   height: 100%;
   color: variables.$black-text;
   color: var(--text-color);
+  background: variables.$page-background;
+  background: var(--page-background);
 }
 
 .site-content {

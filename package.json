@@ -7,6 +7,7 @@
     "css-aspect-ratio": "^1.0.5"
   },
   "scripts": {
+    "clean": "gulp clean",
     "build:css": "gulp buildDev",
     "build:posts": "gulp buildDev",
     "deploy": "gulp deploy",
