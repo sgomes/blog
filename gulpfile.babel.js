@@ -28,7 +28,18 @@ const dateFormat = 'YYYY-MM-DD HH:mm Z';
 const imageSizes = [16, 32, 144, 152, 192, 512];
 
 let env = new nunjucks.Environment(new nunjucks.FileSystemLoader(['./src/', './.build/']))
-    .addFilter('formatDate', (str, format) => moment(str, dateFormat).format(format));
+    .addFilter('formatDate', (str, format) => moment(str, dateFormat).format(format))
+    .addFilter('removeOrphans', str => {
+      let arr = str.trim().split(' ');
+      if (arr.length === 1) {
+        return str;
+      }
+      const end = arr.slice(-2);
+      if ( end[ 0 ].match( /.*\w.*/ ) ) {
+        return [ ...arr.slice(0, -2), end.join('\u00A0') ].join(' ');
+      }
+      return str;
+    } );
 
 let posts = [];
 
