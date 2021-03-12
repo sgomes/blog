@@ -19,6 +19,8 @@ import Highlights from 'highlights';
 import { Feed } from 'feed';
 import { exec } from 'node-exec-promise';
 
+import workboxBuild from 'workbox-build';
+
 sass.compiler = dartSass;
 
 const logo = 'src/assets/images/logo.svg';
@@ -250,7 +252,7 @@ const buildDocumentsDev = series(buildPostData, buildPostsDev, buildPagesDev, bu
 const buildDocumentsProd = series(buildPostData, buildPostsProd, buildPagesProd, buildFeed);
 
 export const buildDev = series(clean, scss, parallel(buildDocumentsDev, copyStatic, createIcons));
-export const buildProd = series(clean, scss, parallel(buildDocumentsProd, copyStatic, createIcons));
+export const buildProd = series(clean, scss, parallel(buildDocumentsProd, copyStatic, createIcons), buildSW);
 
 function copyCname() {
   return src(['./CNAME']).pipe(dest('./.dist'));
@@ -258,6 +260,42 @@ function copyCname() {
 
 function pushToGithub() {
   return src('./.dist/**/*', {base: './.dist'}).pipe(ghPages());
+}
+
+function buildSW() {
+  // This will return a Promise
+  return workboxBuild.generateSW({
+    globDirectory: '.dist',
+    globPatterns: [
+      'assets/**/*.{ico,png,jpg,css}',
+      'favicon.ico',
+      'index.html'
+    ],
+    swDest: '.dist/sw.js',
+
+    // Define runtime caching rules.
+    runtimeCaching: [
+      {
+        urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
+        handler: 'CacheFirst',
+      },
+      {
+        urlPattern: /\/posts\/.*\/$/,
+        handler: 'NetworkFirst',
+      },
+      {
+        urlPattern: /^https:\/\/fonts\.googleapis\.com/,
+        handler: 'StaleWhileRevalidate',
+      },
+      {
+        urlPattern: /^https:\/\/fonts\.gstatic\.com/,
+        handler: 'StaleWhileRevalidate',
+        options: {
+          cacheName: 'google-fonts-webfonts'
+        }
+      },
+    ],
+  });
 }
 
 export const deploy = series(buildProd, copyCname, pushToGithub);
