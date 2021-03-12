@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sgomes-v11';
+const CACHE_NAME = 'sgomes-v12';
 const TIMEOUT = 400;
 
 // Cached files
