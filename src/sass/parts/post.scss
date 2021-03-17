@@ -17,7 +17,6 @@
 @use "./theme";
 @use "./typography";
 @use "@material/elevation";
-@use "@material/button";
 
 .post {
   background: variables.$post-background;

@@ -15,6 +15,6 @@
 @use "./variables";
 @forward "@material/theme" with (
   $primary: variables.$primary,
-  $accent: #ffab40,
+  $secondary: #ffab40,
   $background: #fff,
 )

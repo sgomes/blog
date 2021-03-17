@@ -17,9 +17,9 @@
 @use "./theme";
 @use "./typography";
 @use "@material/elevation";
-@use "@material/button";
+@use "@material/button/button";
 
-@include button.core-styles;
+@include button.without-ripple;
 
 .home {
   padding: 1rem 0;
