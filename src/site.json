@@ -8,6 +8,8 @@
     "baseurl": "",
     "url": "https://sgom.es",
     "twitter_username": "sergiomdgomes",
+    "mastodon_server": "mastodon.social",
+    "mastodon_username": "sergiomdgomes",
     "github_username": "sgomes",
     "repository": "sgomes/blog"
   }

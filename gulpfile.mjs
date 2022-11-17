@@ -1,16 +1,15 @@
-import { src, dest, series, parallel } from 'gulp';
-import sass from 'gulp-sass';
+import gulp from 'gulp';
+import gulpSass from 'gulp-sass';
 import ghPages from 'gulp-gh-pages';
 import nunjucksGulp from 'gulp-nunjucks';
 import data from 'gulp-data';
 import markdown from 'gulp-markdown';
 import gap from 'gulp-append-prepend';
 import cleanCSS from 'gulp-clean-css';
-import dartSass from 'dart-sass';
+import nativeSass from 'sass';
 
 import path from 'path';
 import fs from 'fs';
-import gm from 'gm';
 import moment from 'moment';
 import nunjucks from 'nunjucks';
 import fm from 'front-matter';
@@ -18,13 +17,19 @@ import through from 'through2';
 import Highlights from 'highlights';
 import { Feed } from 'feed';
 import { exec } from 'node-exec-promise';
+import imagemin from 'gulp-imagemin';
+import convertSvgToPng from 'convert-svg-to-png';
+
+const { createConverter } = convertSvgToPng;
 
 import workboxBuild from 'workbox-build';
 
-sass.compiler = dartSass;
+const sass = gulpSass(nativeSass);
+
+const { src, dest, series, parallel } = gulp;
 
 const logo = 'src/assets/images/logo.svg';
-const touchDir = './.dist/assets/images/touch';
+const touchDir = './.build/assets/images/touch';
 
 const dateFormat = 'YYYY-MM-DD HH:mm Z';
 const imageSizes = [16, 32, 144, 152, 192, 512];
@@ -58,28 +63,23 @@ async function createTouchDir() {
 export async function generateTouch() {
   await exec(`mkdir -p ${touchDir}`);
 
-  const promises = imageSizes.map(size => new Promise((resolve, reject) => {
-    gm(logo)
-      .in('-size', 1024)
-      .background('none')
-      .resize(size, size)
-      .write(`${touchDir}/${size}x${size}.png`, (err) => {
-        if (err) {
-          console.error(err);
-          reject(err);
-        } else {
-          resolve();
-        }
+  const converter = createConverter();
+  try {
+    for (const size of imageSizes) {
+      await converter.convertFile(logo, {
+        scale: size / 128,
+        outputFilePath: `${touchDir}/${size}x${size}.png`
       });
-  }));
-
-  await Promise.all(promises);
+    }
+  } finally {
+    await converter.destroy();
+  }
 }
 
 async function compressTouch() {
-  await Promise.all(imageSizes.map(size =>
-    exec(`optipng ${touchDir}/${size}x${size}.png`)
-  ));
+  gulp.src(`./.build/assets/images/touch/*.png`)
+  .pipe(imagemin())
+  .pipe(gulp.dest('.dist/assets/images/touch/'))
 }
 
 const createIcons = series(createTouchDir, generateTouch, compressTouch);

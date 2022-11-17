@@ -88,8 +88,11 @@
 }
 
 .footer-icons-row {
-  display: block;
+  display: flex;
   flex-shrink: 0;
+  justify-content: center;
+  flex-shrink: 0;
+  gap: 4px;
 
   @media (max-width: variables.$mobile-max-width) {
     display: inline-block;
@@ -107,6 +110,10 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+}
+
+.footer-mastodon {
+  background-image: url("/assets/images/mastodon.svg");
 }
 
 .footer-twitter {
