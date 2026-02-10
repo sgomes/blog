@@ -88,7 +88,7 @@
 
 
 
-<h2 id="overview">Overview</h2>
+<h2>Overview</h2>
 <p>So what went into making this PWA? Here are a few highlights:</p>
 <ul>
 <li><strong>Vanilla (no frameworks).</strong> I wanted to see what it took to develop a nice-feeling application without using any frameworks or complex runtime libraries. As a single-page application, this was quite doable; it may be harder for larger applications, but I hope to explore that at some point.</li>
@@ -98,9 +98,9 @@
 <li><strong>Lazy-loading for smaller initial payload.</strong> The app inlines a reduced set of styles for rendering the home screen, and lazily loads the rest after that. The JavaScript for other views is also lazily loaded.</li>
 <li><strong>Custom build pipeline</strong>, using <a href="http://gulpjs.com/">gulp</a> and a number of great plugins. This allowed me to run <a href="https://babeljs.io/">Babel</a> for transpilation (and minification, with <a href="https://github.com/babel/babili">babili</a>), <a href="https://rollupjs.org/">rollup</a> for module bundling, and <a href="http://postcss.org/">postcss</a> for CSS custom property replacement and minification. More importantly, it allowed me to use all of these tools at exactly the right point in the pipeline, so that I could generate incremental targets for lazy-loading that are still fully processed, transpiled and minified.</li>
 </ul>
-<h2 id="browser-support">Browser support</h2>
+<h2>Browser support</h2>
 <p>Material Money should work well in any modern browser, as long as either IndexedDB or local storage are supported, and modern CSS features like flexbox and <code>calc()</code> are available and unprefixed. Edge, Firefox, Chrome and Safari should all work well.</p>
-<h2 id="lessons-learned">Lessons learned</h2>
+<h2>Lessons learned</h2>
 <p>I won’t lie: it was challenging making this app and keeping the focus on polish. Very often, the easy path on the web is not the best one, and there’s a significant amount more work involved in doing the right thing.</p>
 <p>Here are a few examples, some of which I hope to expand into full blog posts:</p>
 <ul>
@@ -111,7 +111,7 @@
 <li><p>Hand-crafting your critical path CSS involves a far bit of work, but can be a really powerful way to split up an application and reduce how long it takes to get to that first render. If you’re using external CSS, such as a UI library, you might be able to remove a lot of code from your initial payload and in doing so get something on the user’s screen as quickly as possible. The rest you can just lazy-load as needed or when idle. Split your CSS into critical and non-critical, use <code>@import</code> to pull in the external code, and set up your build process to concatenate and minify both separately, later inlining the critical into your HTML.</p>
 </li>
 </ul>
-<h2 id="next-steps">Next steps</h2>
+<h2>Next steps</h2>
 <p>I learned a lot with Material Money, and I’ll definitely be putting out some posts and articles going into the details of the problems I faced and how I chose to solve them. My choices aren’t necessarily the right ones for everyone, but having something that works as a reference may help you find your own path.</p>
 <p>Other than that, I’d like to develop the model implementation a bit further while keeping it simple, as well as explore the intricacies of developing a larger-scale application, while keeping things vanilla, fast, and as polished as possible.</p>
 <p>I’m sure there are bugs in there, and I’d love your help in finding and squashing them. Even so, I hope that it’s already enough to give you some ideas for your next app! <a href="https://github.com/GoogleChrome/sample-currency-converter">Happy source reading</a>, and <a href="https://github.com/GoogleChrome/sample-currency-converter/issues">get in touch</a> if you have any questions!</p>
