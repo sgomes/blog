@@ -1,7 +1,7 @@
 import gulp from 'gulp';
 import gulpSass from 'gulp-sass';
 import ghPages from 'gulp-gh-pages';
-import nunjucksGulp from 'gulp-nunjucks';
+import { nunjucksCompile } from 'gulp-nunjucks';
 import data from 'gulp-data';
 import markdown from 'gulp-markdown';
 import gap from 'gulp-append-prepend';
@@ -14,17 +14,19 @@ import moment from 'moment';
 import nunjucks from 'nunjucks';
 import fm from 'front-matter';
 import through from 'through2';
-import Highlights from 'highlights';
 import { Feed } from 'feed';
 import { exec } from 'node-exec-promise';
 import imagemin from 'gulp-imagemin';
-import convertSvgToPng from 'convert-svg-to-png';
+import { createConverter } from 'convert-svg-to-png';
+import { executablePath } from "puppeteer";
 
-const { createConverter } = convertSvgToPng;
+import { highlight } from './util/custom-highlight.mjs';
 
 import workboxBuild from 'workbox-build';
 
 const sass = gulpSass(nativeSass);
+
+const __dirname = import.meta.dirname;
 
 const { src, dest, series, parallel } = gulp;
 
@@ -34,7 +36,7 @@ const touchDir = './.build/assets/images/touch';
 const dateFormat = 'YYYY-MM-DD HH:mm Z';
 const imageSizes = [16, 32, 144, 152, 192, 512];
 
-let env = new nunjucks.Environment(new nunjucks.FileSystemLoader(['./src/', './.build/']))
+let env = new nunjucks.Environment(new nunjucks.FileSystemLoader([__dirname + '/src/', __dirname + '/.build/']))
     .addFilter('formatDate', (str, format) => moment(str, dateFormat).format(format))
     .addFilter('removeOrphans', str => {
       let arr = str.trim().split(' ');
@@ -63,7 +65,9 @@ async function createTouchDir() {
 export async function generateTouch() {
   await exec(`mkdir -p ${touchDir}`);
 
-  const converter = createConverter();
+  const converter = await createConverter({
+      launch: { executablePath },
+    });
   try {
     for (const size of imageSizes) {
       await converter.convertFile(logo, {
@@ -72,12 +76,12 @@ export async function generateTouch() {
       });
     }
   } finally {
-    await converter.destroy();
+    await converter.close();
   }
 }
 
-async function compressTouch() {
-  gulp.src(`./.build/assets/images/touch/*.png`)
+export async function compressTouch() {
+  gulp.src(`./.build/assets/images/touch/*.png`, {encoding: false})
   .pipe(imagemin())
   .pipe(gulp.dest('.dist/assets/images/touch/'))
 }
@@ -96,15 +100,15 @@ async function scss(name) {
 }
 
 function copyRoot() {
-  return src(['./src/*'], { nodir: true }).pipe(dest('./.dist'));
+  return src(['./src/*'], { nodir: true, encoding: false }).pipe(dest('./.dist'));
 }
 
 function copyAssets() {
-  return src(['./src/assets/**/*'], { base: './src' }).pipe(dest('./.dist'));
+  return src(['./src/assets/**/*'], { base: './src', encoding: false }).pipe(dest('./.dist'));
 }
 
 function copyPostAssets() {
-  return src(['./src/posts/**/*', '!./src/posts/**/*.md'], { base: './src' })
+  return src(['./src/posts/**/*', '!./src/posts/**/*.md'], { base: './src', encoding: false })
     .pipe(dest('./.dist'));
 }
 
@@ -168,45 +172,11 @@ function buildThePosts({ production = false } = {}) {
       file.contents = Buffer.from(content.body);
       return { post: content.attributes };
     }))
-    .pipe(nunjucksGulp.compile(null, {env: env}))
-    .pipe(markdown({
-      highlight: (code, lang) => {
-        const highlighter = new Highlights();
-        let scopeName = null;
-
-        switch(lang) {
-          case 'html':
-            scopeName = 'text.html.basic';
-            break;
-          case 'js':
-            scopeName = 'source.js';
-            break;
-          case 'json':
-            scopeName = 'source.json';
-            break;
-          case 'css':
-            scopeName = 'source.css';
-            break;
-          case 'scss':
-            scopeName = 'source.css.scss';
-            break;
-          default:
-            scopeName = 'text.plain';
-        }
-
-        let highlighted = highlighter.highlightSync({
-          fileContents: code,
-          scopeName: scopeName
-        });
-        // HACK: remove <pre> block around the highlighted code.
-        highlighted = highlighted.replace('<pre class="editor editor-colors">', '');
-        highlighted = highlighted.substr(0, highlighted.length - 6);
-        return highlighted;
-      }
-    }))
+    .pipe(nunjucksCompile(null, {env: env}))
+    .pipe(markdown(highlight))
     .pipe(gap.prependText('{% extends "layouts/post.html" %}\n{% block postcontent %}\n'))
     .pipe(gap.appendText('\n{% endblock %}'))
-    .pipe(nunjucksGulp.compile(null, { env: env }))
+    .pipe(nunjucksCompile(null, { env: env }))
     .pipe(dest('./.dist'));
 }
 
@@ -236,7 +206,7 @@ function buildThePages(production) {
     .pipe(data(file => JSON.parse(fs.readFileSync('./src/site.json'))))
     .pipe(data(() => ({ environment: production ? 'production' : 'development' })))
     .pipe(data(() => ({ posts: posts })))
-    .pipe(nunjucksGulp.compile(null, { env: env }))
+    .pipe(nunjucksCompile(null, { env: env }))
     .pipe(dest('./.dist'));
 }
 
@@ -256,10 +226,6 @@ export const buildProd = series(clean, scss, parallel(buildDocumentsProd, copySt
 
 function copyCname() {
   return src(['./CNAME']).pipe(dest('./.dist'));
-}
-
-function pushToGithub() {
-  return src('./.dist/**/*', {base: './.dist'}).pipe(ghPages());
 }
 
 function buildSW() {
@@ -298,4 +264,4 @@ function buildSW() {
   });
 }
 
-export const deploy = series(buildProd, copyCname, pushToGithub);
+export const deploy = series(buildProd, copyCname);
