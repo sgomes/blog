@@ -149,7 +149,7 @@
 		@include typography.typography(body2);
 		font-size: 1rem;
 		letter-spacing: normal;
-		font-weight: 800;
+		font-weight: 500;
 		color: variables.$primary;
 		color: var(--primary-color-text);
 	}
@@ -158,12 +158,14 @@
 		max-width: 100%;
 		box-sizing: border-box;
 		margin: 0;
+		padding: 1rem 0;
 	}
 
 	figcaption {
 		text-align: center;
 		@include typography.typography(caption);
 		margin: 0;
+		padding-top: 0.5em;
 	}
 
 	blockquote,
@@ -174,7 +176,8 @@
 	}
 
 	details > summary {
-		font-size: 1.1rem;
+		color: variables.$primary;
+		color: var(--primary-color-text);
 	}
 
 	table {
