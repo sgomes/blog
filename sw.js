@@ -1,2 +1,13 @@
-if(!self.define){let e,s={};const t=(t,i)=>(t=new URL(t+".js",i).href,s[t]||new Promise((s=>{if("document"in self){const e=document.createElement("script");e.src=t,e.onload=s,document.head.appendChild(e)}else e=t,importScripts(t),s()})).then((()=>{let e=s[t];if(!e)throw new Error(`Module ${t} didn’t register its module`);return e})));self.define=(i,o)=>{const n=e||("document"in self?document.currentScript.src:"")||location.href;if(s[n])return;let a={};const c=e=>t(e,n),r={module:{uri:n},exports:a,require:c};s[n]=Promise.all(i.map((e=>r[e]||c(e)))).then((e=>(o(...e),a)))}}define(["./workbox-90acf95f"],(function(e){"use strict";self.addEventListener("message",(e=>{e.data&&"SKIP_WAITING"===e.data.type&&self.skipWaiting()})),e.precacheAndRoute([{url:"assets/images/avatar.jpg",revision:"5005be1f8c7af3666da8450fd402c412"},{url:"assets/images/touch/144x144.png",revision:"d74db05c2027aa3001ef755e51003915"},{url:"assets/images/touch/152x152.png",revision:"7e2ee9584fb4fbdbe3235929f4cce1bd"},{url:"assets/images/touch/16x16.png",revision:"460709575410acd2de12f944252a5d05"},{url:"assets/images/touch/192x192.png",revision:"9812ec07d1a30c130de8bc0cae5b6fea"},{url:"assets/images/touch/32x32.png",revision:"efc706be4214dbfa013bdec042a4e2d9"},{url:"assets/images/touch/512x512.png",revision:"e941a2f7b074f7a7ffc286ebd6511aba"},{url:"favicon.ico",revision:"1aa549654c21e7b4b45069b3f8f8117c"},{url:"index.html",revision:"9ea8b5331f32ddb4e2bc7dd135baf48e"}],{}),e.registerRoute(/\.(?:png|jpg|jpeg|svg)$/,new e.CacheFirst,"GET"),e.registerRoute(/\/posts\/.*\/$/,new e.NetworkFirst,"GET"),e.registerRoute(/^https:\/\/fonts\.googleapis\.com/,new e.StaleWhileRevalidate,"GET"),e.registerRoute(/^https:\/\/fonts\.gstatic\.com/,new e.StaleWhileRevalidate({cacheName:"google-fonts-webfonts",plugins:[]}),"GET")}));
-//# sourceMappingURL=sw.js.map
+self.addEventListener('install', function(e) {
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', function(e) {
+  self.registration.unregister()
+    .then(function() {
+      return self.clients.matchAll();
+    })
+    .then(function(clients) {
+      clients.forEach(client => client.navigate(client.url))
+    });
+});
