@@ -32,7 +32,8 @@
   padding: 0 1rem;
   margin: 0 auto 0 auto;
 
-  @include mixins.page-width;
+  width: 100%;
+  max-width: 50em;
 }
 
 .home-post-entry {

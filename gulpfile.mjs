@@ -22,8 +22,6 @@ import { executablePath } from "puppeteer";
 
 import { highlight } from './util/custom-highlight.mjs';
 
-import workboxBuild from 'workbox-build';
-
 const sass = gulpSass(nativeSass);
 
 const __dirname = import.meta.dirname;
@@ -222,46 +220,10 @@ const buildDocumentsDev = series(buildPostData, buildPostsDev, buildPagesDev, bu
 const buildDocumentsProd = series(buildPostData, buildPostsProd, buildPagesProd, buildFeed);
 
 export const buildDev = series(clean, scss, parallel(buildDocumentsDev, copyStatic, createIcons));
-export const buildProd = series(clean, scss, parallel(buildDocumentsProd, copyStatic, createIcons), buildSW);
+export const buildProd = series(clean, scss, parallel(buildDocumentsProd, copyStatic, createIcons));
 
 function copyCname() {
   return src(['./CNAME']).pipe(dest('./.dist'));
-}
-
-function buildSW() {
-  // This will return a Promise
-  return workboxBuild.generateSW({
-    globDirectory: '.dist',
-    globPatterns: [
-      'assets/**/*.{ico,png,jpg,css}',
-      'favicon.ico',
-      'index.html'
-    ],
-    swDest: '.dist/sw.js',
-
-    // Define runtime caching rules.
-    runtimeCaching: [
-      {
-        urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
-        handler: 'CacheFirst',
-      },
-      {
-        urlPattern: /\/posts\/.*\/$/,
-        handler: 'NetworkFirst',
-      },
-      {
-        urlPattern: /^https:\/\/fonts\.googleapis\.com/,
-        handler: 'StaleWhileRevalidate',
-      },
-      {
-        urlPattern: /^https:\/\/fonts\.gstatic\.com/,
-        handler: 'StaleWhileRevalidate',
-        options: {
-          cacheName: 'google-fonts-webfonts'
-        }
-      },
-    ],
-  });
 }
 
 export const deploy = series(buildProd, copyCname);
