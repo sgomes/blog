@@ -14,7 +14,7 @@ license: >
 
 Theming is always a challenge, particularly when you’re working on a library, rather than a standalone website. One example of an interesting issue that you’ll come across very frequently is choosing a text color that ensures readability and accessibility.
 
-{% set figure = { filename: 'light-dark.png', width: 558, height: 146, alt: 'Dark text on light background and vice-versa' } %}
+{% set figure = { filename: 'light-dark.png', width: 558, height: 146, alt: 'Dark text on light background and vice-versa', loading: 'eager' } %}
 {% include 'includes/figure.html' %}
 
 This is easy enough when you have known light or dark backgrounds; you can create two CSS classes and have users of your CSS library manually add them in depending on context.

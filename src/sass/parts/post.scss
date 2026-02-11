@@ -149,7 +149,12 @@
 		@include typography.typography(body2);
 		font-size: 1rem;
 		letter-spacing: normal;
-		font-weight: 500;
+		font-weight: 600;
+		color: variables.$primary;
+		color: var(--primary-color-text);
+	}
+
+	em {
 		color: variables.$primary;
 		color: var(--primary-color-text);
 	}
@@ -178,6 +183,12 @@
 	details > summary {
 		color: variables.$primary;
 		color: var(--primary-color-text);
+		cursor: pointer;
+
+		&::marker {
+			color: variables.$black-text;
+			color: var(--text-color);
+		}
 	}
 
 	table {

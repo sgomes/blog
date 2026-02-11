@@ -4,14 +4,14 @@
 <figure>
   <div class="aspect-ratio post-image"
        style="width: {{ figure.width }}px; --aspect-ratio-w: {{ figure.width }}; --aspect-ratio-h: {{ figure.height }};">
-    <img src="{{ figure.filename }}" alt="{{ figure.caption | striptags }}">
+    <img loading="{{ figure.loading if figure.loading else 'lazy' }}" src="{{ figure.filename }}" alt="{{ figure.caption | striptags }}">
   </div>
   <figcaption>{{ figure.caption | safe }}</figcaption>
 </figure>
 {% else %}
 <div class="aspect-ratio post-image"
      style="width: {{ figure.width }}px; --aspect-ratio-w: {{ figure.width }}; --aspect-ratio-h: {{ figure.height }};">
-  <img src="{{ figure.filename }}" alt="{{ figure.caption | striptags }}">
+  <img loading="{{ figure.loading if figure.loading else 'lazy' }}" src="{{ figure.filename }}" alt="{{ figure.caption | striptags }}">
 </div>
 {% endif %}
 

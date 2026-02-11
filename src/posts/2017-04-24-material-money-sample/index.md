@@ -14,7 +14,7 @@ Over the past while, I’ve been working on a sample Progressive Web App with [@
 
 In any case, it’s now been released as [Material Money](https://material.money), and the source code is fully open and [available on GitHub](https://github.com/GoogleChrome/sample-currency-converter)!
 
-{% set figure = { filename: 'composed.png', width: 650, height: 420, caption: 'Material Money on a phone' } %}
+{% set figure = { filename: 'composed.png', width: 650, height: 420, caption: 'Material Money on a phone', loading: 'eager' } %}
 {% include 'includes/figure.html' %}
 
 ## Overview
