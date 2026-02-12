@@ -41,7 +41,7 @@ With the caveats out of the way, let’s look at the main topic: the long-term p
 
 I know there’s some discussion on whether `React` is a framework or not, with some folks — notably, the authors and maintainers — insisting on calling it a library. I don’t know why they do it, but it’s frankly wrong, as far as agreed-upon terms and shared vocabulary go.
 
-In Computer Science, the [commonly accepted distinction between the two](https://href.li/?https://en.wikipedia.org/wiki/Software_framework) is that a library is something that your code calls into, while a framework is something that you relinquish control unto, so that **it** calls **your code** instead, at the appropriate time. That is, a framework works through Inversion of Control, and a library does not.
+In Computer Science, the [commonly accepted distinction between the two](https://en.wikipedia.org/wiki/Software_framework) is that a library is something that your code calls into, while a framework is something that you relinquish control unto, so that **it** calls **your code** instead, at the appropriate time. That is, a framework works through Inversion of Control, and a library does not.
 
 By this definition, `React` is a framework, because an idiomatic `React` application overwhelmingly consists of code that gets called by `React`, and lives under its control.
 </details>
@@ -170,7 +170,7 @@ Be warned, though: in my experience, you shouldn’t expect a consistently perfo
 ### Before you start
 
 - **Make sure everyone is on the same page about performance.** You might need to convince some non-technical folks by showing them industry studies that link page performance to business metrics like conversions. As for developers, you may need to remind them that their development devices and connections aren’t a good benchmark for “good enough”, since most users [will unfortunately be relying on something significantly worse](https://infrequently.org/2025/11/performance-inequality-gap-2026/).
-- **Define your performance budget.** While there are some standard numbers across the industry, such as the thresholds Google recommends for [its Core Web Vitals metrics](https://href.li/?https://web.dev/articles/vitals#core-web-vitals), not every project is the same. Depending on your audience and use-case, you may need to be more (or less) ambitious in your goals, or pick different metrics entirely. The key thing is to define them ahead of time, and stick to them during development, avoiding the temptation to move the goalposts to fit the outcome.
+- **Define your performance budget.** While there are some standard numbers across the industry, such as the thresholds Google recommends for [its Core Web Vitals metrics](https://web.dev/articles/vitals#core-web-vitals), not every project is the same. Depending on your audience and use-case, you may need to be more (or less) ambitious in your goals, or pick different metrics entirely. The key thing is to define them ahead of time, and stick to them during development, avoiding the temptation to move the goalposts to fit the outcome.
 - **Carefully choose your architecture and tech stack.** Now’s a good time to figure out whether your client-side application should have a server-side aspect to it, to speed up initial renders. This is especially important if you have API calls in your critical path, and doubly so if they’re sequential in any way. Also, take the opportunity to research what’s out there, and pick the frameworks, libraries, and general approach that best fit your needs.
 
 ### Early in development
@@ -182,7 +182,7 @@ Be warned, though: in my experience, you shouldn’t expect a consistently perfo
   - Alternatively, you can create the shared bundles by hand, but keep in mind that this is an additional maintenance cost.
 - **Set up bundle size tracking.** While bundle size isn’t a particularly meaningful metric, it’s an easy one to track, and one that can serve as an early warning to look for actual performance issues.
   - Have your bundler output bundle size when you build locally (e.g. `npm run build`), as a first step.
-  - Once you have a CI (Continuous Integration) environment, add a build size action to it. For something like GitHub Actions, you can find pre-made ones that are fairly easy to set up (e.g. [`compressed-size-action`](https://href.li/?https://github.com/preactjs/compressed-size-action)).
+  - Once you have a CI (Continuous Integration) environment, add a build size action to it. For something like GitHub Actions, you can find pre-made ones that are fairly easy to set up (e.g. [`compressed-size-action`](https://github.com/preactjs/compressed-size-action)).
   - Once that’s in place, make sure that your CI adds a comment to pull requests where a large increase is detected. The earlier a developer learns about the problem, the better the chances they’ll fix it.
 - **Set up linting.** There aren’t many kinds of performance issues (or potential ones) that can be detected like this, but it’s hugely beneficial for those that can, since developers find out about them early in their work.
   - Set up a list of “forbidden” imports, like `lodash` if you’re using `lodash-es`, as well as any packages you may have had trouble with in the past and want to avoid entirely.
