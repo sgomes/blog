@@ -54,6 +54,10 @@ html, body {
 
 html {
 	scroll-behavior: smooth;
+
+	@media (prefers-reduced-motion: reduce) {
+		scroll-behavior: auto;
+	}
 }
 
 .site-content {
