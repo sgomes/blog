@@ -16,7 +16,7 @@ Hey folks!
 
 Today I'll be focusing on a specific library, Redux, and the performance implications of using it. If your project doesn't depend on it and you're not planning on changing that, you can probably skip this, even though the categories of problems introduced aren't necessarily exclusive to Redux. Otherwise, read on!
 
-### Why Redux?
+## Why Redux?
 
 _My understanding of Redux is still limited, but I'll attempt a brief introduction throughout this post where I hope I won't make too many mistakes. If I do, please let me know on Twitter!_
 
@@ -34,7 +34,7 @@ If you want more details, the [Core Concepts page on the Redux documentation](ht
 
 It's a clever architecture, but it's not without its problems. Performance-wise, it comes with a number of ways you can accidentally shoot yourself in the foot.
 
-### Selectors
+## Selectors
 
 In this post we're going to be focusing on selectors.
 
@@ -88,7 +88,7 @@ Or actually even worse, in the case of `react-redux`: **every time an action is 
 
 Making sure that doesn't cause performance problems can quickly get tricky, as I'm sure you can imagine.
 
-### Problem #1: slow selectors
+## Problem #1: slow selectors
 
 Performance is usually not a problem at all when your selectors are just picking an existing part of the state tree and sending it along. As in the examples above, you get an object reference, you return that object reference, and you're done.
 
@@ -98,7 +98,7 @@ Now you have a problem not just with any component that uses this selector, but 
 
 The fix is usually to add memoization, so that you only incur the expense once, provided things haven't changed. Defining the meaning of "things haven't changed" and validating it can be difficult, though; more on that later.
 
-### Problem #2: returning new references
+## Problem #2: returning new references
 
 Even if your selector is really fast at getting the data it needs, composing it together, and returning it, it may still be a source of inadvertent problems. Unless you've come across this problem before (or read the title of this section), you might not see anything wrong with this code:
 
@@ -121,7 +121,7 @@ But it returns a new instance of that object every time. This instance gets pass
 
 The solution here is usually memoization too. Alternatives include moving the objects to state, so you can simply return the reference instead of computing it, or instead returning a primitive type (e.g. a string) where possible.
 
-### Problem #3: returning new references
+## Problem #3: returning new references
 
 No, that's not a typo, the same problem can occur elsewhere. Remember that `mapStateToProps` function? This bug can happen there too.
 
@@ -139,7 +139,7 @@ So now the onus is on `combineDataSomehow` to ensure that it doesn't generate a 
 
 The fix? You guessed it, memoization.
 
-### So about that memoization
+## So about that memoization
 
 A quick disclaimer before going any further: the first thing with any performance-related fixes is **making sure you measure**. Sure, you could theoretically be causing problems by not memoizing something that runs on every dispatch, but it's best to assume otherwise until proven.
 
@@ -174,7 +174,7 @@ But is that really all we want? Right now if **anything** changes in the state, 
 
 If the goal is to have a large state tree with all aspects of the application's state in there, we need to be cleverer.
 
-### A library for the library
+## A library for the library
 
 Enter [`reselect`](https://github.com/reduxjs/reselect), [`rememo`](https://github.com/aduth/rememo), [`wp-calypso`'s `createSelector`](https://github.com/Automattic/wp-calypso/blob/master/client/lib/create-selector/index.js), and friends. These are libraries that are specifically designed to help you with the task of creating memoized Redux selectors that try to strike that error-prone balance between invalidating your memoization cache too much (leading to unnecessary recomputation), and invalidating it too little (leading to stale data being returned).
 
@@ -198,7 +198,7 @@ const getUserDefaults = createSelector(
 
 Now the selector is only invalidated if `state.loggedInUser` or `state.defaults` change. Even better, you could narrow it down to just the properties we care about inside those, but you would need to start adding some error checks.
 
-### But things are always trickier with collections
+## But things are always trickier with collections
 
 For individual properties that you know exactly where to get, as in the examples above, things are straightforward. But very often you have arrays or other collections of objects and you have to find the item you want inside that structure.
 
@@ -247,7 +247,7 @@ getUserPost(state, 20); // Not cached, last one was 10
 
 For this, you'd want to use something like [`wp-calypso`'s `treeSelect`](https://www.npmjs.com/package/@automattic/tree-select), which does keep track of the different branches in different caches. Or write your own error-prone custom memoization function that invalidates the cache every time it needs to, but only when it really needs to. Can't be that hard, right?
 
-### Next steps
+## Next steps
 
 Alright, so once you understand all the intricacies of selectors, their potential performance implications, and how to memoize them if needed, you should be able to start writing nice and performant code for your Redux application. Great!
 
