@@ -1,6 +1,6 @@
 ---
 title:  JS-heavy approaches are not compatible with long-term performance goals
-date:   2026-02-12 14:00:00 +0000
+date:   2026-02-13 14:00:00 +0000
 excerpt: >
   JS-heavy web apps usually start in a poor place, performance-wise, and they tend to get worse over time. Mitigating this requires significant overhead that is expensive to set up and maintain, and will usually still lead to performance degradation anyway — albeit at a slower rate.
 tags:
