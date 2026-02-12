@@ -23,4 +23,14 @@
       </div>
   </div>
 </article>
+<div class="toc">
+	<a href="#top">⬆ Top</a>
+	<ul id="table-of-contents">
+		{% for heading in headings %}
+      {% if heading.level == 2 %}
+      	<li><a href="#{{ heading.id }}">{{ heading.raw }}</a></li>
+      {% endif %}
+    {% endfor %}
+	</ul>
+</div>
 {% endblock %}

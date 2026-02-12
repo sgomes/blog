@@ -52,15 +52,48 @@ html, body {
   background: var(--page-background);
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 .site-content {
   flex-grow: 1;
+  display: flex;
   background: variables.$page-background;
   background: var(--page-background);
   box-sizing: border-box;
+  justify-content: center;
+  position: relative;
 }
 
 .mdc-button {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+.toc {
+	align-self: flex-start;
+	position: sticky;
+	top: 0;
+	padding: 1rem 2rem 1rem 1rem;
+
+	ul {
+		padding: 0;
+	}
+
+	li {
+		list-style: none;
+		margin-bottom: 1em;
+	}
+
+	a {
+		text-decoration: none;
+  	color: variables.$black-text;
+   	color: var(--text-color);
+	}
+
+	@media (max-width: 899px) {
+		display: none;
+	}
 }

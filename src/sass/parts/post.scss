@@ -22,7 +22,6 @@
 	background: variables.$post-background;
 	background: var(--post-background);
 	padding: 3.5rem 4.5rem;
-	margin: 0 auto;
 	color: variables.$black-text;
 	color: var(--text-color);
 	overflow: hidden;
@@ -33,7 +32,7 @@
 
 @media screen and (max-width: 600px) {
 	.post {
-		padding: 2rem 1rem;
+		padding: 1rem;
 	}
 }
 
@@ -97,7 +96,7 @@
 		font-size: 1.1rem;
 		line-height: 1.5rem;
 		margin: 2em 0 0;
-		padding-bottom: 0.5em;
+		padding-bottom: 0.2em;
 		border-bottom: 1px solid variables.$primary;
 		border-bottom: 1px solid var(--primary-color-text);
 	}
@@ -211,6 +210,14 @@
 
 	li + li {
 		margin-top: 0.5rem;
+	}
+
+	ul > li > ul {
+		margin-top: 0.5rem;
+	}
+
+	ul > li:has(>ul) + li {
+		margin-top: 1rem;
 	}
 
 	.overflow-x {

@@ -1,0 +1,4 @@
+.dist
+.devbox
+.build
+node_modules
