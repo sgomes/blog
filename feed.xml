@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sgom.es</id>
     <title>sgom.es</title>
-    <updated>2026-02-13T12:21:10.437Z</updated>
+    <updated>2026-02-13T13:59:37.796Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Sérgio Gomes</name>
@@ -12,6 +12,19 @@
     <link rel="alternate" href="https://sgom.es"/>
     <subtitle>I’m Sérgio, and I work with Web frontend code. Sometimes I write about it here.</subtitle>
     <logo>https://sgom.es/logo.svg</logo>
+    <entry>
+        <title type="html"><![CDATA[JS-heavy approaches are not compatible with long-term performance goals]]></title>
+        <id>https://sgom.es/posts/2026-02-13-js-heavy-approaches-are-not-compatible-with-long-term-performance-goals/</id>
+        <link href="https://sgom.es/posts/2026-02-13-js-heavy-approaches-are-not-compatible-with-long-term-performance-goals/"/>
+        <updated>2026-02-13T14:00:00.000Z</updated>
+        <summary type="html"><![CDATA[JS-heavy web apps usually start in a poor place, performance-wise, and they tend to get worse over time. Mitigating this requires significant overhead that is expensive to set up and maintain, and will usually still lead to performance degradation anyway — albeit at a slower rate.
+]]></summary>
+        <author>
+            <name>Sérgio Gomes</name>
+            <email>mail@sgom.es</email>
+            <uri>https://sgom.es</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Everything you never wanted to know about side effects]]></title>
         <id>https://sgom.es/posts/2020-06-15-everything-you-never-wanted-to-know-about-side-effects/</id>
